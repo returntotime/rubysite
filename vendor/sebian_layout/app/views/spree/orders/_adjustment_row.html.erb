@@ -1,0 +1,3 @@
+<% if adjustments.sum(&:amount) != 0 %>
+  <div><span><%= label %>: <%= format_price(Spree::Money.new(adjustments.sum(&:amount), :currency => @order.currency)) %></span></div>
+<% end %>

@@ -1,0 +1,500 @@
+    @media(min-width:1400px) and(max-width:1920px) {
+        .team-over li .over-team {
+            padding: 50px;
+        }
+    }
+    
+    @media(min-width:1200px) and(max-width:1400px) {
+        // .in-the-look li {
+        //     .inn-look {
+        //         padding: 0 10px;
+        //         top: 20%;
+        //     }
+        //     &:hover .inn-look {
+        //         top: 10%;
+        //     }
+        // }
+        .furniture-large .position-center-center {
+            width: 90%;
+        }
+    }
+    
+    @media(max-width:1200px) {
+        .furniture-large .position-center-center {
+            width: 90%;
+        }
+    }
+    
+    @media(min-width:992px) and(max-width:1199px) {
+        .popurlar_product {
+            .over-item {
+                padding-top: 40%;
+            }
+            .details-sec a {
+                letter-spacing: 0;
+            }
+        }
+        .small-r-items {
+            .btn {
+                letter-spacing: 0;
+            }
+            .media {
+                width: 100%;
+                float: left;
+                padding-right: 15px;
+                position: relative;
+                z-index: 2;
+                margin-bottom: 20px;
+            }
+            h5 {
+                width: 100%;
+                margin-top: 30px;
+                text-align: center;
+            }
+            .item-img {
+                width: 120px;
+            }
+        }
+        .in-the-look li {
+            width: 33.3333%;
+            .inn-look {
+                padding: 0 10px;
+            }
+        }
+        .port-folio-row li .hover-port {
+            padding-top: 10%;
+        }
+        .furniture .items-fer li {
+            width: 33.3333%;
+        }
+    }
+    
+    @media(min-width:768px) and(max-width:991px) {
+        .popurlar_product {
+            li {
+                width: 50%;
+            }
+            .details-sec a {
+                letter-spacing: 0;
+            }
+        }
+        .small-r-items {
+            .media {
+                width: 50%;
+                float: left;
+                padding-right: 15px;
+                position: relative;
+                z-index: 2;
+            }
+            h5 {
+                width: 100%;
+                margin-top: 30px;
+                text-align: center;
+            }
+            .item-img {
+                width: 120px;
+            }
+        }
+        .in-the-look li {
+            width: 50%;
+        }
+        .list-style li {
+            width: 100%;
+        }
+        .port-folio-row li {
+            width: 50%;
+        }
+        .furniture .items-fer li {
+            width: 33.3333%;
+        }
+    }
+    
+    @media(max-width:767px) {
+        .blog-mansory {
+            .blog-posts {
+                .item-mas {
+                    width: 50%;
+                    float: left;
+                }
+            }
+        }
+        .view-num {
+            float: left;
+        }
+        .popurlar_product {
+            li {
+                width: 50%;
+                float: left;
+            }
+        }
+        footer {
+            .footer-link h5 {
+                margin-bottom: 0;
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+        }
+        .subcribe {
+            text-align: center;
+            h4 {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .col-md-7 {
+                width: 100%;
+            }
+        }
+        .small-r-items {
+            .btn {
+                letter-spacing: 0;
+            }
+            .media {
+                width: 50%;
+                float: left;
+                display: inline-block;
+                padding-right: 15px;
+                position: relative;
+                z-index: 2;
+                margin-bottom: 20px;
+            }
+            h5 {
+                width: 100%;
+                margin-top: 30px;
+                text-align: center;
+            }
+            .item-img {
+                width: 120px;
+            }
+        }
+        .construction {
+            .services-style-2 ul li {
+                width: 50%;
+                float: left;
+            }
+            .filter li {
+                padding: 0 10px;
+                a {
+                    font-size: 12px;
+                    padding: 0;
+                }
+            }
+        }
+        .testimonial {
+            .testi {
+                width: 100%;
+            }
+            .owl-nav {
+                .owl-prev {
+                    top: 10%;
+                }
+                .owl-next {
+                    top: 10%;
+                }
+            }
+        }
+        .quote {
+            text-align: center;
+            h4 {
+                width: 100%;
+                text-align: center;
+                line-height: 30px;
+            }
+            .btn {
+                margin-top: 20px;
+                float: none;
+            }
+        }
+        .collection-adds li {
+            width: 50%;
+            float: left;
+            margin-bottom: 30px;
+        }
+        .add_block_2 li {
+            margin-bottom: 30px;
+        }
+        .blog-posts .info {
+            margin-bottom: 30px;
+        }
+        p.intro-small {
+            width: 100%;
+        }
+        .new-arrival .popurlar_product {
+            li {
+                width: 50%;
+                float: left;
+            }
+            .over-item {
+                padding-top: 45%;
+            }
+        }
+        .in-the-look li {
+            width: 50%;
+        }
+        #contact_form li {
+            margin-bottom: 10px;
+        }
+        .our-clients p.intro {
+            width: 100%;
+        }
+        .services li {
+            margin-bottom: 30px;
+            .icon {
+                margin-bottom: 10px;
+            }
+        }
+        .popurlar_product .items-in:hover .over-item a {
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+        }
+        .shades .tittle p {
+            width: 100%;
+        }
+        .port-folio-row li {
+            width: 50%;
+            float: left;
+            display: inline-block;
+            .hover-port {
+                padding-top: 18%;
+            }
+        }
+        .news-letter .news-letter-form {
+            width: 100%;
+        }
+        .testimonial-simple .media {
+            margin-bottom: 30px;
+        }
+        .tittle-cont p {
+            width: 100%;
+        }
+        .team ul li {
+            margin-bottom: 30px;
+        }
+        .latest-news .read-more {
+            margin-bottom: 30px;
+        }
+        .portfolio .col-3 li {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .furniture .items-fer li {
+            width: 50%;
+        }
+        .list-style li {
+            .col-sm-4 {
+                width: 50%;
+                float: left;
+            }
+            .col-sm-8 {
+                width: 50%;
+                float: left;
+            }
+        }
+    }
+    
+    @media(max-width:640px) {
+        .mt-free {
+            white-space: nowrap;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .top-bar {
+            height: auto;
+        }
+        .top-links {
+            float: left;
+            width: 100%;
+            text-align: center;
+            li {
+                float: none;
+                display: inline-block;
+            }
+            ul {
+                width: 100%;
+            }
+            .social_icons {
+                border-left: none;
+            }
+        }
+        .seasonals ul li {
+            width: 100%;
+        }
+        .construction .services-style-2 ul li {
+            width: 100%;
+            margin-top: 20px;
+        }
+        header .language {
+            width: 100%;
+            display: inline-block;
+            text-align: left;
+        }
+    }
+    
+    @media(max-width:540px) {
+        .small-r-items {
+            .media {
+                width: 100%;
+            }
+            .item-img {
+                width: 150px;
+            }
+        }
+        .list-style {
+            li {
+                .col-sm-4 {
+                    width: 100%;
+                    float: left;
+                }
+                .col-sm-8 {
+                    width: 100%;
+                    float: left;
+                }
+            }
+            .details-sec a {
+                margin-top: 20px;
+            }
+        }
+        .port-folio-row li {
+            width: 100%;
+            float: left;
+            display: inline-block;
+        }
+        .news-letter .news-letter-form {
+            width: 100%;
+        }
+        .subcribe .sub-mail button {
+            margin: 0;
+            width: 200px;
+            margin: 0 auto;
+            float: none;
+            height: 50px;
+            margin-top: 10px;
+            padding: 10px 0;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .furniture .items-fer li {
+            width: 100%;
+        }
+    }
+    
+    @media(max-width:440px) {
+        .contact-info li {
+            width: 100%;
+        }
+        .shop-page .items li.col-sm-4 {
+            width: 100%;
+        }
+        .new-arrival .popurlar_product li {
+            width: 100%;
+        }
+        .in-the-look li {
+            width: 100%;
+        }
+    }
+    
+    @media(max-width:480px) {
+        .blog-mansory {
+            .blog-posts {
+                .item-mas {
+                    width: 100%;
+                    float: none;
+                }
+            }
+        }
+        .short-by p {
+            display: block;
+            margin: 0;
+            padding-top: 10px;
+        }
+        .popurlar_product {
+            li {
+                width: 100%;
+                float: none;
+            }
+        }
+        .item-decribe {
+            .nav-tabs {
+                li {
+                    width: 100%;
+                    border-bottom: #000 solid 1px;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+        .shopping-cart {
+            .cart-details {
+                .media-left {
+                    display: table;
+                    width: 100%;
+                }
+                .media-body {
+                    display: table-cell;
+                }
+            }
+        }
+    }
+    
+    @media(min-width:320px) {
+        .new-arri-w-slide {
+            .popurlar_product .owl-nav {
+                .owl-next {
+                    right: 10px;
+                }
+                .owl-prev {
+                    left: 10px;
+                }
+            }
+        }
+    }
+    
+    @media(min-width:940px) {
+        .new-arri-w-slide {
+            .popurlar_product .owl-nav {
+                .owl-next {
+                    right: -60px;
+                }
+                .owl-prev {
+                    left: -60px;
+                }
+            }
+        }
+    }
+    
+    @media(max-width:992px) {
+        .shopping-cart {
+            .btn.right-btn {
+                float: left;
+            }
+        }
+    }
+    
+    @media(max-width:768px) {
+        .shopping-cart {
+            .cart-details {
+                li {
+                    min-height: 60px;
+                }
+            }
+        }
+        .shopping-cart {
+            .cart-ship-info {
+                h6 {
+                    margin-top: 20px;
+                }
+            }
+        }
+        .grand-total {
+            span {
+                line-height: 40px;
+            }
+        }
+    }
+    
+    @media (max-width: 1400px) and (min-width: 1200px) {
+        header .logo {
+            margin-bottom: 0px !important;
+        }
+    }

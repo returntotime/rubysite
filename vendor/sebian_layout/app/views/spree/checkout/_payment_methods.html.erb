@@ -1,0 +1,5 @@
+<h5>PAYMENT METHODS</h5>
+<% state = "payment" %>
+<div class="checkout_content <%= 'disabled-step' if (state != @order.state && @can_show_payment == false) or in_registration_step? %>" data-step="<%= state %>" data-hook="checkout_content" id="checkout_<%= state %>">
+  <%= render :partial => 'spree/checkout/form_wrapper', :locals => { :order => @order, :state => state } %>
+</div>

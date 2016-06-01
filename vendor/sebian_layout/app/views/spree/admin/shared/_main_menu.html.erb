@@ -1,0 +1,70 @@
+<% if can? :admin, Spree::Order %>
+  <ul class="nav nav-sidebar">
+    <%= tab *Spree::BackendConfiguration::ORDER_TABS, icon: 'shopping-cart' %>
+  </ul>
+<% end %>
+
+<% if can? :admin, Spree::Product %>
+  <ul class="nav nav-sidebar">
+    <%= main_menu_tree Spree.t(:products), icon: "th-large", sub_menu: "product", url: "#sidebar-product" %>
+  </ul>
+<% end %>
+
+<% if can? :admin, Spree::Admin::ReportsController %>
+  <ul class="nav nav-sidebar">
+    <%= tab *Spree::BackendConfiguration::REPORT_TABS, icon: 'file'  %>
+  </ul>
+<% end %>
+
+<% if can? :admin, Spree::Promotion %>
+  <ul class="nav nav-sidebar">
+    <%= main_menu_tree Spree.t(:promotions), icon: "gift", sub_menu: "promotion", url: "#sidebar-promotions" %>
+  </ul>
+<% end %>
+
+<ul class="nav nav-sidebar">
+  <li class="sidebar-menu-item"><a data-toggle="collapse" data-parent="#sidebar" href="#sidebar-blog" class="">
+    <span class="glyphicon glyphicon-book"></span>
+    <span class="text"> BLOG</span><span class="icon icon-chevron-left pull-right"></span></a>
+    <ul id="sidebar-blog" class="nav nav-pills nav-stacked collapse <%= (cookies[:expanded_menu].present? && cookies[:expanded_menu].split('|').include?('#sidebar-blog')) ? 'in' : '' %>">
+      <li class="sidebar-menu-item"><a href="<%= spree.admin_blog_entries_path %>">Blog Entries</a></li>
+      <li class="sidebar-menu-item"><a href="<%= admin_blog_categories_index_path %>">Blog Categories</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul class="nav nav-sidebar">
+  <li class="sidebar-menu-item"><a data-toggle="collapse" data-parent="#sidebar" href="#sidebar-slider" class="">
+    <span class="glyphicon glyphicon-picture"></span>
+    <span class="text"> SLIDE MANAGER</span><span class="icon icon-chevron-left pull-right"></span></a>
+    <ul id="sidebar-slider" class="nav nav-pills nav-stacked collapse <%= (cookies[:expanded_menu].present? && cookies[:expanded_menu].split('|').include?('#sidebar-slider')) ? 'in' : '' %>">
+      <li class="sidebar-menu-item"><a href="<%= admin_slides_path %>">Sliders</a></li>
+      <li class="sidebar-menu-item"><a href="<%= admin_slide_locations_path %>">Slider Locations</a></li>
+    </ul>
+  </li>
+</ul>
+
+<% if can? :admin, current_store %>
+    <ul class="nav nav-sidebar">
+      <li><a href="<%= admin_menu_bars_path %>" class="icon-link"><span class="glyphicon glyphicon-align-justify"></span><span class="text">Menu bar</span></a></li>
+    </ul>
+<% end %>
+
+<% if can? :admin, current_store %>
+    <ul class="nav nav-sidebar">
+      <li><a href="<%= admin_product_imports_path %>" class="icon-link"><span class="glyphicon glyphicon-align-justify"></span><span class="text">Import Products</span></a></li>
+    </ul>
+<% end %>
+
+
+<% if Spree.user_class && can?(:admin, Spree.user_class) %>
+    <ul class="nav nav-sidebar">
+      <%= tab *Spree::BackendConfiguration::USER_TABS, url: spree.admin_users_path, icon: 'user' %>
+    </ul>
+<% end %>
+
+<% if can? :admin, current_store %>
+    <ul class="nav nav-sidebar">
+      <%= main_menu_tree Spree.t(:configurations), icon: "wrench", sub_menu: "configuration", url: "#sidebar-configuration" %>
+    </ul>
+<% end %>

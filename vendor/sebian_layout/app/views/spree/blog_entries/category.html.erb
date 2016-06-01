@@ -1,0 +1,30 @@
+<%= render :partial=>"spree/shared/blog_sub_title", :locals=>{:title => @category_name, :breadcrumb_collect => {blog_path => "Blog", blog_category_path => "Category", ""=> @category_name}} %>
+<section class="section-p-30px blog-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 animate fadeInLeft" data-wow-delay="0.4s">
+        <div class="side-bar">
+
+          <%= render :partial => "blog_search_form" %>
+
+          <%= render :partial => "categories_list" %>
+
+          <%= render :partial => "lastest_post" %>
+
+          <%= render :partial => 'news_archive'%>
+
+          <%= render :partial => 'product_tags'%>
+
+        </div>
+      </div>
+
+      <div class="col-sm-9 animate fadeInRight" data-wow-delay="0.4s">
+        <div class="blog-posts">
+          <%= render :partial => "blog_entries" %>
+        </div>
+        <!--======= PAGINATION =========-->
+        <%= paginate @blog_entries, theme: 'twitter-bootstrap-3' %>
+      </div>
+    </div>
+  </div>
+</section>

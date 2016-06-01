@@ -1,0 +1,7 @@
+<% if @order.shipments.present? %>
+  <h5>DELIVERY METHODS</h5>
+  <% state = "delivery" %>
+  <div class="checkout_content <%= 'disabled-step' if in_registration_step? %>" data-step="<%= state %>" data-hook="checkout_content" id="checkout_<%= state %>">
+    <%= render :partial => 'spree/checkout/form_wrapper', :locals => { :order => @order, :state => state } %>
+  </div>
+<% end %>

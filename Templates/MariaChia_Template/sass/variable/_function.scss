@@ -1,0 +1,15 @@
+// ======./  IMAGE  /.===== 
+@function image-url($image) {
+    @return url("../images/" + $image);
+}
+
+// ======./  FONT URL  /.===== 
+@function font-url($font) {
+    @return url('../fonts/' + $font);
+}
+
+// ======./  ASSET URL  /.===== 
+@function asset-url($asset) {
+    @return url("/assets/" + $asset);
+}
+

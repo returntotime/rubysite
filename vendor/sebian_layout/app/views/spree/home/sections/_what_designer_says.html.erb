@@ -1,0 +1,42 @@
+<% testimonial_background = Spree::Slide.published.location("testimonial_background").first %>
+<% if testimonial_background.present? %>
+  <style type="text/css">
+    .testimonial{
+      background: <%= testimonial_background.present? ? "url(#{testimonial_background.slide_image.url})" : 'url(/assets/bg/bg-5.jpg)' %> center center no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <section class="testimonial" data-stellar-background-ratio="0.7">
+    <div class="section-p-60px">
+      <div class="container">
+        <!-- Tittle -->
+        <div class="tittle white animate fadeInUp" data-wow-delay="0.4s">
+          <h5>&nbsp;</h5>
+        </div>
+        <!-- Slider Section -->
+        <div class="testi-slides animate fadeInUp" data-wow-delay="0.4s">
+          <!-- Slider 1 -->
+          <% Spree::Slide.published.location("testimonial_background").each do |slide| %>
+            <div class="testi">
+              <p><%= slide.body %></p>
+              <!--<h6>TYRION LANNISTER</h6>-->
+              <!--<p class="mt-pra">Founder-Ceo. Dell Corp</p>-->
+            </div>
+          <% end %>
+          <!-- Slider 1 -->
+          <!--<div class="testi">-->
+            <!--<p>“The details are not the details.”</p>-->
+            <!--<h6>TYRION LANNISTER</h6>-->
+            <!--<p class="mt-pra">Founder-Ceo. Dell Corp</p>-->
+          <!--</div>-->
+          <!--&lt;!&ndash; Slider 1 &ndash;&gt;-->
+          <!--<div class="testi">-->
+            <!--<p>“The details are not the details. They make the design.They make the design.They make the design.”</p>-->
+            <!--<h6>TYRION LANNISTER</h6>-->
+            <!--<p class="mt-pra">Founder-Ceo. Dell Corp</p>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

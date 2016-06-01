@@ -1,0 +1,22 @@
+<%
+   paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+   paginated_products ||= products
+%>
+<% if products.present? %>
+    <div class="popurlar_product products-list animate fadeInUp" data-wow-delay="0.4s">
+      <ul class="row">
+        <%- if local_assigns.has_key? :wishlist %>
+          <%- wished_products ||= wishlist.wished_products %>
+          <%= render :partial => "spree/shared/product_items",:locals => {:products => products, :wished_products => wished_products, :effect => true} %>
+        <%- else%>
+          <%= render :partial => "spree/shared/product_items",:locals => {:products => products, :effect => true} %>
+        <%- end %>
+      </ul>
+    </div>
+    <!--======= PAGINATION =========-->
+    <% if paginated_products.respond_to?(:num_pages) %>
+        <%= paginate paginated_products, theme: 'twitter-bootstrap-3' %>
+    <% end %>
+<% else %>
+    <div class="text-center"><%= Spree.t(:no_products_found) %></div>
+<% end %>

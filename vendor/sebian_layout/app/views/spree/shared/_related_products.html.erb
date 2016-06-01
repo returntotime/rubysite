@@ -1,0 +1,49 @@
+<% if @product.present? || simple_current_order.line_items.count > 0 %>
+
+    <% relation_types = Spree::Relation.where('relatable_id IN (?) AND relatable_type=?', @product ? @product.id : simple_current_order.products.collect(&:id), "Spree::Product").collect(&:relation_type_id) %>
+
+    <% related_products = Spree::Product.where("spree_products.id IN (?)", Spree::Relation.where('spree_relations.relation_type_id IN (?)', relation_types).select("related_to_id").distinct("spree_relations.related_to_id")).limit(20) %>
+    <% if related_products.count > 0 %>
+    <section class="section-p-60px new-arrival new-arri-w-slide">
+      <div class="container">
+        <!--  Tittle -->
+        <div class="tittle tittle-2">
+          <h5><%= Spree::Config[:related_product_section_title] %></h5>
+          <p class="font-playfair"><%= Spree::Config[:related_product_section_tagline] %></p>
+        </div>
+
+        <!--  New Arrival Tabs Products  -->
+        <div class="popurlar_product client-slide">
+
+          <% related_products.each do |product| %>
+              <% url = spree.product_url(product, taxon_id: @taxon.try(:id)) %>
+              <div class="items-in">
+                <div class="box-img">
+                    <%= large_image(product, itemprop: "image", alt: product.name) %>
+                </div>
+                <div class="over-item">
+                  <ul class="animated fadeIn">
+                    <% if product.master.can_supply? %>
+                        <li class="full-w">
+                          <%= form_for :order, :url => populate_orders_path do |f| %>
+                              <%= hidden_field_tag "variant_id", product.master.id %>
+                              <%= hidden_field_tag "quantity", 1 %>
+                              <%= button_tag "ADD TO CART", :class => "btn",data: { disable_with: "Please wait..." } %>
+                          <% end %>
+                        </li>
+                    <% end %>
+                    <!-- Rating Stars -->
+                    <%#= review_avg(product) %>
+                  </ul>
+                </div>
+                <div class="details-sec">
+                  <%= link_to truncate(product.name, :length => 38), url %>
+                  <span class="font-montserrat"><%= product.price %>&nbsp;<%= current_currency %></span>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+    <% end %>
+<% end %>

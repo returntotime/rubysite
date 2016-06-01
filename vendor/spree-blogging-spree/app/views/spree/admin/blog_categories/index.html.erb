@@ -1,0 +1,39 @@
+<% content_for :page_title do %>
+    Blog Categories
+<% end %>
+
+<% content_for :page_actions do %>
+
+<% end %>
+
+<% if @blog_categories.any? %>
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="title">Name</th>
+        <th class="text-center">Featured</th>
+        <th class="text-right"></th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @blog_categories.each do |blog_category| %>
+         <tr>
+           <td><%= blog_category.name %></td>
+           <td class="text-center">
+             <%= check_box_tag :featured, nil, blog_category.featured, :class => "toggle-blog-category", "data-id" => blog_category.id %>
+           </td>
+           <td class="text-right">
+             <a class="btn btn-primary btn-sm icon-link with-tip action-edit no-text" data-action="edit" title="" href="<%= edit_admin_blog_category_path(blog_category) %>" data-original-title="Edit">
+               <span class="icon icon-edit"></span>
+             </a>
+           </td>
+         </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <div class="alpha twelve columns no-objects-found">
+      No Blog Category Found
+    </div>
+<% end %>
+

@@ -1,0 +1,45 @@
+<% if Spree::Config[:show_slider] %>
+  <%= content_for :slider do %>
+    <%= render partial: 'spree/shared/slider' %>
+  <% end %>
+<% end %>
+
+<script type='text/javascript' src='//maps.google.com/maps/api/js?sensor=false'></script>
+
+<!--======= SECTIONS =========-->
+<% if Spree::Config[:show_in_this_look] %>
+  <%= render :partial => "spree/home/sections/in_this_look" %>
+<% end %>
+
+<% if Spree::Config[:show_3_boxes] %>
+  <%= render :partial => "spree/home/sections/three_boxes" %>
+<% end %>
+
+<% if Spree::Config[:show_new_arrival] %>
+  <%= render :partial => "spree/home/sections/new_arrival" %>
+<% end %>
+
+<% if Spree::Config[:show_popular_weekly] %>
+  <%= render :partial => "spree/home/sections/popular_weekly" %>
+<% end %>
+
+<% if Spree::Config[:show_blog] %>
+  <%= render :partial => "spree/home/sections/blog" %>
+<% end %>
+
+<% if Spree::Config[:show_what_designer_says] %>
+  <%= render :partial => "spree/home/sections/what_designer_says" %>
+<% end %>
+
+<% if Spree::Config[:show_instagram_photos] %>
+  <%= render :partial => "spree/home/sections/instagram_photos" %>
+<% end %>
+
+<% if Spree::Config[:show_featured_designers] %>
+  <%= render :partial => "spree/home/sections/featured_designers" %>
+<% end %>
+
+<% if Spree::Config[:show_our_brands] %>
+  <%= render :partial => "spree/home/sections/our_brands" %>
+<% end %>
+

@@ -1,0 +1,16 @@
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => @wishlist.name, :breadcrumb_collect => {wishlists_path => "Wish lists", ""=> @wishlist.name}} %>
+<section class="section-p-30px pages-in">
+  <div class="container">
+    <div class="row">
+      <div id="wishlist_header" class="row">
+        <% if @wishlist.user == spree_current_user %>
+          <%= render partial: 'accessibility' %>
+        <% end -%>
+      </div>
+      <div class="col-sm-12 animate fadeInUp" data-wow-delay="0.4s">
+        <%= render :partial => "spree/shared/product_filter" %>
+        <%= render :partial=>"spree/shared/products", :locals => {:products => @products, :wishlist => @wishlist } %>
+      </div>
+    </div>
+  </div>
+</section>

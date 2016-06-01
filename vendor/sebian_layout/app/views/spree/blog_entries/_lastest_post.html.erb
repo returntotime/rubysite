@@ -1,0 +1,26 @@
+<% if Spree::BlogEntry.visible.lastest.count > 0 %>
+<div class="heading">
+  <h4>Latest post</h4>
+</div>
+<ul class="cate latest-post">
+  <% Spree::BlogEntry.visible.lastest.each do |blog_entry| %>
+      <li>
+        <div class="media">
+          <div class="media-left">
+            <%= link_to blog_entry_permalink(blog_entry) do %>
+              <% if blog_entry.blog_entry_image.present? %>
+                  <%= image_tag(blog_entry.blog_entry_image.attachment.url(:mini)) %>
+              <% else %>
+                  <%= image_tag "post-left-1.jpg" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="media-body">
+            <%= link_to blog_entry.title, blog_entry_permalink(blog_entry) %>
+            <p><%= blog_entry.views.to_s %> View - 03 Comment</p>
+          </div>
+        </div>
+      </li>
+  <% end %>
+</ul>
+<% end %>

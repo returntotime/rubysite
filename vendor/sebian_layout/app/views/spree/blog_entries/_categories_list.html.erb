@@ -1,0 +1,13 @@
+<% categories = Spree::BlogEntry.visible.tag_counts_on(:categories).sort_by(&:count) %>
+<% if categories.present? %>
+  <!-- HEADING -->
+  <div class="heading">
+    <h4><%= Spree.t('blog.categories') %></h4>
+  </div>
+  <!-- CATEGORIES -->
+  <ul class="cate">
+    <% categories.reverse.each do |category| %>
+        <li><%= link_to category.name, blog_category_path(category.name) %></li>
+    <% end %>
+  </ul>
+<% end %>

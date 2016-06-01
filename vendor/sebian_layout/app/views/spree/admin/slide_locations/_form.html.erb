@@ -1,0 +1,47 @@
+<div class="row">
+
+  <div class="col-md-12" style="display: none">
+    <%= f.field_container :name do %>
+      <%= f.label :name, t(:name) %><br>
+      <%= f.text_field :name, :class => 'fullwidth', class: "form-control" %>
+    <% end %>
+  </div>
+  <br/>
+  <div class="col-md-12">
+    <%= f.field_container :presentation do %>
+        <%= f.label :presentation, "Name:" %><br>
+        <%= f.text_field :presentation, :class => 'fullwidth', class: "form-control" %>
+    <% end %>
+  </div>
+  <br/>
+  <div class="col-md-12">
+    <%= f.field_container :height do %>
+        <%= f.label :height, "Height:" %><br>
+        <%= f.text_field :height, :class => 'fullwidth', class: "form-control", :placeholder => "Height (px)" %>
+    <% end %>
+  </div>
+  <br/>
+  <div class="col-md-12">
+    <%= f.field_container :width do %>
+        <%= f.label :width, "Width:" %><br>
+        <%= f.text_field :width, :class => 'fullwidth', class: "form-control", :placeholder => "Width (px)" %>
+    <% end %>
+  </div>
+  <br/>
+  <div class="col-md-6">
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :fullwidth %> Full width
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :use_speed %> Use speed options
+      </label>
+    </div>
+  </div>
+
+</div>

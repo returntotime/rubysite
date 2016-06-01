@@ -1,0 +1,41 @@
+<section class="blog">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+      <!--  Tittle -->
+      <div class="tittle animate fadeInUp" data-wow-delay="0.4s">
+        <h5><%= Spree::Config[:the_blog] %></h5>
+        <p><%= Spree::Config[:the_blog_subtext] %></p>
+      </div>
+      <!--  Blog Posts -->
+      <div class="blog-posts">
+        <ul class="row">
+          <% @blog_categories.each do |blog_category| %>
+            <% blog_entry = Spree::BlogEntry.tagged_with(blog_category.name).order(:updated_at => 'desc').first %>
+            <% if blog_entry.present? %>
+              <li class="col-sm-4 animate fadeInLeft" data-wow-delay="0.4s">
+                <div class="box-img">
+                  <% if blog_entry.blog_entry_image.present? %>
+                      <%= image_tag(blog_entry.blog_entry_image.attachment.url(:normal), :class => "img-responsive") %>
+                  <% else %>
+                      <%= image_tag "blog-small-1.jpg", :class=>"img-responsive" %>
+                  <% end %>
+                </div>
+                <span class="tags">
+                  <a href="<%= blog_category_path(blog_category.name) %>"><%= blog_category.name.upcase %></a>
+                </span>
+                <%= link_to blog_entry.title, blog_entry_permalink(blog_entry), :class => "tittle-post font-playfair" %>
+                <%= blog_entry.entry_summary.html_safe %>
+                <!--  Post Info -->
+                <ul class="info">
+                  <li><i class="fa fa-user"></i> <%= blog_entry.display_author %></li>
+                  <li><i class="fa fa-calendar-o"></i> <%= blog_entry.display_date %></li>
+                  <li><i class="fa fa-eye"></i> <%= blog_entry.views.to_s %></li>
+                </ul>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => @taxon.name} %>
+<section class="section-p-30px pages-in">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="col-sm-12 animate fadeInUp" data-wow-delay="0.4s">
+          <%= render :partial => "spree/shared/product_filter" %>
+          <%= render :partial=>"spree/shared/products", :locals => {:products => @products, :taxon => @taxon} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

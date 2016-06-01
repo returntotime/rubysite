@@ -1,0 +1,46 @@
+@import "fonts";
+@import "colors";
+
+/*-----------------------------------------------------------------------------------*/
+
+// ======  SCREEN =====
+
+/*-----------------------------------------------------------------------------------*/
+
+$max-width: 1920px;
+$ex-large-width: 1600px;
+$large-width: 1200px;
+$medium-width: 992px;
+$small-width: 768px;
+$ex-small-width: 480px;
+$tiny-small-width: 360px;
+$min-width: 320px;
+// @media screen and (min-width:$medium-width) {
+// }
+// @media screen and (min-width:$small-width) and (max-width:($medium-width - 1px)) {
+// }
+//fonts
+// ======./  OPACITY  /.===== 
+@mixin opacity-im($value) {
+    opacity: $value !important;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$value*100+")"!important;
+    /* IE 5-7 */
+    filter: alpha(opacity=$value*100)!important;
+}
+
+// ======./  KEYFRAMES  /.===== 
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}

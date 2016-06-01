@@ -1,0 +1,28 @@
+<% content_for :page_title do %>
+    Manage Section Visibilty
+<% end %>
+
+<%= form_tag admin_home_settings_path, method: :put do  %>
+    <fieldset class="general no-border-top">
+      <div class="form-group field" id="shipping_method_zones_field">
+        <div class="row">
+
+          <% SebianLayoutConstant::ENABLED_SECTION_KEYS.each do |key| %>
+            <% type = Spree::Config.preference_type(key) %>
+            <div class="col-md-4">
+              <div class="checkbox">
+                <label>
+                  <%= preference_field_tag(key, Spree::Config[key], type: type) %> <%= Spree.t(key) %>
+                </label>
+                <%= key == :show_instagram_photos_footer ? '(Only show instagram photos in a section on a page)' : '' %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+      <div class="form-actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'save' %>
+      </div>
+    </fieldset>
+<% end %>

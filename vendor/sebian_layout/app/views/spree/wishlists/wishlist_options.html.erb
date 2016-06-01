@@ -1,0 +1,21 @@
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => 'Wish list Management', :breadcrumb_text => 'Wish list Management' } %>
+<section class="section-p-30px pages-in wishlist">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <h2 class="wishlist-title">Wish list Management</h2>
+        </div>
+        <p class="row">
+            <div class="col-md-4">
+              <%= link_to "Create a new Wish List", new_wishlist_path, class: 'btn btn-default btn-dark full-width' %>
+            </div>
+            <div class="col-md-4">
+              <%= link_to "Manage an existing Wish List", wishlists_path, class: 'btn btn-default btn-dark full-width' %>
+            </div>
+            <div class="col-md-4">
+              <%= link_to " Find a Wish List", find_wishlists_wishlists_path, class: 'btn btn-default btn-dark full-width' %>
+            </div>
+        </p>
+    </div>
+  </div>
+</section>

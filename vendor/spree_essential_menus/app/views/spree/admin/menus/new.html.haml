@@ -1,0 +1,14 @@
+- if @menu.try(:errors).present?
+  = render 'spree/shared/error_messages', :target => @menu
+
+%h1= t('spree.admin.menus.new_menu')
+%br
+.row
+  .col-md-12
+    = form_for([:admin, @menu_bar, @menu], :html => { :multipart => true }) do |f|
+      = render "form", :form => f
+      %p.form-buttons
+        = button t('create'), "glyphicon glyphicon-ok"
+        = t('or')
+        = link_to t('cancel'), collection_url, :class => "btn btn-default"
+    

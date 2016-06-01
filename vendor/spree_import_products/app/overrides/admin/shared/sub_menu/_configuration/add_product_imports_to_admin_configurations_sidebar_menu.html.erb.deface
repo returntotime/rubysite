@@ -1,0 +1,2 @@
+<!-- insert_bottom "[data-hook='admin_configurations_sidebar_menu1']" -->
+<%= configurations_sidebar_menu_item t('form.product_import.heading'), admin_product_imports_path %>

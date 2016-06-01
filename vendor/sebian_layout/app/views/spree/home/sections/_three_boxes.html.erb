@@ -1,0 +1,30 @@
+<% if @new_collections.present? %>
+    <section class="new-collection">
+      <div class="container">
+        <div class="new-col-slide animate fadeInUp" data-wow-delay="0.4s">
+          <%- @new_collections.each do |taxonomy| %>
+              <!-- Slider 1 -->
+            <div class="inn-sec">
+              <div class="box-img">
+                <a href="<%= seo_url(taxonomy.root) %>">
+                  <% if taxonomy.root.image.present?  %>
+                    <%= image_tag taxonomy.root.image_url %>
+                  <% else %>
+                    <%= image_tag "new-collec-1.jpg" %>
+                  <% end %>
+                </a>
+              </div>
+              <div class="info">
+                <a href="<%= seo_url(taxonomy.root) %>">
+                  <% if taxonomy.root.icon.present?  %>
+                    <%= image_tag taxonomy.root.icon.url(:mini), class: 'img-responsive' %>
+                  <% end %>
+                  <%= taxonomy.name.upcase %>
+                </a>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+<% end %>

@@ -1,0 +1,33 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Spree::Social) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_social), new_object_url, { :class => "btn-success", :icon => 'add', :id => 'admin_new_social' } %>
+<% end if can? :create, Spree::Social %>
+
+<table class="table" id='listing_countries' data-hook>
+  <thead>
+    <tr data-hook="tax_header">
+      <th><%= Spree.t(:name) %></th>
+      <th><%= Spree.t(:url) %></th>
+      <th><%= Spree.t(:icon) %></th>
+      <th><%= Spree.t(:order) %></th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @socials.each do |row| %>
+      <tr id="<%= spree_dom_id row %>" data-hook="social_row">
+        <td><%= row.name %></td>
+        <td><%= row.url %></td>
+        <td><%= image_tag row.icon.url(:mini) %></td>
+        <td><%= row.order %></td>
+        <td class="actions actions-2 text-right">
+          <%= link_to_edit(row, :no_text => true) if can? :edit, row %>
+          <%= link_to_delete(row, :no_text => true) if can? :delete, row %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

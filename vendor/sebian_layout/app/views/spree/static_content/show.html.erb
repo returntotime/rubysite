@@ -1,0 +1,39 @@
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => @page.title, :breadcrumb_text => @page.title} %>
+<% content_for :head do -%>
+    <%- if @page.meta_title.present? -%>
+        <meta name="title" content="<%= @page.meta_title %>">
+    <%- else -%>
+        <meta name="title" content="<%= @page.title %>">
+    <%- end -%>
+    <meta name="keywords" content="<%= @page.meta_keywords %>">
+    <meta name="description" content="<%= @page.meta_description %>">
+<% end -%>
+<%# if @page.show_banner %>
+  <%#= image_tag @page.banner.url, :class => "img-responsive animate fadeInUp", "data-wow-delay" => "0.4s" %>
+<%# end %>
+<% if @page.show_map %>
+    <script type='text/javascript' src='//maps.google.com/maps/api/js?sensor=false'></script>
+    <div id="map" class="animate fadeInUp" data-wow-delay="0.4s">
+      <input type="hidden" value="<%= Spree::Config[:site_address] %>" id="map-address">
+    </div>
+<% end %>
+<section class="section-p-30px about-us">
+  <div class="container">
+    <!-- Tittle -->
+    <!--div class="tittle animate fadeInUp" data-wow-delay="0.4s">
+      <h5><%#= @page.title %></h5>
+      <p><%#= @page.slogan %></p>
+    </div-->
+    <div class="sma-hed animate fadeInUp" data-wow-delay="0.4s">
+      <div class="mt-ck-editor">
+        <%= raw @page.body %>
+      </div>
+    </div>
+    <div class="about-detail animate fadeInUp" data-wow-delay="0.4s">
+      <!--======= TEAM =========-->
+      <% if @page.active_our_team_section %>
+       <%= render :partial => "our_team" %>
+      <% end %>
+    </div>
+  </div>
+</section>

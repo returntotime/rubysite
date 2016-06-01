@@ -1,0 +1,38 @@
+<div class="order-detail">
+  <p>PRODUCT <span>TOTAL</span></p>
+  <div class="item-order">
+    <% @order.line_items.each do |line_item| %>
+      <p><%= line_item.variant.product.name %> <span class="color"> x<%= line_item.quantity %> </span></p>
+      <p><%= variant_options(line_item.variant).upcase %> </p>
+      <p class="text-right"><%= format_price(line_item.quantity * line_item.price, current_currency) %></p>
+    <% end %>
+  </div>
+  <p>CART SUBTOTAL <span><%= format_price(@order.display_item_total) %></span></p>
+  <% if @order.line_item_adjustments.nonzero.exists? %>
+    <% @order.line_item_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+      <p><%= label %> <span><%= format_price(Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency)) %></span></p>
+    <% end %>
+  <% end %>
+
+  <% @order.all_adjustments.nonzero.tax.eligible.group_by(&:label).each do |label, adjustments| %>
+    <p><%= label %> <span><%= format_price(Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency)) %></span></p>
+  <% end %>
+
+  <% if @order.passed_checkout_step?("delivery") && @order.shipments.any? %>
+    <p><%= Spree.t(:shipping_total) %> <span><%= format_price(Spree::Money.new(@order.shipments.to_a.sum(&:cost), currency: @order.currency)) %></span></p>
+
+    <% if @order.shipment_adjustments.nonzero.exists? %>
+      <% @order.shipment_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+        <p><%= label %> <span><%= format_price(Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency)) %></span></p>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if @order.adjustments.nonzero.eligible.exists? %>
+    <% @order.adjustments.nonzero.eligible.each do |adjustment| %>
+      <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
+      <p><%= adjustment.label %> <span><%= format_price(adjustment.display_amount) %></span></p>
+    <% end %>
+  <% end %>
+  <p>ORDER TOTAL <span><%= format_price(@order.display_total) %></span></p>
+</div>

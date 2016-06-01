@@ -1,0 +1,164 @@
+
+<div class="row">
+  <div class="alpha ten columns col-md-8">
+
+    <%= form.field_container :title, class: ['form-group'] do %>
+      <%= form.label :title, Spree.t(:title) %> <span class="required">*</span><br />
+      <%= form.text_field :title, :class => 'fullwidth form-control' %>
+      <%= form.error_message_on :title %>
+    <% end %>
+
+    <%= form.field_container :permalink, class: ['form-group'] do %>
+      <%= form.label :permalink, Spree.t(:permalink) %> <span class="required">*</span><br />
+      <%= form.text_field :permalink, :class => 'fullwidth form-control' %>
+      <%= form.error_message_on :permalink %>
+    <% end %>
+
+    <%= form.field_container :summary, class: ['form-group'] do %>
+        <%= form.label :summary %><br />
+        <%= form.text_area :summary, {:cols => 60, :rows => 4, :class => 'fullwidth form-control', :id => 'blog_entry_summary'} %>
+        <%= form.error_message_on :summary %>
+    <% end %>
+
+    <%= form.field_container :body, class: ['form-group'] do %>
+        <%= form.label :body %> <span class="required">*</span><br />
+        <%= form.text_area :body, {:cols => 60, :rows => 4, :class => 'fullwidth form-control', :id => 'blog_entry_body'} %>
+        <%= form.error_message_on :body %>
+    <% end %>
+
+  </div>
+  <div class="col-md-4">
+    <%= form.field_container :category_list do %>
+        <%= form.label :category_list, Spree.t(:category_list)  %><br />
+        <%= form.text_field :category_list,:class => 'fullwidth', :value=> form.object.category_list.join(',') %>
+    <% end %>
+
+    <%= form.hidden_field :author_id, value: spree_current_user.id %>
+    <%#= form.field_container :author_id do %>
+        <%#= form.label :author_id, Spree.t(:author_id) %><br />
+        <%#= form.select :author_id, Spree.user_class.joins(:spree_roles).where("#{Spree::Role.table_name}.name" => "blogger").collect {|u| [u.email, u.id]}, {:include_blank => true}, :class => 'select2' %>
+    <%# end %>
+    <!--br/-->
+
+    <%#= form.hidden_field :author_id, :value => try_spree_current_user.id %>
+    <%= form.field_container :published_at, class: ['form-group'] do %>
+        <%= form.label :published_at, Spree.t(:published_at) %><br />
+        <%= form.error_message_on :published_at %>
+        <% if @blog_entry.published_at? %>
+            <% published_at = l(@blog_entry.published_at, :format => Spree.t('date_picker.format')) %>
+        <% else %>
+            <% published_at = nil %>
+        <% end %>
+        <%= form.text_field :published_at, :value => published_at, :class => 'datepicker form-control' %>
+    <% end %>
+
+    <%= form.field_container :tag_list do %>
+        <%= form.label :tag_list, Spree.t(:tag_list) %><br />
+        <%= form.text_field :tag_list, :class => 'fullwidth', :value=> form.object.tag_list.join(',') %>
+    <% end %>
+    <% unless Rails.env.test? %>
+        <script>
+          $("#blog_entry_category_list").select2({
+              tags: <%= Spree::BlogEntry.tag_counts_on(:categories).map{|t| t.name }.to_json.html_safe %>
+          });
+          $("#blog_entry_tag_list").select2({
+              tags: <%= Spree::BlogEntry.tag_counts_on(:tags).map{|t| t.name }.to_json.html_safe %>
+          });
+        </script>
+    <% end %>
+    <br/>
+    <%= form.field_container :visible do %>
+        <%= form.check_box :visible %>&nbsp;&nbsp;
+        <%= form.label :visible, Spree.t(:visible) %>
+        <%= form.error_message_on :visible %>
+    <% end %>
+    <!--br/-->
+    <%#= form.field_container :show_on_homepage do %>
+        <%#= form.check_box :show_on_homepage %>&nbsp;&nbsp;
+        <%#= form.label :show_on_homepage, "Show on homepage" %>
+        <%#= form.error_message_on :show_on_homepage %>
+    <%# end %>
+    <br>
+    <%= field_set_tag Spree.t(:blog_entry_featured_image) do %>
+        <% @blog_entry.build_blog_entry_image unless @blog_entry.blog_entry_image %>
+
+        <%= form.fields_for :blog_entry_image do |blog_entry_image_field| %>
+            <%= form.field_container :blog_entry_image_attachment do %>
+                <div class="blog_entry_image_thumbnail">
+                <% unless @blog_entry.blog_entry_image.new_record? %>
+                      <% if @blog_entry.blog_entry_image.present? %>
+                        <%= link_to image_tag(@blog_entry.blog_entry_image.attachment.url(:mini)), @blog_entry.blog_entry_image.attachment.url(:large) %>
+                        <%= @blog_entry.blog_entry_image.attachment_file_name %><br/>
+                      <% end %>
+                <% end %>
+                <% if @blog_entry.blog_entry_image.new_record? || @blog_entry.blog_entry_image.nil? %>
+                    <%= image_tag "blog-med-1.jpg" %> <br/>
+                <% end %>
+                </div><br/>
+                <%= blog_entry_image_field.file_field :attachment %>
+            <% end %>
+            <%= form.field_container :blog_entry_image_alt, class: ['form-group'] do %>
+                <%= blog_entry_image_field.label :alt, Spree.t(:alt_text) %><br/>
+                <%= blog_entry_image_field.text_field :alt, :class => "form-control" %>
+            <% end %>
+        <% end %>
+    <% end %>
+    <br>
+    <%= field_set_tag "Blog banner (Normal)" do %>
+        <% @blog_entry.build_blog_entry_banner unless @blog_entry.blog_entry_banner %>
+        <%= form.fields_for :blog_entry_banner do |blog_entry_banner_field| %>
+            <%= form.field_container :blog_entry_banner_attachment do %>
+                <div class="blog_entry_banner_thumbnail">
+                <% unless @blog_entry.blog_entry_banner.new_record? %>
+                      <% if @blog_entry.blog_entry_banner.present? %>
+                        <%= link_to image_tag(@blog_entry.blog_entry_banner.attachment.url(:normal)), @blog_entry.blog_entry_banner.attachment.url(:normal) %>
+                        <%= @blog_entry.blog_entry_banner.attachment_file_name %><br/>
+                      <% end %>
+                <% end %>
+                <% if @blog_entry.blog_entry_banner.new_record? || @blog_entry.blog_entry_banner.nil? %>
+                    <%= image_tag "blog_normal.png" %> <br/>
+                <% end %>
+                </div><br/>
+                <%= blog_entry_banner_field.file_field :attachment %>
+            <% end %>
+
+            <%= form.field_container :blog_entry_banner_alt, class: ['form-group'] do %>
+                <%= blog_entry_banner_field.label :alt, Spree.t(:alt_text) %><br/>
+                <%= blog_entry_banner_field.text_field :alt, :class => "form-control" %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <br>
+    <%= field_set_tag "Blog banner (Large)", :id => "blog-banner-container" do %>
+        <div id="use_large_banner">
+          <%= form.field_container :use_large_banner do %>
+              <%= form.label :use_large_banner, "Use large banner" %>
+              <%= form.check_box :use_large_banner %>&nbsp;&nbsp;
+          <% end %>
+        </div>
+        <% @blog_entry.build_blog_entry_large_banner unless @blog_entry.blog_entry_large_banner %>
+        <%= form.fields_for :blog_entry_large_banner do |blog_entry_large_banner_field| %>
+            <%= form.field_container :blog_entry_large_banner_attachment do %>
+                <div class="blog_entry_large_banner_thumbnail">
+                <% unless @blog_entry.blog_entry_large_banner.new_record? %>
+                    <% if @blog_entry.blog_entry_large_banner.present? %>
+                      <%= link_to image_tag(@blog_entry.blog_entry_large_banner.attachment.url(:large)), @blog_entry.blog_entry_large_banner.attachment.url(:large) %>
+                      <%= @blog_entry.blog_entry_large_banner.attachment_file_name %><br/>
+                    <% end %>
+                <% end %>
+                  <% if @blog_entry.blog_entry_large_banner.new_record? || @blog_entry.blog_entry_large_banner.nil? %>
+                      <%= image_tag "blog-detail-1.jpg" %> <br/>
+                  <% end %>
+                </div><br/>
+                <%= blog_entry_large_banner_field.file_field :attachment %>
+            <% end %>
+
+            <%= form.field_container :blog_entry_large_banner_alt, class: ['form-group'] do %>
+                <%= blog_entry_large_banner_field.label :alt, Spree.t(:alt_text) %><br/>
+                <%= blog_entry_large_banner_field.text_field :alt, :class => "form-control" %>
+            <% end %>
+        <% end %>
+    <% end %>
+  </div>
+</div>

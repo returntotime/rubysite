@@ -1,0 +1,45 @@
+<% others = Spree::Product.new_arrival.enabled.where("id NOT IN (#{Spree::Classification.where("taxon_id IN (?)", @new_arrival_taxons.collect(&:id)).select("product_id").to_sql })") %>
+<% if @new_arrival_taxons.any? || others.any? %>
+  <section class="new-arrival">
+    <div class="container">
+      <div class="col-md-10 col-md-offset-1">
+        <!--  Tittle -->
+        <div class="tittle animate fadeInUp" data-wow-delay="0.4s">
+          <h5><%= Spree::Config[:new_arrival] %></h5>
+          <p><%= Spree::Config[:new_arrival_subtext] %></p>
+        </div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist animate fadeInUp" data-wow-delay="0.4s">
+          <% @new_arrival_taxons.each_with_index do |taxon, index| %>
+                <li role="presentation" <%= (index == 0) ? ' class=active' : '' %> ><a href="#taxonomy<%= index %>" aria-controls="taxonomy<%= index %>" role="tab" data-toggle="tab"><%= taxon.name.upcase %></a></li>
+          <% end %>
+          <% if others.count > 0 %>
+              <li role="presentation" <%= @new_arrival_taxons.blank? ? ' class=active' : '' %>><a href="#taxonomy-others" aria-controls="taxonomy-others" role="tab" data-toggle="tab">OTHERS</a></li>
+          <% end %>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content animate fadeInUp" data-wow-delay="0.4s">
+          <!-- MEN’S  -->
+          <% @new_arrival_taxons.each_with_index do |taxon, index| %>
+              <div role="tabpanel" class="tab-pane fade in <%= (index == 0) ? 'active' : '' %>" id="taxonomy<%= index %>">
+                <div class="popurlar_product">
+                  <ul class="row">
+                    <%= render :partial => "spree/shared/lazy_product_items", :locals => {:products => taxon.products.new_arrival.enabled.order(:created_at => "desc").limit(4) } %>
+                  </ul>
+                </div>
+              </div>
+          <% end %>
+          <% if others.count > 0 %>
+              <div role="tabpanel" class="tab-pane fade in <%= @new_arrival_taxons.blank? ? 'active' : '' %>" id="taxonomy-others">
+                <div class="popurlar_product">
+                  <ul class="row">
+                    <%= render :partial => "spree/shared/lazy_product_items", :locals => {:products => others.limit(4) } %>
+                  </ul>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

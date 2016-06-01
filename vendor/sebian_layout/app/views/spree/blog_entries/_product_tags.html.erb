@@ -1,0 +1,10 @@
+<% tags = Spree::BlogEntry.visible.tag_counts_on(:tags).sort_by(&:count) %>
+<!-- TAGS -->
+<% if tags.present? %>
+  <h4 class="margin-t-40">Tags</h4>
+  <ul class="tags">
+    <% tags.reverse.each do |tag| %>
+      <li><%= link_to tag.name, blog_tag_path(tag.name) %></li>
+    <% end %>
+  </ul>
+<% end %>

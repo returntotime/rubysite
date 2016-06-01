@@ -1,0 +1,858 @@
+// ==========================================================
+// ========================  OVERLAY BODY  ==================
+// ==========================================================
+@media screen and (max-width:$small-width - 1px) {
+    #overlayMenu {
+        position: fixed;
+        z-index: 998;
+        background: rgba(0, 0, 0, 0.5);
+        &.show {
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+#mtover {
+    position: fixed;
+    z-index: 998;
+    &.show {
+        top: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+// ==========================================================
+// ========================  NAVBAR  ======================== 
+// ==========================================================
+header {
+    .logo {
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+
+// navbar-header 
+.navbar-header {
+    height: 80px;
+    background: rgba(255, 255, 255, 1);
+    @include box-shadow($sha-style-1);
+    .navbar-toggle {
+        margin-top: 23px;
+        border: $color-black solid 1px;
+        @include border-radius(0px);
+        width: 44px;
+        height: 34px;
+        span,
+        &:after,
+        &:before {
+            display: block;
+            position: absolute;
+            width: 28px;
+            height: 2px;
+            right: 7px;
+            background: $color-black;
+            @include transition(all .2s ease-in-out);
+        }
+        span {
+            top: 50%;
+            margin-top: -1px;
+        }
+        &:after,
+        &:before {
+            content: "";
+        }
+        &:after {
+            bottom: 9px;
+        }
+        &:before {
+            top: 9px;
+        }
+        &.close-mt {
+            span {
+                @include opacity(0);
+            }
+            &:after {
+                bottom: 15px;
+            }
+            &:before {
+                top: 15px;
+            }
+        }
+    }
+}
+
+// fix-nav.affix 
+#fix-nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+    background: rgba(255, 255, 255, 0.9);
+    @include box-shadow($sha-style-1);
+    @include transition(all .4s linear);
+}
+
+// navbar-index 
+.navbar-index {
+    background: rgba(255, 255, 255, 1);
+    position: relative;
+    min-height: 80px;
+    z-index: 99;
+    nav {
+        &>ul {
+            text-align: center;
+            font-size: 0%;
+            &>li {
+                display: inline-block;
+                &>a {
+                    line-height: 80px;
+                    padding: 10px 15px;
+                    text-transform: uppercase;
+                    font-family: $pri-condensed;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+// nav-right 
+.nav-right {
+    position: absolute;
+    z-index: 999;
+    height: 80px;
+}
+
+// mt-open
+.mt-open {
+    &.open {
+        display: block !important;
+    }
+}
+
+// mt-nav-search
+.mt-nav-search {
+    position: relative;
+    height: 100%;
+    float: left;
+}
+
+.nav-search-icon {
+    width: 32px;
+    height: inherit;
+    cursor: pointer;
+    background: image-url('search.png') no-repeat 5px center;
+}
+
+.nav-search-detail {
+    position: absolute;
+    right: 0;
+    top: 80px;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    display: none;
+    @include box-shadow($sha-style-1);
+    form {
+        .dropdown-menu {
+            width: 180px;
+            @include border-radius(0);
+            max-height: 500px;
+            overflow-x: hidden;
+            a {
+                &:hover {
+                    background-color: $color-brown;
+                    color: white;
+                }
+                font-family: $pri-condensed;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+        }
+        .dropdown-menu>.active>a,
+        .dropdown-menu>.active>a:focus,
+        .dropdown-menu>.active>a:hover {
+            background-color: $color-brown;
+        }
+        .input-group {
+            .btn {
+                margin-top: 0;
+                background-color: #f7f7f7;
+                color: #000;
+                border-right: #000 solid 1px;
+                &:hover {
+                    border: #E6E6E6 solid 1px;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+    .mt-button {
+        width: 180px;
+        text-align: left;
+        height: 40px;
+        @include border-radius(0);
+        font-family: $pri-condensed;
+        font-size: 18px;
+        text-transform: uppercase;
+        &:focus {
+            outline: none;
+        }
+        .caret {
+            float: right;
+            margin-top: 8px;
+        }
+    }
+    .mt-summit {
+        background-color: #000 !important;
+        color: white !important;
+        height: 40px;
+        border: #E6E6E6 solid 1px !important;
+        padding: 0 20px;
+        @include border-radius(0);
+    }
+    .mt-input {
+        display: block;
+        height: 40px;
+        padding: 6px 12px;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        &:focus {
+            border: 1px solid #ccc !important;
+        }
+    }
+}
+
+// ========================  RESPONSIVE NAVBAR  ======================== 
+@media screen and (max-width:$small-width - 1px) {
+    .navbar-index {
+        height: auto;
+        nav {
+            &>ul {
+                &>li {
+                    display: block;
+                    border-bottom: #eeeeee solid 1px;
+                    &:first-child {
+                        border-bottom: none;
+                    }
+                    &>a {
+                        display: block;
+                        line-height: 30px;
+                        &:hover {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .side-collapse {
+        background: white;
+        position: fixed;
+        top: 0px;
+        bottom: 0;
+        width: 260px;
+        z-index: 9999 !important;
+        overflow-x: hidden;
+        @include box-shadow($sha-style-1);
+        @include transition(width .4s);
+        &.in {
+            width: 0px;
+        }
+    }
+}
+
+// =====  RESPONSIVE NAV SEARCH  ======================== 
+@media screen and (max-width: 600px) {
+    .nav-search-detail {
+        width: 300px;
+        form {
+            .input-group {
+                display: table-caption;
+                .btn {
+                    border-right: none;
+                    margin-left: 0;
+                    &:hover {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+        .mt-button,
+        .mt-input,
+        .mt-summit {
+            min-width: 240px;
+        }
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .nav-search-detail {
+        width: 300px;
+        left: -160px;
+    }
+}
+
+@media screen and (max-width:$min-width) {
+    .nav-search-detail {
+        left: 0;
+    }
+}
+
+// nav-card
+.nav-card {
+    position: relative;
+    width: 32px;
+    height: 100%;
+}
+
+.nav-card-badge {
+    width: 18px;
+    height: 18px;
+    background: $color-brown;
+    color: white;
+    top: 10px;
+    left: 7px;
+    position: absolute;
+    text-align: center;
+    font-size: 12px;
+    line-height: 18px;
+    @include border-radius(18px);
+}
+
+.nav-card-icon {
+    width: 32px;
+    height: inherit;
+    cursor: pointer;
+    background: image-url('cart.png') no-repeat 5px center;
+}
+
+.nav-card-detail {
+    position: absolute;
+    top: 80px;
+    z-index: 999;
+    width: 300px;
+    padding-bottom: 40px;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    @include box-shadow($sha-style-1);
+    h3 {
+        text-align: center;
+        font-size: 24px;
+        margin: 0;
+        height: 80px;
+        line-height: 80px;
+        color: white;
+        letter-spacing: 3px;
+    }
+    ul {
+        li {
+            min-height: 80px;
+            padding: 15px 0px;
+            margin: 0 15px;
+            border-bottom: $color-grayline solid 1px;
+            .pic {
+                width: 50px;
+                height: 50px;
+                overflow: hidden;
+                position: relative;
+                img {
+                    width: 100%;
+                    height: auto;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+            }
+            .info {
+                margin-left: 10px;
+                width: 180px;
+                h5 {
+                    color: white;
+                    margin-top: 0;
+                    font-size: 12px;
+                }
+                p {
+                    font-size: 12px;
+                    color: white;
+                    margin-top: 10px;
+                    span {
+                        color: $color-brown;
+                    }
+                }
+            }
+            .del {
+                cursor: pointer;
+                height: 50px;
+                padding: 0 10px;
+                background: image-url('ic_close.svg') no-repeat center center;
+            }
+        }
+    }
+    .total {
+        color: white;
+        padding: 25px 10px;
+        margin-top: 0;
+        span {
+            color: $color-brown;
+        }
+    }
+    .gr-btn-card {
+        text-align: center;
+        a {
+            height: 36px;
+            line-height: 36px;
+            width: 135px;
+            letter-spacing: 3px;
+            font-family: $pri-condensed;
+            font-size: 20px;
+            color: white;
+            border: transparent solid 1px;
+            &:first-child {
+                background: $color-gray;
+                margin-left: 10px;
+                &:hover {
+                    background: transparent;
+                    border: $color-grayline solid 1px;
+                }
+            }
+            &:last-child {
+                margin-right: 10px;
+                background: $color-brown;
+                &:hover {
+                    background: transparent;
+                    border: $color-grayline solid 1px;
+                }
+            }
+        }
+    }
+}
+
+// =====  RESPONSIVE NAV CARD  ======================== 
+@media screen and (min-width:$min-width) {
+    .nav-right {
+        right: 75px;
+    }
+    .nav-card-detail {
+        right: -70px;
+    }
+}
+
+@media screen and (max-width:$min-width -1px) {
+    .nav-right {
+        right: 75px;
+    }
+}
+
+@media screen and (min-width:$small-width) {
+    .nav-right {
+        right: 15px;
+    }
+}
+
+@media screen and (min-width:$tiny-small-width) {
+    .nav-card-detail {
+        right: -50px;
+    }
+}
+
+@media screen and (min-width:$ex-small-width) {
+    .nav-card-detail {
+        right: 0px;
+    }
+}
+
+// ===============================================================
+// ========================  MENU  =============================== 
+// ===============================================================
+// sub-logo
+.sub-logo {
+    padding: 30px 0;
+}
+
+// sub-menu-back
+.sub-menu-back {
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: #fff;
+    background: $color-black;
+    font-family: $pri-condensed;
+    font-size: 20px;
+    @include box-shadow($sha-style-1);
+}
+
+// menu-position
+.menu-position {
+    ul {
+        // padding: 15px 0;
+        a {
+            padding: 5px 15px;
+            i {
+                margin-right: 10px;
+                line-height: 50px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+nav {
+    ul {
+        li {
+            // hover sub menu
+            &:hover {
+                .sub-menu {
+                    top: 80px;
+                    // == display: block
+                    visibility: visible;
+                    @include opacity(1);
+                    // == display: block
+                }
+            }
+            &.menu-position {
+                position: relative;
+            }
+        }
+    }
+}
+
+// sub-menu
+.sub-menu {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 240px;
+    z-index: 99;
+    text-align: left;
+    background: rgba(255, 255, 255, 1);
+    // == display: none
+    visibility: hidden;
+    @include opacity(0);
+    // == display: none
+    @include transition(All .2s linear);
+    @include box-shadow($sha-style-1);
+    ul {
+        li {
+            a {
+                // line-height: 25px;
+                line-height: 50px;
+                display: block;
+                font-family: $pri-condensed;
+                font-size: 22px;
+                border-bottom: $color-grayline solid 1px;
+            }
+            &:last-child {
+                a {
+                    border-bottom: none;
+                }
+            }
+            // hover sub sub menu
+            &:hover {
+                .sub-sub-menu {
+                    left: 240px;
+                    // == display: block
+                    visibility: visible;
+                    @include opacity(1);
+                    // == display: block
+                }
+            }
+        }
+    }
+}
+
+// sub-sub-menu
+.sub-sub-menu {
+    position: absolute;
+    top: 10px;
+    left: 280px;
+    width: 240px;
+    z-index: 99;
+    background: rgba(255, 255, 255, 1);
+    // == display: none
+    visibility: hidden;
+    @include opacity(0);
+    // == display: none
+    @include transition(All .2s linear);
+    @include box-shadow($sha-style-1);
+}
+
+// ======================== RESPONSIVE MENU ============
+@media screen and (max-width:$small-width - 1px) {
+    // parent-nav
+    .parent-nav {
+        width: 30px;
+        height: 50px;
+        line-height: 50px;
+        background: rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 15px;
+        cursor: pointer;
+        text-align: center;
+        color: #fff;
+        &:hover {
+            color: $color-brown;
+        }
+        &:before {
+            content: "\f105";
+            font-family: FontAwesome;
+        }
+    }
+    // menu-position
+    .menu-position {
+        ul {
+            padding: 0 15px
+        }
+    }
+    nav {
+        ul {
+            li {
+                // turn off hover sub-menu
+                &:hover {
+                    .sub-menu {
+                        top: 0;
+                        visibility: hidden;
+                        @include opacity(0);
+                    }
+                }
+            }
+        }
+    }
+    // sub-menu
+    .sub-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        overflow-x: hidden;
+        // turn on hover sub-menu
+        background: white;
+        &.open {
+            width: 245px;
+            // display: block !important;
+            visibility: visible !important;
+            @include opacity-im(1);
+        }
+        ul {
+            li {
+                position: relative;
+                a {
+                    padding: 0;
+                }
+                // turn off hover sub-sub-menu
+                &:hover {
+                    .sub-sub-menu {
+                        left: 0;
+                        visibility: hidden;
+                        @include opacity(0);
+                    }
+                }
+            }
+        }
+    }
+    // sub-sub-menu
+    .sub-sub-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: white;
+        overflow-x: hidden;
+        // turn on hover sub-sub-menu
+        &.open {
+            width: 230px;
+            // display: block !important;
+            visibility: visible !important;
+            @include opacity-im(1);
+        }
+    }
+}
+
+// ===============================================================
+// ========================  FORM  =============================== 
+// ===============================================================
+.mt-form {
+    .panel-title {
+        font-family: $pri-regular;
+        font-size: 28px;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+    label {
+        font-weight: normal;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+}
+
+.checkbox {
+    label {
+        &:before {
+            margin-left: 0;
+        }
+    }
+}
+
+// ===============================================================
+// ========================  INDEX MENU  =========================
+// ===============================================================
+.index-menu {
+    padding: 40px 0;
+    h3 {
+        margin: 30px 0;
+    }
+    ul {
+        padding: 0px 30px;
+        li {
+            list-style: square;
+            a {
+                line-height: 30px;
+                text-transform: uppercase;
+                &:hover {
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+// ==========================================================
+// ========================  Wishlist   =====================
+// ==========================================================
+.remove-wishlist {
+    line-height: 40px;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    background-color: #fff;
+    a {
+        padding: 5px 15px;
+        background-color: #000;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #fff;
+        &:hover {
+            background-color: $color-brown;
+        }
+    }
+    i {
+        margin-right: 5px;
+    }
+}
+
+// ==========================================================
+// ========================  Slider detail product   ========
+// ==========================================================
+#larimg .item {
+    margin: 5px;
+}
+
+#thumimg {
+    position: relative;
+    .item {
+        margin: 5px;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+    .active {
+        &.center {
+            .item {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.alert {
+    background-color: $color-brown !important;
+    color: #fff !important;
+}
+
+// ==========================================================
+// ========================  Account  =======================
+// ==========================================================
+.mt-account {
+    .account-summary {
+        @include border-radius(0);
+        background: transparent;
+        dt {
+            font-family: $pri-regular;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+        dd {
+            a {
+                color: $color-brown;
+            }
+        }
+    }
+    .account-my-orders {
+        h3 {
+            font-family: $pri-regular;
+        }
+    }
+}
+
+.mt-status {
+    padding: 15px 0;
+    p {
+        font-size: 24px;
+    }
+    i {
+        margin-right: 5px;
+    }
+}
+div.rating-cancel{
+    display: none !important;
+}
+.contact label.error{
+    border:none;
+    color: #c10000;
+    font-weight: 400 !important;
+}
+.contact input.error{
+    color: #c10000;
+}
+
+#btn-search-wishlist{
+    padding:7px 20px;
+    margin-top: 25px;
+}
+#wishlist-box{
+    margin-top: 10px;
+}
+ul.pagination{
+   li.active a{
+       background-color: #ffffff;
+       color: #333;
+       border: 1px solid #ececec;
+       &:hover{
+           background-color:#fff;
+           border:1px solid #ececec;
+           color: #333;
+       }
+   }
+}
+.margin-top-30{
+    margin-top: 30px;
+}

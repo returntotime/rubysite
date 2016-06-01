@@ -1,0 +1,23 @@
+<nav>
+  <ul>
+    <li class="hidden visible-xs">
+      <div class="sub-logo">
+        <%= link_to root_path do %>
+            <% image_url = Spree::Store.first.image_url %>
+            <% if image_url == "" %>
+                <%= image_tag "logo-dark.png",height: "65", width: "133" , :class => "img-responsive" %>
+            <% else %>
+                <%= image_tag image_url, height: "65", width: "133",:class => "img-responsive" %>
+            <% end %>
+        <% end %>
+      </div>
+    </li>
+    <!--<li> <a href="#Home">Home</a> </li>-->
+    <!-- no-full-width-menu -->
+    <% if @menu_bar.present? %>
+    <% @menu_bar.menus.menu_parents.visible.includes(:children).order(:position).limit(11).each do |menu| %>
+          <%= display_menu(menu).html_safe %>
+    <% end %>
+    <% end %>
+  </ul>
+</nav>

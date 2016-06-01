@@ -1,0 +1,5 @@
+<% if can? :admin, Spree::Page %>
+  <ul class="nav nav-sidebar" id="page_admin_menu">
+    <%= tab Spree::Page, url: admin_admin_license_agreements_index_path, icon: 'info-sign', label: "License Agreement" %>
+  </ul>
+<% end %>

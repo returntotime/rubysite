@@ -1,0 +1,47 @@
+- if @menu.sequence.blank?
+  = form.hidden_field :sequence, :class => "sequence", :value => @sequence
+
+= form.field_container :link_text do
+  = form.label :link_text, t('spree.admin.menus.link_text')
+  %span.required
+  %br
+  = form.text_field :link_text, :class => "form-control"
+  = error_message_on :menu, :link_text
+  %br
+= form.field_container :url do
+  = form.label :url, t('spree.admin.menus.url')
+  %span.required
+  %br
+  = form.text_field :url, :class => "form-control"
+  -# %em= t("spree.admin.menus.explain_url")
+  = error_message_on :menu, :url
+
+-# %h3 Opcjonalnie
+- if Spree::Menu.all.count > 0 #and false#turn off for futher improvement
+  %br
+  = form.field_container :parent_id do
+    = form.label :parent_id, t('spree.admin.menus.parent_id')
+    %br
+    - parents_collection = Spree::Menu.where(:menu_bar_id => @menu_bar.id)
+    - if @menu.id.present?
+      - parents_collection = parents_collection.where("id <> ?", @menu.id)
+    = collection_select(:menu,:parent_id, parents_collection.all, :id, :link_text, {:include_blank => t("spree.admin.menus.select_parent")}, {class: "select2"})
+    -# %em= t("spree.admin.menus.explain_parent_id")
+    = error_message_on :menu, :parent_id
+  %br
+  = form.field_container :taxon_id, class: ['form-group'] do
+    = form.label :taxon_id, "Taxon"
+    - if can? :modify, Spree::Taxon
+      = form.hidden_field :taxon_id
+
+= form.field_container :position do
+  = form.label :position, "Position"
+  %br
+  = form.text_field :position, :class => "form-control"
+  %br
+
+= form.field_container :visible do
+  = form.check_box :visible, :class => "text"
+  = form.label :visible
+  = error_message_on :menu, :visible
+%br

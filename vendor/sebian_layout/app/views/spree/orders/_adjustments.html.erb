@@ -1,0 +1,28 @@
+<% if @order.line_item_adjustments.exists? %>
+  <% @order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+    <%= render "spree/orders/adjustment_row", :label => label, :adjustments => adjustments, :type => Spree.t(:promotion) %>
+  <% end %>
+<% end %>
+
+<% @order.all_adjustments.nonzero.tax.eligible.group_by(&:label).each do |label, adjustments| %>
+  <%= render "spree/orders/adjustment_row", :label => label, :adjustments => adjustments, :type => Spree.t(:tax) %>
+<% end %>
+
+<% if @order.passed_checkout_step?("delivery") && @order.shipments.any? %>
+  <% @order.shipments.each do |shipment| %>
+    <div><span><%= shipment.shipping_method.name %>: <%= format_price(shipment.display_discounted_cost) %></span></div>
+  <% end %>
+  <% if @order.shipment_adjustments.nonzero.exists? %>
+    <% @order.shipment_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+      <div><span><%= label %>: <%= format_price(Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency)) %></span></div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if @order.adjustments.nonzero.eligible.exists? %>
+  <% @order.adjustments.nonzero.eligible.group_by(&:label).each do |label, adjustments| %>
+    <%= render "spree/orders/adjustment_row", :label => label, :adjustments => adjustments, :type => Spree.t(:adjustment) %>
+  <% end %>
+<% end %>
+
+

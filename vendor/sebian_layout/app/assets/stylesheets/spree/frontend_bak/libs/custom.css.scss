@@ -1,0 +1,163 @@
+/*------------------------------------------------------------------
+    ADD YOUR OWN STYLING HERE AVOID TO USE STYLE.CSS AND MAIN.CSS
+	
+	IT WILL BE HELPFUL FOR YOU IN FUTURE UPDATES
+-------------------------------------------------------------------*/
+.padding-10{  padding: 10px;  }
+.padding-20{  padding: 20px;  }
+.error{color: #E05757;}
+.main-color{color: #af5875;}
+/*-----HEADER-----*/
+header nav li a:hover, header nav li.active a{
+    color: #af5875;
+}
+/*-----PRODUCT SHOW-----*/
+
+.item-detail-page .out-stock i {
+    color: #E05757;
+}
+.item-decribe{
+    margin-top: 10px;
+}
+#product-variants{
+    display: none;
+}
+#product-images .panel-default{
+    border: none;
+    border-color: #ffffff;
+}
+#main-image{
+    img{
+        width: 100%;
+    }
+}
+#product-thumbnails{
+    text-align: center !important;
+    li.thumb-image{
+        width: 19%;
+        margin-bottom: 5px;
+        img{
+            width: 100%;
+        }
+    }
+    img.thumbnail{
+        border-radius: 0;
+        border: 1px solid rgba(204, 204, 204, 0.67);
+    }
+    img.active{
+        border: 1px solid #af5875;
+    }
+}
+/*------PRODUCT ITEM----*/
+.product-image-container{
+    text-align: center;
+    height: 320px;
+    line-height: 320px;
+}
+/*-----IN THIS LOOK---*/
+.inthelook-img-wraper{
+    height: 304px;
+    line-height: 304px;
+    text-align: center;
+    img{
+        max-width: 100%;
+        height: 304px;
+    }
+}
+/*------CHECKOUT------*/
+
+#credit-card-image {
+    width: auto;
+}
+
+#shipping_address_modal,
+#password_form {
+    .modal-footer {
+        border-top: none;
+    }
+    .modal-content {
+        border: 4px solid #773c50;
+        border-radius: 0px !important;
+    }
+}
+
+#checkout_form {
+    .error {
+        color: #E05757;
+        font-weight: 400
+    }
+}
+.truncate{
+    word-wrap: break-word;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*------CART------*/
+.chart-page .payment_steps .current i, .chart-page .payment_steps .current a{
+    color: #af5875;
+}
+/*------CUSTOM------*/
+
+.clear {
+    clear: both;
+}
+
+.btn {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.no-margin {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.top-margin {
+    margin-top: 15px;
+}
+
+.bottom-padding {
+    padding-bottom: 10px;
+}
+
+.shopping-cart {
+    .order-place {
+        .pay-meth {
+            ul {
+                li {
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+}
+
+.required {
+    color: #af5875;
+}
+
+.link-ct {
+    font-size: 10px !important;
+}
+
+.panel {
+    border-radius: 0px;
+}
+
+.panel-custum {
+    border: #333333 solid 1px;
+    .panel-heading {
+        background: #333333;
+        color: white;
+        border-radius: 0px;
+    }
+}
+//------CONTACT FORM
+#contact_form{
+    label.error{
+        border: none !important;
+        font-weight: 400;
+    }
+}

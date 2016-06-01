@@ -1,0 +1,30 @@
+<header data-hook>
+    <%= render :partial => 'spree/shared/topbar' %>
+    <div class="container">
+        <div class="logo">
+            <%= link_to root_path do %>
+              <% image_url = Spree::Store.first.image_url %>
+              <% if image_url == "" %>
+                  <%= image_tag "logo-dark.png", :class => "img-responsive" %>
+              <% else %>
+                  <%= image_tag image_url, :class => "img-responsive" %>
+              <% end %>
+            <% end %>
+        </div>
+    </div>
+    <!--<div class="sticky">-->
+    <!--<div id="fix-nav" class="bg-nav">-->
+        <!--<div class="container">-->
+            <!--<%#= render :partial => 'spree/shared/main_nav_bar' if store_menu? %>-->
+        <!--</div>-->
+    <!--</div>-->
+
+  <div id="fix-nav">
+    <div class="navbar-header" id="fix-navbar-header">
+      <%= render :partial => "spree/shared/header_search" %>
+    </div>
+    <div class="navbar-index side-collapse in" id="fix-nav">
+      <%= render :partial => 'spree/shared/main_nav_bar' if store_menu? %>
+    </div>
+  </div>
+</header>

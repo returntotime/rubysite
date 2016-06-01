@@ -1,0 +1,32 @@
+<% archive_title = t("date.month_names")[params[:month].to_i] unless params[:month].blank? %>
+<% archive_title = (archive_title.nil? ? '' : archive_title) + ' ' + params[:year].to_s %>
+<%= render :partial=>"spree/shared/blog_sub_title", :locals=>{:title => archive_title, :breadcrumb_collect => {blog_path => "Blog", blog_archive_path => "Archive", ""=> archive_title}} %>
+<section class="section-p-30px blog-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 animate fadeInLeft" data-wow-delay="0.4s">
+        <div class="side-bar">
+
+          <%= render :partial => "blog_search_form" %>
+
+          <%= render :partial => "categories_list" %>
+
+          <%= render :partial => "lastest_post" %>
+
+          <%= render :partial => 'news_archive'%>
+
+          <%= render :partial => 'product_tags'%>
+
+        </div>
+      </div>
+
+      <div class="col-sm-9 animate fadeInRight" data-wow-delay="0.4s">
+        <div class="blog-posts">
+          <%= render :partial => "blog_entries" %>
+        </div>
+        <!--======= PAGINATION =========-->
+        <%= paginate @blog_entries, theme: 'twitter-bootstrap-3' %>
+      </div>
+    </div>
+  </div>
+</section>

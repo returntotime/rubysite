@@ -1,0 +1,136 @@
+<% content_for :page_title do %>
+  Newsletter Popup Settings
+<% end %>
+
+<%= form_tag admin_newsletters_path, method: :put, multipart: true do %>
+  <div id="preferences" data-hook>
+
+    <fieldset class="general no-border-top">
+
+      <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= label_tag :newsletter_type, "Type" %>
+              <%= select_tag :newsletter_type, newsletter_types %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= label_tag :newsletter_animation, "Animation" %>
+              <%= select_tag :newsletter_animation, newsletter_animations %>
+            </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <% SebianLayoutConstant::NEWSLETTER_SETTING_KEYS.each do |key| %>
+          <div class="col-md-6">
+            <div class="form-group">
+              <% type = Spree::Config.preference_type(key) %>
+              <%= label_tag key do %>
+                <%= Spree.t(key) %>
+                <%= key == :newsletter_delay ? "(second)" : "" %>
+              <% end %>
+              <%= preference_field_tag(key, Spree::Config[key], type: type) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <% type = Spree::Config.preference_type(:enable_newsletter_popup) %>
+            <%= label_tag :enable_newsletter_popup do %>
+              <%= Spree.t(:enable_newsletter_popup) %>
+            <% end %>
+            <%= preference_field_tag(:enable_newsletter_popup, Spree::Config[:enable_newsletter_popup], type: type) %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <% type = Spree::Config.preference_type(:mailchimp_enabled) %>
+            <%= label_tag :mailchimp_enabled do %>
+                Enable MailChimp
+            <% end %>
+            <%= preference_field_tag(:mailchimp_enabled, Spree::Config[:mailchimp_enabled], type: type) %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <h3 class="col-sm-12">
+          Mailchimp
+        </h3>
+      </div>
+
+      <div class="row">
+        <% SebianLayoutConstant::MAILCHIMP_SETTING_KEYS.each do |key| %>
+          <div class="col-md-6">
+            <div class="form-group">
+              <% type = Spree::Config.preference_type(key) %>
+              <%= label_tag key do %>
+                <%= Spree.t(key) %>
+              <% end %>
+              <%= preference_field_tag(key, Spree::Config[key], type: type) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <h3>
+            Constant Contact
+            <%= Spree::Config[:constant_contact_access_token].present? ? " (Access token: #{Spree::Config[:constant_contact_access_token]})" : "" %>
+            <a class="btn btn-primary" href="<%= auth_admin_newsletters_path %>">Oauth</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <% SebianLayoutConstant::CONSTANT_CONTACT_SETTING_KEYS.each do |key| %>
+          <div class="col-md-6">
+            <div class="form-group">
+              <% type = Spree::Config.preference_type(key) %>
+              <%= label_tag key do %>
+                <%= Spree.t(key) %>
+              <% end %>
+              <%= preference_field_tag(key, Spree::Config[key], type: type) %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+
+      <% if @lists.present? %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>List ID</th>
+              <th>List Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @lists.each do |list| %>
+              <tr>
+                <td><%= list.id  %></td>
+                <td><%= list.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+
+      <div class="form-actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'save' %>
+      </div>
+    </fieldset>
+  </div>
+<% end %>
+
+<script>
+  $('#newsletter_type').select2();
+  $('#newsletter_animation').select2();
+</script>

@@ -1,0 +1,43 @@
+<% effect = (effect.present?) ? effect : false %>
+<% products.each do |product| %>
+    <% url = spree.product_url(product, taxon_id: @taxon.try(:id)) %>
+    <li class="col-sm-3 <%= (effect == true) ? ' animate fadeIn' : '' %>" <%= (effect == true) ? 'data-wow-delay="0.2s"' : '' %> >
+      <div class="items-in">
+        <!-- Image -->
+        <div class="box-img">
+            <%= large_image(product, itemprop: "image", alt: product.name) %>
+        </div>
+        <!-- Hover Details -->
+        <a href="<%= url %>"> 
+          <div class="over-item">
+            <ul class="animated fadeIn">
+              <% if product.master.can_supply? %>
+              <li class="full-w">
+                <%= form_for :order, :url => populate_orders_path do |f| %>
+                  <%= hidden_field_tag "variant_id", product.master.id %>
+                  <%= hidden_field_tag "quantity", 1 %>
+                  <%= button_tag "ADD TO CART", :class => "btn",data: { disable_with: "Please wait..." } %>
+                <% end %>
+              </li>
+              <% end %>
+              <!-- Rating Stars -->
+              <%#= review_avg(product) %>
+            </ul>
+          </div>
+        </a>
+        <!-- Item Name -->
+        <div class="details-sec">
+          <%= link_to truncate(product.name, :length => 38), url %>
+          <span class="font-montserrat"><%= format_price(product, current_currency) %></span>
+        </div>
+
+        <% if spree_current_user.present? && (@wishlist.present? && @wishlist.user_id.present? && @wishlist.user_id == spree_current_user.id) %>
+          <%- if local_assigns.has_key? :wished_products %>
+            <div class="remove-wishlist">
+              <%= link_to 'Remove', wished_products.select {|x| x.variant.product.id == product.id }.first, method: :delete, class: 'btn btn-danger fa fa-times' %>
+            </div>
+          <%- end %>
+        <% end %>
+      </div>
+    </li>
+<% end %>

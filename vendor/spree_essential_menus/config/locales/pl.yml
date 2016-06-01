@@ -1,0 +1,37 @@
+pl:
+  menus: Menu
+  menu_bars: Paski menu
+  menu_images: Obrazki menu
+    
+  spree:
+    admin:
+      menus:
+        index:
+          listing_menus: Menu na stronie
+          static_path: Ścieżka statyczna
+        new_menu: "Nowy element menu"
+        edit_menu: "Edytuj menu"
+        list_of_menus: "Lista elementów menu"
+        link_text: "Etykieta w menu"
+        url: "Ścieżka"
+        explain_url: "Jeśli wybierasz stronę statyczną, uzupełni się automatycznie. W przeciwnym razie - wpisz adres."
+        visible: "Widoczny w menu?"
+        explain_visible: "Jeśli zaznaczony, element pojawi się w menu"
+        parent_id: "Element nadrzędny"
+        explain_parent_id: "Wybierz element, pod którym ma znaleźć się ta pozycja."
+        select_parent: "Wybierz element nadrzędny"
+        menu_bar_id: "Wybierz pasek menu"
+        select_menu_bar_id: "Wybierz docelową pozycję z listy"
+        explain_menu_bar_id: "Wybierz pasek, na którym znajdzie się element"
+        page_id: "Strona statyczna"
+        select_page_id: "Wybierz stronę statyczną"
+        explain_page_id: "Wybierz stronę statyczną, do której odnosi się pozycja"
+        sequence: "Kolejność"
+        menu_image: "Obrazek"
+      menu_bars:
+        list_of_menu_bars: "Lista pasków menu"
+        editing_menu_bar: "Edycja paska"
+        new_menu_bar: "Nowy pasek menu"
+        name: "Nazwa"
+        description: "Krótki opis"
+        css_class: "Klasa CSS"

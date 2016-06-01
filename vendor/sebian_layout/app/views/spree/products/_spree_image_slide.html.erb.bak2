@@ -1,0 +1,79 @@
+<div class="col-sm-6 large-detail animate fadeInLeft" data-wow-delay="0.4s">
+  <% if (@product.images + @product.variant_images).uniq.size > 1 %>
+      <div class="slider slider-for">
+        <% product_index = 0 %>
+        <% @product.images.each_with_index do |img, index| %>
+            <div>
+              <a class="fancybox-thumb" rel="fancybox-thumb" href="<%= img.attachment.url(:original)%>" title="<%= @product.name %>">
+                <img class="img-responsive zoom<%= index %>" src="<%= img.attachment.url(:large)%>" data-zoom-image="<%= img.attachment.url(:original)%>">
+              </a>
+            </div>
+            <% product_index = index %>
+        <% end %>
+        <% if @product.images.count > 0 %>
+            <% product_index += 1 %>
+        <% end %>
+        <% if @product.has_variants? %>
+            <% @product.variant_images.each do |img| %>
+                <% next if @product.images.include?(img) %>
+                <div>
+                  <a class="fancybox-thumb" rel="fancybox-thumb" href="<%= img.attachment.url(:original)%>" title="<%= @product.name %>">
+                    <img class="img-responsive zoom<%= product_index %>" src="<%= img.attachment.url(:large)%>" data-zoom-image="<%= img.attachment.url(:original)%>">
+                  </a>
+                </div>
+                <% product_index += 1 %>
+            <% end %>
+        <% end %>
+      </div>
+
+      <div class="slider slider-nav">
+        <% @product.images.each do |img| %>
+            <div class="img-product-thumb">
+              <img class="img-responsive variant_thumb_<%= img.viewable_id %>" data-variant="<%= img.viewable_id %>" src="<%= img.attachment.url(:small)%>">
+            </div>
+        <% end %>
+        <% if @product.has_variants? %>
+            <% @product.variant_images.each do |img| %>
+                <% next if @product.images.include?(img) %>
+                <div class="img-variant-thumb">
+                  <img class="img-responsive variant_thumb_<%= img.viewable_id %>" data-variant="<%= img.viewable_id %>" src="<%= img.attachment.url(:small)%>">
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+  <% else %>
+        <%= large_image(@product, :class => "img-responsive zoom0") %>
+  <% end %>
+</div>
+
+
+<script type="text/javascript">
+  window.variant_images = [];
+  <% @product.variants.each do |variant| %>
+    <% variant.images.each do |image| %>
+      var values = {
+        variant_id: '<%= variant.id %>',
+        original_image: '<%= image.attachment.url(:original) %>',
+        large_image: '<%= image.attachment.url(:large) %>',
+        small_image: '<%= image.attachment.url(:small) %>'
+      };
+      window.variant_images.push(values);
+    <% end %>
+  <% end %>
+
+  window.product_images = [];
+      <% @product.images.each do |image| %>
+      var values = {
+          variant_id: '<%= image.viewable_id %>',
+          original_image: '<%= image.attachment.url(:original) %>',
+          large_image: '<%= image.attachment.url(:large) %>',
+          small_image: '<%= image.attachment.url(:small) %>'
+      };
+      window.product_images.push(values);
+      <% end %>
+
+  window.no_product_image = {
+      large_image: '<%= image_path "noimage/large.png" %>',
+  }
+
+</script>

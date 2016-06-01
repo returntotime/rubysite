@@ -1,0 +1,139 @@
+<nav>
+  <ul id="ownmenu" class="ownmenu">
+    <% if @menu_bar.present? %>
+        <% @menu_bar.menus.limit(8).each do |menu| %>
+          <li class="<%#= controller_name == "home" ? "active" : "" %>"><a href="<%= menu.url %>"><%= menu.link_text %></a></li>
+        <% end %>
+    <% end %>
+    <!--<li class="<%#= controller_name == "home" ? 'active' : "" %>"><%#= link_to "HOME",root_path %>
+    </li>-->
+    <!--<%# if Spree::Page.by_store(current_store).visible.sidebar_links.any? %>-->
+        <!--<li class="<%#= controller_name == "static_content" ? 'active' : "" %>"><a>PAGES</a>-->
+          <!--<ul class="dropdown">-->
+            <!--<%#= render partial: 'spree/static_content/static_content_list', collection: Spree::Page.visible.sidebar_links, as: :page %>-->
+          <!--</ul>-->
+        <!--</li>-->
+    <!--<%# end %>-->
+    <!--<li class="<%#= controller_name == "products" ? "active" : "" %>"><a href="<%#= products_path %>">SHOP</a>-->
+      <!--======= MEGA MENU =========-->
+      <%# if @main_nav_taxonomies.present? %>
+          <!--<div class="megamenu full-width">-->
+            <!--<div class="row nav-post">-->
+              <!--<%# col = (@main_nav_taxonomies.count < 4) ? (12 / @main_nav_taxonomies.count) : 3 %>-->
+              <!--<%# @main_nav_taxonomies.each do |taxonomy| %>-->
+                  <!--<div class="col-sm-<%#= col %>">-->
+                    <!--<h6><%#= taxonomy.name %></h6>-->
+                    <!--<%# if taxonomy.taxons.present? %>-->
+                        <!--<ul>-->
+                          <!--<%# taxonomy.taxons.each do |taxon| %>-->
+                              <!--<li><%#= link_to taxon.name, seo_url(taxon) %></li>-->
+                          <!--<%# end %>-->
+                        <!--</ul>-->
+                    <!--<%# end %>-->
+                  <!--</div>-->
+              <!--<%# end %>-->
+            <!--</div>-->
+          <!--</div>-->
+      <%# end %>
+    <!--</li>-->
+    <!--<li><a href="index.html">LOOKBOOK</a>-->
+      <!--&lt;!&ndash;======= MEGA MENU =========&ndash;&gt;-->
+      <!--<div class="megamenu full-width look-book">-->
+        <!--<div class="row nav-post">-->
+          <!--<div class="col-sm-2">-->
+            <!--<h6>Shop</h6>-->
+            <!--<ul>-->
+              <!--<li><a href="#."> MEN’S</a></li>-->
+              <!--<li><a href="#."> WOMAN</a></li>-->
+              <!--<li><a href="#."> KID’S</a></li>-->
+              <!--<li><a href="#."> BAGS & SHOES</a></li>-->
+              <!--<li><a href="#."> SEASONAL</a></li>-->
+              <!--<li><a href="#."> LOOKBOOK</a></li>-->
+              <!--<li><a href="#."> </a></li>-->
+            <!--</ul>-->
+          <!--</div>-->
+          <!--<div class="col-sm-5">-->
+            <!--<div class="media">-->
+              <!--<div class="media-left">-->
+                <!--<div class="nav-img"> <a href="#"> <%#= image_tag "nav-img-1.jpg", :class=>'media-object img-responsive' %></a> </div>-->
+              <!--</div>-->
+              <!--<div class="media-body">-->
+                <!--<h6 class="media-heading">Oversized T-Shirt Dress</h6>-->
+                <!--<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium </p>-->
+                <!--<a href="#.">READ MORE</a> </div>-->
+            <!--</div>-->
+            <!--<div class="media">-->
+              <!--<div class="media-left">-->
+                <!--<div class="nav-img"> <a href="#"> <%#= image_tag "nav-img-4.jpg", :class=>'media-object img-responsive' %> </a> </div>-->
+              <!--</div>-->
+              <!--<div class="media-body">-->
+                <!--<h6 class="media-heading">Oversized T-Shirt Dress</h6>-->
+                <!--<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium </p>-->
+                <!--<a href="#.">READ MORE</a> </div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-sm-5">-->
+            <!--<div class="media">-->
+              <!--<div class="media-left">-->
+                <!--<div class="nav-img"> <a href="#"> <%#= image_tag "nav-img-2.jpg", :class=>'media-object img-responsive' %></a> </div>-->
+              <!--</div>-->
+              <!--<div class="media-body">-->
+                <!--<h6 class="media-heading">Oversized T-Shirt Dress</h6>-->
+                <!--<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium </p>-->
+                <!--<a href="#.">READ MORE</a> </div>-->
+            <!--</div>-->
+            <!--<div class="media">-->
+              <!--<div class="media-left">-->
+                <!--<div class="nav-img"> <a href="#"> <%#= image_tag "nav-img-3.jpg", :class=>'media-object img-responsive' %></a> </div>-->
+              <!--</div>-->
+              <!--<div class="media-body">-->
+                <!--<h6 class="media-heading">Oversized T-Shirt Dress</h6>-->
+                <!--<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium </p>-->
+                <!--<a href="#.">READ MORE</a> </div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</li>-->
+    <!--<li><a href="08-01-blog-mansory.html">BLOG</a>-->
+      <!--<ul class="dropdown">-->
+        <!--<li><a href="08-01-blog-mansory.html">Blog Mansory</a></li>-->
+        <!--<li><a href="08-02-blog-left-side-bar.html">Blog Left Side Bar</a></li>-->
+        <!--<li><a href="08-02-blog-right-side-bar.html">Blog Right Side Bar</a></li>-->
+        <!--<li><a href="08-04-blog-medium-image.html">Blog Medium Image</a></li>-->
+        <!--<li><a href="08-05-blog-large-images.html">Blog Large Images</a></li>-->
+        <!--<li><a href="08-06-blog-02-col.html">Blog 02 Col</a></li>-->
+        <!--<li><a href="08-07-blog-03-col.html">Blog 03 Col</a></li>-->
+        <!--<li><a href="08-08-blog-04-col.html">Blog 04 Col</a></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+    <!--<li><a href="09-01-portfolio-grid.html">PORTFOLIO </a>-->
+      <!--<ul class="dropdown">-->
+        <!--<li><a href="09-01-portfolio-grid.html">PORTFOLIO GRID </a>-->
+          <!--<ul class="dropdown">-->
+            <!--<li><a href="09-01-portfolio-grid.html">PORTFOLIO GRID 02 COL</a></li>-->
+            <!--<li><a href="09-02-portfolio-grid.html">PORTFOLIO GRID 03 COL</a></li>-->
+            <!--<li><a href="09-03-portfolio-grid.html">PORTFOLIO GRID 04 COL</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <!--<li><a href="09-01-portfolio-grid.html">PORTFOLIO Default </a>-->
+          <!--<ul class="dropdown">-->
+            <!--<li><a href="09-05-portfolio-grid-default.html">PORTFOLIO 02 COL</a></li>-->
+            <!--<li><a href="09-06-portfolio-grid-default.html">PORTFOLIO 03 COL</a></li>-->
+            <!--<li><a href="09-07-portfolio-grid-default.html">PORTFOLIO 04 COL</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <!--<li><a href="09-03-portfolio-full-width.html">PORTFOLIO FULLWIDTH</a></li>-->
+        <!--<li><a href="09-08-portfolio-masonry.html">PORTFOLIO MANSORY 01</a></li>-->
+        <!--<li><a href="09-09-portfolio-masonry.html">PORTFOLIO MANSORY 02</a></li>-->
+        <!--<li><a href="09-10-portfolio-single.html">Portfolio Single 01</a></li>-->
+        <!--<li><a href="09-11-portfolio-single.html">Portfolio Single 02</a></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+    <!--<li class="<%#= controller_name == "contacts" ? "active" : "" %>"><a href="<%#= contact_us_path %>">CONTACT</a></li>-->
+
+      <%= render :partial => "spree/shared/header_cart" %>
+      <!--======= SEARCH ICON =========-->
+      <%= render :partial => "spree/shared/header_search" %>
+    </ul>
+  </nav>

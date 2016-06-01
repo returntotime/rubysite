@@ -1,0 +1,61 @@
+<%= form_for @contact, :url => contacts_path, :html => {:id => "contact_form", :class => "contact-form" } do |f| %>
+    <div class="col-md-6">
+      <ul class="row">
+        <li class="col-sm-12">
+          <label><span>*YOUR NAME</span>
+            <%= f.text_field :name, class: 'required form-control', :id => "name" %>
+          </label>
+        </li>
+
+        <li class="col-sm-12">
+          <label><span>*EMAIL ADDRESS</span>
+            <%= f.email_field :email, class: 'required form-control email', :id => "email" %>
+          </label>
+        </li>
+
+
+      </ul>
+    </div>
+
+    <div class="col-md-6">
+      <ul class="row">
+        <li class="col-sm-12">
+           <label><span>SUBJECT</span>
+            <%= f.text_field :subject, class: 'form-control', :id => "website"%>
+          </label>
+
+        </li>
+         <li class="col-sm-12">
+          <label><span>WEBSITE</span>
+            <%= f.text_field :website, class: 'form-control', :id => "website" %>
+
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-12">
+       <ul class="row">
+        <li class="col-sm-12">
+          <label><span>*COMMENTS / QUESTIONS</span>
+            <%= f.text_area :message, class: 'required form-control', :id => "message", :rows => "5" %>
+          </label>
+        </li>
+        <!--<li class="col-sm-12">-->
+          <!--<p class="mt-text">WOULD YOU LIKE TO BE ADDED TO OUR NEWSLETTER TO RECIEVE UPDATES, SPECAILS AND EVENT INFORMATION?</p>-->
+          <!--<div class="mt-input">-->
+              <!--<div class="checkbox">-->
+                  <!--<input name ="subcribe" id="checkbox3-1" class="styled" type="checkbox" value="1">-->
+                  <!--<label for="checkbox3-1"> YES </label>-->
+              <!--</div>-->
+              <!--<div class="checkbox">-->
+                  <!--<input name ="subcribe" id="checkbox3-2" class="styled" type="checkbox" value="0">-->
+                  <!--<label for="checkbox3-2"> NO </label>-->
+              <!--</div>-->
+          <!--</div>-->
+        <!--</li>-->
+        <li class="col-sm-12 no-margin">
+          <button type="submit" value="submit" class="btn" id="btn_submit">SEND MESSAGE</button>
+        </li>
+       </ul>
+    </div>
+<% end %>

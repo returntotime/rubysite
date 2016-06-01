@@ -1,0 +1,38 @@
+@import "compass/reset";
+@import "compass/css3";
+
+@import "libs/bootstrap.min";
+@import "libs/animate";
+@import "libs/font-awesome.min";
+@import "libs/revolution_slider";
+@import "libs/slick";
+@import "libs/subscribe-better";
+@import "libs/jquery.fancybox";
+@import "libs/jquery.fancybox-thumbs";
+// @import "font-awesome";
+
+@import "components/variable";
+@import "main";
+@import "default";
+@import "responsive";
+@import "custom";
+@import "custom_tmp";
+@import "headers";
+@import "products";
+@import "paypal";
+
+form#update-cart select.selectpicker,
+form#checkout_form_address select.selectpicker{
+  display: none !important;
+}
+
+#checkout_form_address div.error,
+#checkout_form_payment label.error{
+  color: rgba(200, 0, 0, 0.71) !important;
+}
+
+#payment-methods #paypal_button{
+  display: none;
+}
+
+

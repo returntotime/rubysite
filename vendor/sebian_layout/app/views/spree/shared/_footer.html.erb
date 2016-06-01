@@ -1,0 +1,83 @@
+<% show_intagram_footer = Spree::Config[:show_instagram_photos_footer] %>
+<% col = (show_intagram_footer) ? '3' : '4' %>
+<!--======= Footer =========-->
+<footer>
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="text-center">
+        <%= link_to root_path do %>
+            <% footer_logo_url = Spree::Store.first.footer_logo_url %>
+            <% unless footer_logo_url == "" %>
+                <%= image_tag footer_logo_url, :class => "img-responsive" %>
+            <% end %>
+        <% end %><br>
+        <%#= image_tag "hammer.png", :class => "margin-t-40" %>
+        <p class="intro-small margin-t-40"><%= Spree::Config[:footer_tagline] %></p>
+      </div>
+      <!--  Footer Links -->
+      <div class="footer-link row">
+        <div class="col-md-12">
+          <ul>
+            <!--  INFOMATION -->
+            <li class="col-sm-<%= col %>">
+              <h5><%= Spree::Config[:title_footer_column_1] %></h5>
+              <ul class="f-links">
+                <% if Spree::Page.by_store(current_store).visible.footer_links.any? %>
+                    <%= render partial: 'spree/static_content/static_content_list', collection: Spree::Page.visible.footer_links, as: :page %>
+                <% end %>
+              </ul>
+            </li>
+            <!-- MY ACCOUNT -->
+            <li class="col-sm-<%= col %>">
+              <h5><%= Spree::Config[:title_footer_column_2] %></h5>
+              <ul class="f-links">
+                <% if spree_current_user %>
+                    <li><a href="<%= logout_path %>">LOGOUT</a></li>
+                    <li><a href="<%= account_path %>">MY ACCOUNT</a></li>
+                    <li><a href="<%= wishlists_path %>">MY WISHLISTS</a></li>
+                <% else %>
+                    <li><a href="<%= login_path %>">LOGIN</a></li>
+                    <li><a href="<%= signup_path %>">REGISTER</a></li>
+                <% end %>
+                <li><a href="<%= cart_path %>"> MY CART</a></li>
+                <li><a href="<%= checkout_path %>"> CHECKOUT</a></li>
+              </ul>
+            </li>
+            <li class="col-sm-<%= col %>">
+              <h5><%= Spree::Config[:title_footer_column_3] %></h5>
+              <p><%= @tweeter_post.text %></p>
+            </li>
+            <% if show_intagram_footer %>
+              <li class="col-sm-<%= col %>">
+                <h5>INSTAGRAM</h5>
+                <ul id="instafeed" class="flicker">
+
+                </ul>
+              </li>
+              <script type="text/javascript">
+                $(document).ready(function(){
+                  Spree.hanldeInstagramImagesFooter('<%= @instagram_client_id %>');
+                });
+              </script>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <!-- Rights -->
+      <div class="rights">
+        <p>
+          <%= Spree::Config[:copyright] %>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- GO TO TOP -->
+<div id="back-to-top" href="#" class="back-to-top" role="button" title="" data-toggle="tooltip" data-placement="left" style="display: block;">
+  <i class="fa fa-chevron-up"></i></div>
+<!-- GO TO TOP End -->
+
+<% if cookies["popup_shown"].blank? %>
+  <%= render "spree/shared/newsletter_popup" %>
+  <% cookies[:popup_shown] = { value: "1", expires: 24.hour.from_now } %>
+<% end %>

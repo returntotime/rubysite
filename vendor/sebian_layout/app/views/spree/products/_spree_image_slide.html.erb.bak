@@ -1,0 +1,32 @@
+<div class="col-sm-6 large-detail animate fadeInLeft" data-wow-delay="0.4s">
+  <% if (@product.images + @product.variant_images).uniq.size > 1 %>
+    <div class="slider slider-for">
+      <% @product.images.each do |img| %>
+        <div class="item"> <img class="img-responsive zoom_image" data-zoom="<%= img.attachment.url(:large)%>" data-zoom-image="<%= img.attachment.url(:large)%>" src="<%= img.attachment.url(:large)%>"></div>
+      <% end %>
+      <% if @product.has_variants? %>
+        <% @product.variant_images.each do |img| %>
+          <% next if @product.images.include?(img) %>
+          <div class="item"> <img class="img-responsive zoom_image" data-zoom="<%= img.attachment.url(:large)%>" data-zoom-image="<%= img.attachment.url(:large)%>" src="<%= img.attachment.url(:large)%>"></div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="slider slider-nav">
+      <% @product.images.each do |img| %>
+        <div class="item variant_image_<%= img.viewable_id %>">
+          <img class="img-responsive" src="<%= img.attachment.url(:small)%>">
+        </div>
+      <% end %>
+      <% if @product.has_variants? %>
+        <% @product.variant_images.each do |img| %>
+          <% next if @product.images.include?(img) %>
+          <div class="item variant_image_<%= img.viewable_id %>">
+            <img class="img-responsive" src="<%= img.attachment.url(:small)%>">
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <%= large_image(@product) %>
+  <% end %>
+</div>

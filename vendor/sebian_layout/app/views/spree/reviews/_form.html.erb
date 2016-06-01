@@ -1,0 +1,32 @@
+<%= form_for review, url: product_reviews_path(product), html: { method: :post, :id => "review-form", :class => "validateRating" } do |f| %>
+    <%= render 'spree/shared/error_messages', target: review %>
+    <ul class="row">
+      <li class="col-sm-6">
+        <label> *NAME
+          <%= f.text_field :name %>
+        </label>
+      </li>
+      <li class="col-sm-6">
+        <label> *EMAIL
+          <%= f.text_field :email %>
+        </label>
+      </li>
+      <li class="col-sm-12">
+        <label> *YOUR REVIEW
+          <%= f.text_area :review, wrap: 'virtual' %>
+        </label>
+      </li>
+      <li class="col-sm-6">
+        <!-- Rating Stars -->
+        <div class="stars">
+          <span>YOUR RATING</span>
+          <%= render 'spree/reviews/stars', stars: review.rating, edit_enabled: true %>
+        </div>
+      </li>
+      <li class="col-sm-6">
+        <%= button_tag :type => "submit", :class => "btn btn-dark btn-small pull-right no-margin" do %>
+            <%= Spree.t(:submit_your_review).upcase %>
+        <% end %>
+      </li>
+    </ul>
+<% end %>

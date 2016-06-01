@@ -1,0 +1,38 @@
+<ul class="row" id="billing">
+  <%= form.fields_for :bill_address do |bill_form| %>
+    <%= render :partial => 'spree/address/form', :locals => { :form => bill_form, :address_type => 'billing', :address => @order.bill_address } %>
+    <!--EMAIL ADDRESS-->
+    <% unless Spree::Auth::Config[:registration_step] and !current_spree_user %>
+      <li class="col-md-12">
+        <label> *EMAIL ADDRESS
+          <%= form.text_field :email, class: 'form-control' %>
+        </label>
+      </li>
+    <% end %>
+  <% end %>
+
+  <!-- CREATE AN ACCOUNT -->
+  <!--<li class="col-md-6">-->
+    <!--<div class="checkbox">-->
+      <!--<input id="checkbox1" class="styled" type="checkbox">-->
+      <!--<label for="checkbox1"> CREATE AN ACCOUNT ? </label>-->
+    <!--</div>-->
+  <!--</li>-->
+  <!-- SHIP TO BILLING ADDRESS -->
+  <li class="col-md-6">
+    <div class="checkbox">
+      <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address?, :class => 'styled' %>
+      <label for="order_use_billing"> SHIP TO BILLING ADDRESS? </label>
+    </div>
+  </li>
+</ul>
+
+<ul class="row" id="shipping">
+  <%= form.fields_for :ship_address do |ship_form| %>
+    <%= render :partial => 'spree/address/form', :locals => { :form => ship_form, :address_type => 'shipping', :address => @order.ship_address } %>
+  <% end %>
+</ul>
+
+<%#= submit_tag Spree.t(:save_and_continue), :class => 'btn btn-small btn-dark pull-right' %>
+
+

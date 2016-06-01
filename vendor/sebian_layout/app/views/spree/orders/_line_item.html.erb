@@ -1,0 +1,50 @@
+<%= order_form.fields_for :line_items, line_item do |item_form| %>
+    <% variant = line_item.variant %>
+    <ul class="row cart-details line-item">
+      <li class="col-sm-6">
+        <div class="media">
+          <!-- Media Image -->
+          <div class="media-left media-middle">
+            <%= link_to product_path(variant.product), :class => "item-img" do %>
+                <% if variant.images.length == 0 %>
+                    <%= link_to product_image(variant.product, :class => "media-object", :title => variant.name), variant.product %>
+                <% else %>
+                    <%= link_to image_tag(variant.images.first.attachment.url(:product), :class => "media-object", :title => variant.name), variant.product %>
+                <% end %>
+            <% end %>
+          </div>
+
+          <!-- Item Name -->
+          <div class="media-body">
+            <div class="position-center-center">
+              <h6 title="<%= variant.name %>"><%= truncate(variant.name.upcase,:length => 25) %></h6>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- QTY -->
+      <li class="col-sm-1">
+        <div class="position-center-center">
+          <%= item_form.text_field :quantity, min: 0, :class => "line_item_quantity" %>
+        </div>
+      </li>
+
+      <!-- PRICE -->
+      <li class="col-sm-2">
+        <div class="position-center-center"> <span><%= format_price(line_item.variant, current_currency) %></span> </div>
+      </li>
+      <!-- TOTAL PRICE -->
+      <li class="col-sm-2">
+        <div class="position-center-center"> <span><%= format_price(line_item.amount) unless line_item.quantity.nil? %></span> </div>
+      </li>
+
+      <!-- EDIT AND REMOVE -->
+      <li class="col-sm-1">
+        <div class="position-center-center" data-hook="cart_item_delete">
+          <!--a href="#."><i class="fa fa-pencil-square-o"></i> </a-->
+          <%= link_to content_tag(:i, '', class: 'fa fa-times'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}" %>
+        </div>
+      </li>
+    </ul>
+<% end %>

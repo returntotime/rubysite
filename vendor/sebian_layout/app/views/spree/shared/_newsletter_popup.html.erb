@@ -1,0 +1,18 @@
+<% if @body_id == "homepage" && Spree::Config[:enable_newsletter_popup] && @subscribing.blank? %>
+  <div class="subscribe-me">
+    <h2>Subscribe our Newsletter</h2>
+    <a href="#close" class="sb-close-btn">x</a>
+    <p>Subscribe to our mailing list to get updates to your email inbox</p>
+
+    <%= form_tag "/subscribe", method: 'post', remote: false do %>
+      <%= text_field_tag :email_subcribe, nil, :placeholder => "Email Address" %>
+      <input type="submit" value="Sign up">
+    <% end %>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      Spree.newsletter_popup("<%= Spree::Config[:newsletter_type] %>", "<%= Spree::Config[:newsletter_animation] %>", <%= Spree::Config[:newsletter_delay] * 1000 %>);
+    });
+  </script>
+<% end %>

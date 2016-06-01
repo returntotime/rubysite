@@ -1,0 +1,19 @@
+<div class="col-sm-6 large-detail animate fadeInLeft" data-wow-delay="0.4s">
+  <div class="images-slider flexslider">
+    <ul class="slides">
+      <% @product.images.each do |i| %>
+          <li data-thumb="<%= i.attachment.url %>" id="variant_thumb_<%= i.viewable_id %>" data-variant="<%= i.viewable_id %>">
+            <img class="img-responsive" src="<%= i.attachment.url %>" />
+          </li>
+      <% end %>
+      <% if @product.has_variants? %>
+          <% @product.variant_images.each do |i| %>
+              <% next if @product.images.include?(i) %>
+              <li data-thumb="<%= i.attachment.url %>" id="variant_thumb_<%= i.viewable_id %>" data-variant="<%= i.viewable_id %>">
+                <img class="img-responsive" src="<%= i.attachment.url %>" />
+              </li>
+          <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

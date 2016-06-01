@@ -1,0 +1,17 @@
+
+<% if @variants_with_option_values.any? && @product.can_supply? %>
+    <% selected_variant = @variants_with_option_values.first %>
+    <% if @product.option_types.count > 0 %>
+        <% @product.option_types.each_with_index do |option_type, index| %>
+            <div class="col-sm-12">
+              <div class="item-select">
+                <p>* <%= option_type.presentation.upcase %></p>
+                <% selected_option_value = selected_variant.option_values.find_by(option_type_id: option_type.id) %>
+                <% options_select = Spree::OptionValue.joins(:variants).where("spree_option_values.option_type_id = ? AND spree_variants.id IN (?) AND spree_variants.enabled = true AND spree_variants.out_of_stock = false", option_type.id, @variants_with_option_values.collect(&:id)).distinct("option_value_id").collect {|v| [ v.presentation.upcase, v.id ] } %>
+                <%= select("option", "option_#{option_type.id}",  options_select, options = { include_blank: true, :selected => (selected_option_value.present? ? selected_option_value.name : nil) }, html_options = { :class=> "selectpicker options", "data-position" => (index+1),"data-id" => option_type.id, "id" =>  "option_type_#{option_type.id}"}) %>
+              </div>
+            </div>
+        <% end %>
+    <% end %>
+    <div class="col-sm-12" id="option-types-error"></div>
+<% end %>

@@ -1,0 +1,11 @@
+<% breadcrumb_text = breadcrumb_text.nil? ? nil : breadcrumb_text %>
+<% breadcrumb_collect = breadcrumb_collect.nil? ? nil : breadcrumb_collect %>
+<section class="sub-banner animate fadeInUp" data-wow-delay="0.4s">
+  <div class="container">
+    <h4><%= title.upcase %></h4>
+    <!-- Breadcrumb -->
+    <% if Spree::Config[:show_breadcrumb_in_entire_blog] %>
+        <%= breadcrumbs(@taxon, @product, breadcrumb_text, breadcrumb_collect ) %>
+    <% end %>
+  </div>
+</section>

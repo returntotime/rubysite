@@ -1,0 +1,18 @@
+<section class="instagram">
+  <div class="container">
+    <!--  Tittle -->
+    <div class="tittle animate fadeInUp" data-wow-delay="0.4s">
+      <h5><%= Spree::Config[:instagram] %></h5>
+      <p><%= Spree::Config[:instagram_subtext] %></p>
+    </div>
+    <!--  Text Intro -->
+    <p class="intro text-center animate fadeInUp" data-wow-delay="0.4s"><%= Spree::Config[:instagram_tagline] %></p>
+    <div class="instagram-slide owl-theme" id="instafeed">
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      Spree.hanldeInstagramImages('<%= @instagram_client_id %>');
+    });
+  </script>
+</section>

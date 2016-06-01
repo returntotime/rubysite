@@ -1,0 +1,109 @@
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => Spree.t(:shopping_cart), :breadcrumb_text => Spree.t(:shopping_cart)} %>
+    <% if @order.line_items.empty? %>
+      <div class="text-center padding-20"><%= Spree.t(:your_cart_is_empty) %></div>
+    <% else %>
+    <section class="section-p-30px pages-in chart-page">
+    <div class="container" data-hook="outside_cart_form">
+      <%= render :partial => "spree/checkout/checkout_steps" %>
+      <div class="shopping-cart text-center" data-hook="inside_cart_form">
+        <%= form_for @order, url: update_cart_path, html: { id: 'update-cart' } do |order_form| %>
+            <%= render partial: 'form', locals: { order_form: order_form } %>
+          <div class="btn-sec" data-hook="cart_buttons">
+            <%= link_to products_path, :class => "btn btn-dark", :id => "btn_empty_cart" do %>
+                <i class="fa fa-trash-o"></i> <%= Spree.t(:clear_shopping_cart) %>
+            <% end %>
+
+            <%= button_tag class: 'btn btn-dark', id: 'update-button' do %>
+                <i class="glyphicon glyphicon-upload"></i>&nbsp;<%= Spree.t(:update_shopping_cart) %>
+            <% end %>
+
+            <%= link_to products_path, :class => "btn btn-dark right-btn" do %>
+                <i class="fa fa-shopping-cart"></i> <%= Spree.t(:continue_shopping).upcase %>
+            <% end %>
+          </div>
+
+        <!-- SHOPPING INFORMATION -->
+                <div class="cart-ship-info">
+                  <div class="row">
+                    <!-- DISCOUNT CODE -->
+                    <div class="col-sm-4">
+                      <h6>DISCOUNT CODE</h6>
+                        <%= order_form.text_field :coupon_code, :value => "", :size => 10, :placeholder => "ENTER YOUR CODE IF YOU HAVE ONE" %>
+                        <button type="submit" class="btn btn-small btn-dark">APPLY CODE</button>
+                    </div>
+                    <!-- ESTIMATE SHIPPING & TAX -->
+                    <%
+                       address = @order.ship_address
+                       if address.blank?
+                         address = @order.build_ship_address
+                         address.country_id = Spree::Country.find_by_iso("US").id
+                       end
+                    %>
+                    <div class="col-sm-4">
+                      <h6>ESTIMATE SHIPPING & TAX</h6>
+                      <%= order_form.fields_for :ship_address do |ship_form| %>
+                        <% address_id = "shipping".chars.first %>
+                        <!-- *COUNTRY -->
+                        <label> *COUNTRY
+                          <span id=<%="#{address_id}country"%>>
+                            <%= ship_form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'selectpicker'} %>
+                          </span>
+                        </label>
+
+                        <% if Spree::Config[:address_requires_state] %>
+                              <label> *STATE / PROVINCE
+                                <span id=<%="#{address_id}state"%>>
+                                  <% have_states = !address.country.states.empty? %>
+                                  <% state_elements = [
+                                          ship_form.collection_select(:state_id, address.country.states,
+                                                                      :id, :name,
+                                                                      {:include_blank => true},
+                                                                      {:class => have_states ? 'required selectpicker' : 'hidden',
+                                                                       :disabled => !have_states}) +
+                                                  ship_form.text_field(:state_name,
+                                                                       :class => !have_states ? 'required selectpicker' : 'hidden',
+                                                                       :disabled => have_states)
+                                  ].join.gsub('"', "'").gsub("\n", "")
+                                  %>
+                                   <%= javascript_tag do %>
+                                    $('#<%="#{address_id}state" %>').append("<%== state_elements %>");
+                                   <% end %>
+                                </span>
+                              </label>
+                              <noscript>
+                                <%= ship_form.text_field :state_name, :class => 'form-control required' %>
+                              </noscript>
+                            <!-- ZIP/POSTAL CODE -->
+                        <% end %>
+                          <label> ZIP/POSTAL CODE
+                            <%= ship_form.text_field :zipcode, :class => "#{'required' if address.require_zipcode?}", :placeholder => "" %>
+                          </label>
+                        <button type="submit" class="btn btn-small btn-dark" id="btn_estimate_shipping">Estimate Shipping</button>
+                      <% end %>
+                    </div>
+
+                    <!-- SUB TOTAL -->
+                    <div class="col-sm-4">
+                      <div class="grand-total">
+                        <span>SUB TOTAL: <%= format_price(order_form.object.item_total) %></span>
+                        <%= render "spree/orders/adjustments" %>
+
+                        <h4>TOTAL: <span> <%= format_price(order_form.object.total) %></span></h4>
+                        <%= button_tag class: 'btn', name: 'checkout' do %>
+                            <%= Spree.t(:processed_to_checkout).upcase %>
+                        <% end %>
+                        <p><%= Spree.t(:checkout_with_multiple_addresses) %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      <% end %>
+      </div>
+    </div>
+    <%= form_tag empty_cart_path, :id => "fempty_cart", method: :put do %>
+    <% end %>
+    <!--======= RELATED PRODUCTS =========-->
+    <%#= render :partial => "spree/shared/related_products" %>
+    </section>
+    <% end %>
+

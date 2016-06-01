@@ -1,0 +1,14 @@
+development: &development
+  app_key: 2edfe26418d721902879e0d466b443f2-us4
+  list_id: e067afa942
+
+test:
+  <<: *development
+
+staging:
+  app_key: 2edfe26418d721902879e0d466b443f2-us4
+  list_id: e067afa942
+
+production:
+  app_key: 2edfe26418d721902879e0d466b443f2-us4
+  list_id: e067afa942

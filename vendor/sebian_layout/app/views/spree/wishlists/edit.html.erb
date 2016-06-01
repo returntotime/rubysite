@@ -1,0 +1,27 @@
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => Spree.t(:editing_wishlist), :breadcrumb_text => Spree.t(:editing_wishlist) } %>
+<section class="section-p-30px pages-in wishlist">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+      <h2 class="wishlist-title">Edit Wish list</h2>
+      <div class="wishlist-box">
+        <%= form_for @wishlist do |f| %>
+          <div class="form-group">
+            <%= f.label :name, "Name Wish List" %>
+            <%= f.text_field :name, id: 'exampleInputEmail1', class: 'form-control' %>
+          </div>
+          <div class="mt-input">
+            <div class="checkbox">
+              <%= f.check_box :is_private %>&nbsp;<%= f.label :is_private, Spree.t(:is_private) %>
+            </div>
+            <div class="checkbox">
+              <%= f.check_box :is_default %>&nbsp;<%= f.label :is_default, Spree.t(:is_default) %>
+            </div>
+          </div>
+          <%= button_tag :class => 'btn btn-default',:type => :submit do %>
+            <%= Spree.t(:update) %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

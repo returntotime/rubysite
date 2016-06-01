@@ -1,0 +1,18 @@
+<% if @popular_weekly_products.any? %>
+  <section class="new-arrival ">
+    <div class="container">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="tittle animate fadeInUp" data-wow-delay="0.4s">
+          <h5><%= Spree::Config[:popular_weekly] %></h5>
+          <p><%= Spree::Config[:popular_weekly_subtext] %></p>
+        </div>
+        <div class="popurlar_product animate fadeInUp" data-wow-delay="0.4s">
+          <ul class="row">
+            <!--  New Arrival  -->
+            <%= render :partial => "spree/shared/product_items", :locals => {:products => @popular_weekly_products} %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

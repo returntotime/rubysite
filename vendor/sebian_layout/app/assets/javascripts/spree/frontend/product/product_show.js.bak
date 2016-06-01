@@ -1,0 +1,78 @@
+$(document).ready(function(){
+    if($('select.options').length > 0) {
+        handleOptionValueQuantityAndEmpty();
+        variantChange();
+    }
+    $(document).on('change','.options',function(){
+        handleOptionValueQuantityAndEmpty();
+        variantChange();
+    });
+    //-------------------SPREE IMAGE SLIDER----------------------
+
+    //------------------ON CLICK ON THUMBNAIL--------------------
+    $(document).on('click','#product-thumbnails li.thumb-image a',function(e){
+        e.preventDefault();
+        var img = $(this).find('img').first();
+        var src = $(this).attr('href');
+        $(this).parents('#product-thumbnails').first().find('img.active').removeClass('active');
+        img.addClass('active');
+        $('#main-image').find('img').first().attr('src',src);
+    });
+
+    function variantChange(){
+        var checkedRadio = $("#product-variants").find('input[type=radio][name=variant_id]:checked');
+        $('span.price').html(checkedRadio.data('price'));
+        filterThumbnail(checkedRadio.val());
+    }
+
+    function filterThumbnail(variant_id){
+        var image_variant = $(".variant_image_"+variant_id);
+        if(image_variant.length > 0){
+            var item = image_variant.parents('div.owl-item').first().index();
+            $("#larimg").trigger('to.owl.carousel', [item, 300, true]);
+        }
+    }
+
+    function handleOptionValueQuantityAndEmpty(){
+        $(document).find("#option-types-error").html("");
+        var selector = '';
+        var loop_counter = 0;
+        var options_name = "";
+        $('select.options').each(function (index, element) {
+            var option_name = $(this).val();
+            options_name += option_name;
+            if (index < $('select.options').length - 1){
+                options_name += " & ";
+            }
+            selector += '[data-'+option_name.toLowerCase().replace(" ", "_").replace("/", "_")+'=1]';
+            if($(this).val() != ''){
+                loop_counter ++;
+            }
+        });
+
+        var selected = $('#product-variants li' + selector);
+        if(selected.length > 0){
+            selected.find('input[type=radio][name=variant_id]').prop('checked',true);
+            if (selected.find('input[type=radio][name=variant_id]').data("quantity") == 0){
+                $(document).find("#option-types-error").html(options_name + ' - OUT OF STOCK');
+                $("div[data-hook='product_price']").hide();
+            } else {
+                $("div[data-hook='product_price']").show();
+            }
+        }else{
+            selected.find('input[type=radio]').prop('checked',true);
+            if(loop_counter == $('select.options').length){
+                $(document).find("#option-types-error").html(options_name + ' was not found, please choose again.');
+                $("div[data-hook='product_price']").hide();
+                //$(this).val('').change();
+            } else {
+                $("div[data-hook='product_price']").show();
+            }
+        }
+    }
+
+    $('#wishlist_submit').click(function(){
+        $('#wishlist_form').submit();
+    });
+});
+

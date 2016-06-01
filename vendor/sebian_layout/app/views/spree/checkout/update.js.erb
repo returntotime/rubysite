@@ -1,0 +1,12 @@
+$("#cart-summary").html('<%= escape_javascript(render "spree/checkout/cart_summary").html_safe %>');
+
+$("#delivery-methods").html('<%= escape_javascript(render "spree/checkout/delivery_methods").html_safe %>');
+<% if params[:state].present? && params[:state] == 'address' %>
+  Spree.onDelivery();
+<% end %>
+Spree.handleDeliveryChange();
+
+$("#payment").html('<%= escape_javascript(render "spree/checkout/payment_methods").html_safe %>');
+Spree.onPayment();
+
+hideLoading();

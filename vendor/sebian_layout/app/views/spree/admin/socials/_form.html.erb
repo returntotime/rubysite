@@ -1,0 +1,22 @@
+<div data-hook="admin_social_form_fields">
+  <div data-hook="name" class="form-group">
+    <%= f.label :name, Spree.t(:name) %>
+    <%= f.text_field :name, :class => 'form-control' %>
+  </div>
+
+  <div data-hook="url" class="form-group">
+    <%= f.label :url, Spree.t(:url) %>
+    <%= f.text_field :url, :class => 'form-control' %>
+  </div>
+
+  <div data-hook="icon" class="form-group">
+    <%= f.label :icon, Spree.t(:icon) %>
+    <%= f.file_field :icon, :class => 'form-control' %>
+    <p style="margin-top:10px"><%= image_tag f.object.icon.url(:mini) if f.object.icon.present? %></p>
+  </div>
+
+  <div data-hook="order" class="form-group">
+    <%= f.label :order, Spree.t(:order) %>
+    <%= f.text_field :order, :class => 'form-control' %>
+  </div>
+</div>

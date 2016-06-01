@@ -1,0 +1,696 @@
+GIT
+  remote: git://github.com/amro/gibbon.git
+  revision: c456c064fc6dfdf635d8eb550bdcf0b13f6aeff1
+  branch: api_v3
+  specs:
+    gibbon (2.0.0.1.pre)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
+
+GIT
+  remote: git://github.com/mespina/spree_one_page_checkout.git
+  revision: e7f4072f4929b0d6f98ae5f49d93955ac04b88e0
+  branch: 3-0-stable
+  specs:
+    spree_one_page_checkout (3.0.0)
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/better_spree_paypal_express.git
+  revision: 526d7f4f5bb9074b41b8d6ff38c47d01612ededf
+  branch: 3-0-stable
+  specs:
+    spree_paypal_express (3.0.0)
+      paypal-sdk-merchant (= 1.106.1)
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_contact_us.git
+  revision: 4089e70ef39e0a5f7e48fc505abec2259e0afbfc
+  branch: 3-0-stable
+  specs:
+    spree_contact_us (2.2.0)
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_editor.git
+  revision: eafe2e60ddd566c5e8c0a3338382fba1684547ef
+  branch: 3-0-stable
+  specs:
+    spree_editor (2.2.1)
+      ckeditor (~> 4.1.2)
+      spree_backend (~> 3.0.0)
+      tinymce-rails (~> 4.0.16)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_mail_settings.git
+  revision: d416a1e355893bda625ed5bea187d39526aa52f9
+  branch: 3-0-stable
+  specs:
+    spree_mail_settings (3.0.0)
+      spree_backend (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_related_products.git
+  revision: 0bbbc4503d7dce5aaae264d245de8f0e23b7bdc9
+  branch: 3-0-stable
+  specs:
+    spree_related_products (3.2.0)
+      spree_backend (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_reviews.git
+  revision: 664ed28313dca469ee39e7ca6ba9a6ac0df0d4eb
+  branch: 3-0-stable
+  specs:
+    spree_reviews (3.0.0.beta)
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_slider.git
+  revision: a39469a3514df887e20a12d781b025c90399deec
+  branch: 3-0-stable
+  specs:
+    spree_slider (1.2.0)
+      spree_backend (>= 3.0.0)
+      spree_core (>= 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_static_content.git
+  revision: 80a74e1ad8e1843c6bfabcd700dc8edb84822fdd
+  branch: 3-0-stable
+  specs:
+    spree_static_content (3.0.1)
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_tax_cloud.git
+  revision: 34f027976ec5014161bdbf0a0900bec5a1c19348
+  branch: 3-0-stable
+  specs:
+    spree_tax_cloud (3.0.0)
+      savon (~> 2.5.1)
+      spree_backend (~> 3.0.0)
+      spree_core (~> 3.0.0)
+      tax_cloud (~> 0.3.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_wishlist.git
+  revision: 07520b0a69a4f27e829810ca76cfd2a801ef5571
+  branch: 3-0-stable
+  specs:
+    spree_wishlist (2.2.0)
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree/spree.git
+  revision: 9c0d7e8e0488a2381535a4c21a42785fabcf511c
+  branch: 3-0-stable
+  specs:
+    spree (3.0.5.beta)
+      spree_api (= 3.0.5.beta)
+      spree_backend (= 3.0.5.beta)
+      spree_cmd (= 3.0.5.beta)
+      spree_core (= 3.0.5.beta)
+      spree_frontend (= 3.0.5.beta)
+      spree_sample (= 3.0.5.beta)
+    spree_api (3.0.5.beta)
+      rabl (~> 0.11.6)
+      spree_core (= 3.0.5.beta)
+      versioncake (~> 2.3.1)
+    spree_backend (3.0.5.beta)
+      bootstrap-sass (~> 3.3.1)
+      jquery-rails (~> 4.0.3)
+      jquery-ui-rails (~> 5.0.0)
+      select2-rails (= 3.5.9.1)
+      spree_api (= 3.0.5.beta)
+      spree_core (= 3.0.5.beta)
+      sprockets-rails (~> 2.2)
+    spree_cmd (3.0.5.beta)
+      thor (~> 0.14)
+    spree_core (3.0.5.beta)
+      activemerchant (~> 1.47.0)
+      acts_as_list (~> 0.6)
+      awesome_nested_set (~> 3.0.1)
+      cancancan (~> 1.10.1)
+      carmen (~> 1.0.0)
+      deface (~> 1.0.0)
+      ffaker (~> 1.16)
+      font-awesome-rails (~> 4.0)
+      friendly_id (~> 5.1.0)
+      highline (~> 1.6.18)
+      json (~> 1.7)
+      kaminari (~> 0.15, >= 0.15.1)
+      monetize (~> 1.1)
+      paperclip (~> 4.2.0)
+      paranoia (~> 2.1.0)
+      premailer-rails
+      rails (~> 4.2.2)
+      ransack (~> 1.4.1)
+      responders
+      state_machines-activerecord (~> 0.2)
+      stringex
+      truncate_html (= 0.9.2)
+      twitter_cldr (~> 3.0)
+    spree_frontend (3.0.5.beta)
+      bootstrap-sass (~> 3.3.1)
+      canonical-rails (~> 0.0.4)
+      jquery-rails (~> 4.0.3)
+      spree_api (= 3.0.5.beta)
+      spree_core (= 3.0.5.beta)
+      sprockets-rails (~> 2.2)
+    spree_sample (3.0.5.beta)
+      spree_core (= 3.0.5.beta)
+
+GIT
+  remote: git://github.com/spree/spree_auth_devise.git
+  revision: f231fce43686d66fe3e6d65ba8595b4474c49895
+  branch: 3-0-stable
+  specs:
+    spree_auth_devise (3.0.0)
+      devise (~> 3.4.1)
+      devise-encryptable (= 0.1.2)
+      json
+      multi_json
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree/spree_gateway.git
+  revision: 59ac5bcacf948cbd194814db906e7546c3d9852c
+  branch: 3-0-stable
+  specs:
+    spree_gateway (3.0.0)
+      spree_core (~> 3.0.0)
+
+PATH
+  remote: vendor/sebian_layout
+  specs:
+    sebian_layout (0.1.0)
+
+PATH
+  remote: vendor/spree-blogging-spree
+  specs:
+    spree_blogging_spree (2.3.0)
+      acts-as-taggable-on (~> 3.5.0)
+      spree_core (~> 3.0.0)
+
+PATH
+  remote: vendor/spree_essential_menus
+  specs:
+    spree_essential_menus (0.2.6)
+      acts_as_tree (~> 1.1.0)
+      coffee-rails
+      haml
+      spree_essentials (~> 0.5.0)
+
+PATH
+  remote: vendor/spree_essentials
+  specs:
+    spree_essentials (0.5.0)
+      rdiscount (~> 1.6.8)
+      spree_core (~> 3.0.0)
+
+PATH
+  remote: vendor/spree_import_products
+  specs:
+    spree_import_products (3.0.5.beta)
+      spree_core (~> 3.0.5.beta)
+
+PATH
+  remote: vendor/spree_lightspeed
+  specs:
+    spree_lightspeed (0.1.0)
+
+PATH
+  remote: vendor/spree_taxon_brand
+  specs:
+    spree_taxon_brand (0.1.0)
+
+PATH
+  remote: vendor/spree_taxon_image
+  specs:
+    spree_taxon_image (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actionmailer (4.2.5)
+      actionpack (= 4.2.5)
+      actionview (= 4.2.5)
+      activejob (= 4.2.5)
+      mail (~> 2.5, >= 2.5.4)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+    actionpack (4.2.5)
+      actionview (= 4.2.5)
+      activesupport (= 4.2.5)
+      rack (~> 1.6)
+      rack-test (~> 0.6.2)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionview (4.2.5)
+      activesupport (= 4.2.5)
+      builder (~> 3.1)
+      erubis (~> 2.7.0)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    activejob (4.2.5)
+      activesupport (= 4.2.5)
+      globalid (>= 0.3.0)
+    activemerchant (1.47.0)
+      activesupport (>= 3.2.14, < 5.0.0)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
+    activemodel (4.2.5)
+      activesupport (= 4.2.5)
+      builder (~> 3.1)
+    activerecord (4.2.5)
+      activemodel (= 4.2.5)
+      activesupport (= 4.2.5)
+      arel (~> 6.0)
+    activesupport (4.2.5)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
+    acts_as_list (0.7.2)
+      activerecord (>= 3.0)
+    acts_as_tree (1.1.0)
+      activerecord (>= 3.0.0)
+    addressable (2.4.0)
+    akami (1.2.2)
+      gyoku (>= 0.4.0)
+      nokogiri
+    arel (6.0.3)
+    autoprefixer-rails (6.2.3)
+      execjs
+      json
+    awesome_nested_set (3.0.2)
+      activerecord (>= 4.0.0, < 5)
+    aws-sdk-core (2.2.7)
+      jmespath (~> 1.0)
+    aws-sdk-rails (1.0.0)
+      aws-sdk-resources (~> 2)
+      rails (>= 3)
+    aws-sdk-resources (2.2.7)
+      aws-sdk-core (= 2.2.7)
+    bcrypt (3.1.10)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
+    buftok (0.2.0)
+    builder (3.2.2)
+    bullet (5.0.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
+    byebug (8.2.1)
+    camertron-eprun (1.1.0)
+    cancancan (1.10.1)
+    canonical-rails (0.0.11)
+      rails (>= 3.1, < 5.0)
+    carmen (1.0.2)
+      activesupport (>= 3.0.0)
+    choice (0.2.0)
+    chunky_png (1.3.5)
+    ckeditor (4.1.6)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    cldr-plurals-runtime-rb (1.0.1)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.1)
+    coffee-rails (4.1.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.1.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
+    colorize (0.7.7)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+    compass-rails (3.0.2)
+      compass (~> 1.0.0)
+      sass-rails (< 5.1)
+      sprockets (< 4.0)
+    concurrent-ruby (1.0.0)
+    constantcontact (2.2.0)
+      json (~> 1.8, >= 1.8.1)
+      mime-types (~> 2.4, >= 2.4.1)
+      rest-client (~> 1.6, >= 1.6.7)
+    css_parser (1.3.7)
+      addressable
+    debug_inspector (0.0.2)
+    deface (1.0.2)
+      colorize (>= 0.5.8)
+      nokogiri (~> 1.6.0)
+      polyglot
+      rails (>= 3.1)
+    devise (3.4.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+    devise-encryptable (0.1.2)
+      devise (>= 2.1.0)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
+    equalizer (0.0.10)
+    erd (0.3.3)
+      nokogiri
+      rails-erd (>= 0.4.5)
+    erubis (2.7.0)
+    execjs (2.6.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    ffaker (1.32.1)
+    ffi (1.9.10)
+    font-awesome-rails (4.5.0.0)
+      railties (>= 3.2, < 5.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
+    globalid (0.3.6)
+      activesupport (>= 4.1.0)
+    gyoku (1.1.1)
+      builder (>= 2.1.2)
+    haml (4.0.7)
+      tilt
+    haml-rails (0.9.0)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 4.0.6, < 5.0)
+      html2haml (>= 1.0.1)
+      railties (>= 4.0.1)
+    highline (1.6.21)
+    html2haml (2.0.0)
+      erubis (~> 2.7.0)
+      haml (~> 4.0.0)
+      nokogiri (~> 1.6.0)
+      ruby_parser (~> 3.5)
+    htmlentities (4.3.4)
+    http (1.0.2)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
+    httpi (2.1.1)
+      rack
+      rubyntlm (~> 0.3.2)
+    i18n (0.7.0)
+    jbuilder (2.4.0)
+      activesupport (>= 3.0.0, < 5.1)
+      multi_json (~> 1.2)
+    jmespath (1.1.3)
+    jquery-rails (4.0.5)
+      rails-dom-testing (~> 1.0)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
+    json (1.8.3)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    kgio (2.10.0)
+    loofah (2.0.3)
+      nokogiri (>= 1.5.9)
+    macaddr (1.7.1)
+      systemu (~> 2.6.2)
+    mail (2.6.3)
+      mime-types (>= 1.16, < 3)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
+    mime-types (2.99)
+    mini_portile2 (2.0.0)
+    minitest (5.8.3)
+    monetize (1.3.1)
+      money (~> 6.6)
+    money (6.6.1)
+      i18n (>= 0.6.4, <= 0.7.0)
+    multi_json (1.11.2)
+    multipart-post (2.0.0)
+    mysql2 (0.4.2)
+    naught (1.1.0)
+    netrc (0.11.0)
+    nokogiri (1.6.7.1)
+      mini_portile2 (~> 2.0.0.rc2)
+    nori (2.4.0)
+    orm_adapter (0.5.0)
+    paperclip (4.2.4)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+    paranoia (2.1.5)
+      activerecord (~> 4.0)
+    paypal-sdk-core (0.2.10)
+      multi_json (~> 1.0)
+      xml-simple
+    paypal-sdk-merchant (1.106.1)
+      paypal-sdk-core (~> 0.2.3)
+    polyamorous (1.3.0)
+      activerecord (>= 3.0)
+    polyglot (0.3.5)
+    premailer (1.8.6)
+      css_parser (>= 1.3.6)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.9.0)
+      actionmailer (>= 3, < 5)
+      premailer (~> 1.7, >= 1.7.9)
+    rabl (0.11.8)
+      activesupport (>= 2.3.14)
+    rack (1.6.4)
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rails (4.2.5)
+      actionmailer (= 4.2.5)
+      actionpack (= 4.2.5)
+      actionview (= 4.2.5)
+      activejob (= 4.2.5)
+      activemodel (= 4.2.5)
+      activerecord (= 4.2.5)
+      activesupport (= 4.2.5)
+      bundler (>= 1.3.0, < 2.0)
+      railties (= 4.2.5)
+      sprockets-rails
+    rails-deprecated_sanitizer (1.0.3)
+      activesupport (>= 4.2.0.alpha)
+    rails-dom-testing (1.0.7)
+      activesupport (>= 4.2.0.beta, < 5.0)
+      nokogiri (~> 1.6.0)
+      rails-deprecated_sanitizer (>= 1.0.1)
+    rails-erd (1.4.6)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
+    rails-html-sanitizer (1.0.2)
+      loofah (~> 2.0)
+    railties (4.2.5)
+      actionpack (= 4.2.5)
+      activesupport (= 4.2.5)
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
+    raindrops (0.16.0)
+    rake (10.4.2)
+    ransack (1.4.1)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.1)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
+    rdiscount (1.6.8)
+    rdoc (4.2.1)
+      json (~> 1.4)
+    responders (2.1.1)
+      railties (>= 4.2.0, < 5.1)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    ruby-graphviz (1.2.2)
+    ruby_parser (3.8.1)
+      sexp_processor (~> 4.1)
+    rubyntlm (0.3.4)
+    sass (3.4.20)
+    sass-rails (5.0.4)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
+    savon (2.5.1)
+      akami (~> 1.2.0)
+      builder (>= 2.1.2)
+      gyoku (~> 1.1.0)
+      httpi (~> 2.1.0)
+      nokogiri (>= 1.4.0)
+      nori (~> 2.4.0)
+      uuid (~> 2.3.7)
+      wasabi (~> 3.3.0)
+    sdoc (0.4.1)
+      json (~> 1.7, >= 1.7.7)
+      rdoc (~> 4.0)
+    select2-rails (3.5.9.1)
+      thor (~> 0.14)
+    sexp_processor (4.7.0)
+    simple_oauth (0.3.1)
+    spring (1.6.2)
+    sprockets (3.5.2)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    sprockets-rails (2.3.3)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      sprockets (>= 2.8, < 4.0)
+    state_machines (0.4.0)
+    state_machines-activemodel (0.3.0)
+      activemodel (~> 4.1)
+      state_machines (>= 0.4.0)
+    state_machines-activerecord (0.3.0)
+      activerecord (~> 4.1)
+      state_machines-activemodel (>= 0.3.0)
+    stringex (2.5.2)
+    systemu (2.6.5)
+    tax_cloud (0.3.0)
+      activesupport (>= 3.0)
+      i18n
+      savon (>= 2.0)
+    thor (0.19.1)
+    thread_safe (0.3.5)
+    tilt (2.0.2)
+    tinymce-rails (4.0.28.2)
+      railties (>= 3.1.1)
+    truncate_html (0.9.2)
+    turbolinks (2.5.3)
+      coffee-rails
+    twitter (5.16.0)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      equalizer (= 0.0.10)
+      faraday (~> 0.9.0)
+      http (~> 1.0)
+      http_parser.rb (~> 0.6.0)
+      json (~> 1.8)
+      memoizable (~> 0.4.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.3.0)
+    twitter_cldr (3.2.1)
+      camertron-eprun
+      cldr-plurals-runtime-rb (~> 1.0.0)
+      json
+      tzinfo
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
+    unicorn (5.1.0)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
+    uniform_notifier (1.9.0)
+    uuid (2.3.8)
+      macaddr (~> 1.0)
+    versioncake (2.3.1)
+      actionpack (>= 3.2)
+      activesupport (>= 3.2)
+      railties (>= 3.2)
+      tzinfo
+    warden (1.2.4)
+      rack (>= 1.0)
+    wasabi (3.3.1)
+      httpi (~> 2.0)
+      nokogiri (>= 1.4.0)
+    web-console (2.2.1)
+      activemodel (>= 4.0)
+      binding_of_caller (>= 0.7.2)
+      railties (>= 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+    xml-simple (1.1.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aws-sdk-rails
+  better_errors
+  bullet
+  byebug
+  coffee-rails (~> 4.1.0)
+  compass-rails
+  constantcontact (~> 2.2.0)
+  erd
+  font-awesome-rails
+  gibbon!
+  haml
+  haml-rails
+  jbuilder (~> 2.0)
+  jquery-rails
+  mysql2 (= 0.4.2)
+  rails (= 4.2.5)
+  sass-rails (~> 5.0)
+  sdoc (~> 0.4.0)
+  sebian_layout!
+  spree!
+  spree_auth_devise!
+  spree_blogging_spree!
+  spree_contact_us!
+  spree_editor!
+  spree_essential_menus!
+  spree_essentials!
+  spree_gateway!
+  spree_import_products!
+  spree_lightspeed!
+  spree_mail_settings!
+  spree_one_page_checkout!
+  spree_paypal_express!
+  spree_related_products!
+  spree_reviews!
+  spree_slider!
+  spree_static_content!
+  spree_tax_cloud!
+  spree_taxon_brand!
+  spree_taxon_image!
+  spree_wishlist!
+  spring
+  turbolinks
+  twitter
+  uglifier (>= 1.3.0)
+  unicorn
+  web-console (~> 2.0)
+
+BUNDLED WITH
+   1.11.2

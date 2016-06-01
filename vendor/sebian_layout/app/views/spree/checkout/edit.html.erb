@@ -1,0 +1,62 @@
+<% content_for :google_analytics do %>
+  <%= render partial: 'spree/shared/google_checkout.js', locals: { order: @order, step_number: (@order.checkout_steps.index(@order.state) + 1) } %>
+<% end %>
+
+<div id="checkout" data-hook>
+  <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+
+  <section class="section-p-30px pages-in chart-page">
+    <div class="container">
+      <div class="row" data-hook="checkout_header">
+        <div class="col-sm-12" data-hook="checkout_progress">
+          <%= render :partial => "spree/checkout/checkout_steps" %>
+        </div>
+      </div>
+
+      <div class="shopping-cart">
+        <!-- SHOPPING INFORMATION -->
+        <div class="cart-ship-info">
+          <div class="row">
+            <!-- ESTIMATE SHIPPING & TAX -->
+            <div class="col-sm-7">
+              <h6>BILLING DETAILS</h6>
+              <% state = 'address' %>
+              <div class="checkout_content" data-step="<%= state %>" data-hook="checkout_content" id="checkout_<%= state %>">
+                <%= render :partial => 'spree/checkout/form_wrapper', :locals => { :order => @order, :state => state } %>
+              </div>
+
+            </div>
+            <!-- SUB TOTAL -->
+            <div class="col-sm-5">
+              <div class="order-place">
+
+                <h5>YOUR ORDER</h5>
+                <div id="cart-summary">
+                  <%= render 'spree/checkout/cart_summary' %>
+                </div>
+
+                <div class="delivery-meth" id="delivery-methods">
+                  <%= render 'spree/checkout/delivery_methods' %>
+                </div>
+
+                <div class="pay-meth" id="payment">
+                  <%= render 'spree/checkout/payment_methods' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  Spree.current_order_id = "<%= @order.number %>"
+  Spree.current_order_token = "<%= @order.guest_token %>"
+</script>
+
+<% if I18n.locale != :en %>
+  <script src="<%= assets_prefix %>/jquery.validate/localization/messages_<%= I18n.locale %>.js"></script>
+<% end %>
+

@@ -1,0 +1,45 @@
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => 'Wishlists', :breadcrumb_text => 'Wish lists' } %>
+<section class="section-p-30px pages-in wishlist">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+      <h2 class="wishlist-title">My Wish lists</h2>
+      <!--p><%= link_to Spree.t(:create_new_wishlist), new_wishlist_path, class: 'btn btn-default btn-dark' %></p-->
+      <% if @wishlists.any? %>
+      <div class="wishlist-box">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            <!-- item -->
+              <% @wishlists.each_with_index do |wishlist, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= link_to(wishlist.name, wishlist) %></td>
+                  <td><%= wishlist.is_private ? Spree.t(:private) : Spree.t(:public) %></td>
+                  <td>
+                    <p>
+                      <% if wishlist.user == spree_current_user %>
+                        <%= link_to "Edit", edit_wishlist_path(wishlist), class: 'button' %>
+                        <%= link_to "Delete", wishlist, method: :delete, data: { confirm: Spree.t(:are_you_sure_wishlist) }, class: 'button' %>
+                      <% end -%>
+                    </p>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <% else %>
+          <div class="text-center">No Wishlist found</div>
+      <% end %>
+    </div>
+  </div>
+</section>

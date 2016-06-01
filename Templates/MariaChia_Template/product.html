@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SEBIAN - Multi Purpose eCommerce HTML5 Template</title>
+    <meta name="keywords" content="HTML5,CSS3,HTML,Template,Multi-Purpose,M_Adnan,Corporate Theme,SEBIAN Multi Purpose Care,eCommerce,SEBIAN - Multi Purpose eCommerce HTML5 Template">
+    <meta name="description" content="SEBIAN - Multi Purpose eCommerce HTML5 Template">
+    <meta name="author" content="M_Adnan">
+    <!--MAIN STYLE-->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/animate.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- slick -->
+    <link href="stylesheets/slick.css" rel="stylesheet">
+    <!-- <link href="stylesheets/slick-theme.css" rel="stylesheet"> -->
+    <!-- fancyBox -->
+    <link rel="stylesheet" href="stylesheets/jquery.fancybox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="stylesheets/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+    <!-- ADD YOUR OWN STYLING HERE. AVOID TO USE STYLE.CSS AND MAIN.CSS. IT WILL BE HELPFUL FOR YOU IN FUTURE UPDATES -->
+    <link href="stylesheets/override.css" rel="stylesheet" type="text/css">
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
+    <!-- JavaScripts -->
+    <script src="js/modernizr.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <!-- LOADER ===========================================-->
+    <div id="loader">
+        <div class="loader">
+            <div class="position-center-center"> <img src="images/logo-dark.png" alt="">
+                <p class="font-playfair text-center">Please Wait...</p>
+                <div class="loading">
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Wrap -->
+    <div id="wrap">
+        <!-- Header -->
+        <header>
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <!-- mt-add -->
+                    <div class="mt-free">YOUR MARIACHI & BALLET FOLKIRICO HQ</div>
+                    <div class="mt-phone"> <img src="images/Phone.png">1-877-565-5222 </div>
+                    <div class="top-links">
+                        <ul>
+                            <li><a href="#.">MY ACCOUNT</a></li>
+                            <li><a href="#.">MY WISHLIST</a></li>
+                            <li class="font-montserrat">CURRENCY:
+                                <select class="selectpicker">
+                                    <option>USD</option>
+                                    <option>EURO</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <!-- Social Icons -->
+                        <ul class="social_icons">
+                            <li class="facebook">
+                                <a href="#."><img src="images/social_twitter.png"></a>
+                            </li>
+                            <li class="twitter">
+                                <a href="#."><img src="images/social_twitter.png"></a>
+                            </li>
+                            <li class="dribbble">
+                                <a href="#."><img src="images/social_twitter.png"></a>
+                            </li>
+                            <li class="googleplus">
+                                <a href="#."><img src="images/social_twitter.png"></a>
+                            </li>
+                            <li class="linkedin">
+                                <a href="#."><img src="images/social_twitter.png"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Logo -->
+            <div class="container">
+                <div class="logo">
+                    <a href="#."><img class="img-responsive" src="images/logo_mariachi.png" alt=""></a>
+                </div>
+            </div>
+            <!-- Nav -->
+            <div id="fix-nav">
+                <!-- ====== header navbar ===== -->
+                <div class="navbar-header">
+                    <button data-toggle="collapse-side" data-target=".side-collapse" type="button" class="navbar-toggle pull-right">
+                        <span></span>
+                    </button>
+                    <div class="nav-right">
+                        <!-- nav-search -->
+                        <div class="mt-nav-search">
+                            <div class="nav-search-icon mt-icon"></div>
+                            <div class="nav-search-detail mt-open">
+                                <form>
+                                    <div class="input-group">
+                                        <div class="input-group-btn search-panel">
+                                            <button type="button" class="btn btn-default dropdown-toggle mt-button" data-toggle="dropdown">
+                                                <span id="search_concept">All</span> <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#contains">Example 1</a></li>
+                                                <li><a href="#its_equal">Example 2</a></li>
+                                                <li class="active"><a href="#greather_than">Example 3</a></li>
+                                                <li><a href="#less_than">Example 4</a></li>
+                                                <li><a href="#all">All</a></li>
+                                            </ul>
+                                        </div>
+                                        <input type="hidden" name="search_param" value="all" id="search_param">
+                                        <input type="text" class="mt-input" name="x" placeholder="Search">
+                                        <span class="input-group-btn">
+                    <button class="btn btn-default mt-summit" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- end search -->
+                        <!-- card -->
+                        <div class="nav-card pull-left">
+                            <div class="nav-card-icon mt-icon">
+                                <div class="nav-card-badge">1</div>
+                            </div>
+                            <div class="nav-card-detail mt-open">
+                                <h3>SHOPPING CART</h3>
+                                <ul>
+                                    <li class="clearfix">
+                                        <div class="pic pull-left">
+                                            <img src="images/city.jpg">
+                                        </div>
+                                        <div class="info pull-left">
+                                            <h5>RUCKSACK WITH ROPES RUCKSACK WITH ROPES RUCKSACK WITH ROPES RUCKSACK WITH ROPES</h5>
+                                            <p>1 x <span>$35.99</span></p>
+                                        </div>
+                                        <div class="del pull-right"></div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <div class="pic pull-left">
+                                            <img src="images/item-detail-img-zoom-1.jpg">
+                                        </div>
+                                        <div class="info pull-left">
+                                            <h5>RUCKSACK WITH ROPES</h5>
+                                            <p>1 x <span>$35.99</span></p>
+                                        </div>
+                                        <div class="del pull-right"></div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <div class="pic pull-left">
+                                            <img src="images/item-detail-img-zoom-3.jpg">
+                                        </div>
+                                        <div class="info pull-left">
+                                            <h5>RUCKSACK WITH ROPES</h5>
+                                            <p>1 x <span>$35.99</span></p>
+                                        </div>
+                                        <div class="del pull-right"></div>
+                                    </li>
+                                </ul>
+                                <h5 class="total">SUBTOTAL&nbsp;:&nbsp;<span>$75.89</span></h5>
+                                <div class="gr-btn-card">
+                                    <a class="pull-left">VIEWCARD</a>
+                                    <a class="pull-right">CHECKOUT</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                    </div>
+                </div>
+                <div class="navbar-index side-collapse in">
+                    <nav>
+                        <ul>
+                            <li class="hidden visible-xs">
+                                <div class="sub-logo">
+                                    <img class="img-responsive" src="images/logo_mariachi.png">
+                                </div>
+                            </li>
+                            <li> <a href="#Home">MARIACHI</a> </li>
+                            <!-- no-full-width-menu -->
+                            <li class="menu-position">
+                                <a href="category.html">BALLET FOLKLORICO</a>
+                                <span class="parent-nav"></span>
+                                <!-- sub menu -->
+                                <div class="sub-menu">
+                                    <div class="hidden visible-xs sub-menu-back">back</div>
+                                    <ul>
+                                        <li>
+                                            <a href="category.html">Jackets-1<i class="fa fa-angle-right pull-right"></i></a>
+                                            <span class="parent-nav"></span>
+                                            <!-- sub sub menu -->
+                                            <div class="sub-sub-menu">
+                                                <div class="hidden visible-xs sub-menu-back">back</div>
+                                                <ul>
+                                                    <li><a href="">T-shirts</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                </ul>
+                                            </div>
+                                            <!-- end sub sub menu -->
+                                        </li>
+                                        <li>
+                                            <a href="category.html">Jackets-2<i class="fa fa-angle-right pull-right"></i></a>
+                                            <span class="parent-nav"></span>
+                                            <!-- sub sub menu -->
+                                            <div class="sub-sub-menu">
+                                                <div class="hidden visible-xs sub-menu-back">back</div>
+                                                <ul>
+                                                    <li><a href="">T-shirts</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                    <li><a href="">Cardigans & sweaters</a></li>
+                                                </ul>
+                                            </div>
+                                            <!-- end sub sub menu -->
+                                        </li>
+                                        <li><a href="">Cardigans & sweaters</a></li>
+                                        <li><a href="">Jackets</a></li>
+                                        <li><a href="">Coats</a></li>
+                                        <li><a href="">Trousers</a></li>
+                                        <li><a href="">Jeans</a></li>
+                                        <li><a href="">Skirts</a></li>
+                                        <li><a href="">Skirts</a></li>
+                                        <li><a href="">Skirts</a></li>
+                                        <li><a href="">Skirts</a></li>
+                                        <li><a href="">Skirts</a></li>
+                                        <li><a href="">Skirts</a></li>
+                                        <li><a href="">Skirts</a></li>
+                                        <li><a href="">Skirts</a></li>
+                                    </ul>
+                                </div>
+                                <!-- end sub menu -->
+                            </li>
+                            <!-- no-full-width-menu -->
+                            <li> <a>MEN’S DANCE</a> </li>
+                            <li> <a>INSTRUMENTS</a> </li>
+                            <li> <a>FLAMENCO</a> </li>
+                            <li> <a>GIFT CARDS</a> </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- ====== end header navbar ===== -->
+            </div>
+        </header>
+        <!-- Header End -->
+        <!-- CONTENT START -->
+        <div class="content">
+            <!--======= SUB BANNER =========-->
+            <section class="sub-banner animate fadeInUp" data-wow-delay="0.4s">
+                <div class="container">
+                    <h4>DRAEY TRENCH COAT</h4>
+                    <!-- Breadcrumb -->
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">SHOP</a></li>
+                        <li class="active">DRAEY TRENCH COAT</li>
+                    </ol>
+                </div>
+            </section>
+            <!--======= PAGES INNER =========-->
+            <section class="section-p-30px pages-in item-detail-page">
+                <div class="container">
+                    <div class="row">
+                        <!--======= IMAGES SLIDER =========-->
+                        <div class="col-sm-6 large-detail animate fadeInLeft" data-wow-delay="0.4s">
+                            <!-- slider -->
+                            <div class="slider slider-for">
+                                <!-- item 1 -->
+                                <div>
+                                    <a class="fancybox-thumb" rel="fancybox-thumb" href="images/img (1).jpg" title="(Eric Goncalves (cathing up again!))">
+                                        <img class="img-responsive zoom0" src="images/img (1).jpg" data-zoom-image="images/img (1).jpg">
+                                    </a>
+                                </div>
+                                <!-- item 2 -->
+                                <div>
+                                    <a class="fancybox-thumb" rel="fancybox-thumb" href="images/img (2).jpg" title="(Eric Goncalves (cathing up again!))">
+                                        <img class="img-responsive zoom1" src="images/img (2).jpg" data-zoom-image="images/img (2).jpg">
+                                    </a>
+                                </div>
+                                <!-- item 3 -->
+                                <div>
+                                    <a class="fancybox-thumb" rel="fancybox-thumb" href="images/img (3).jpg" title="(Eric Goncalves (cathing up again!))">
+                                        <img class="img-responsive zoom2" src="images/img (3).jpg" data-zoom-image="images/img (3).jpg">
+                                    </a>
+                                </div>
+                                <!-- item 4 -->
+                                <div>
+                                    <a class="fancybox-thumb" rel="fancybox-thumb" href="images/img (4).jpg" title="(Eric Goncalves (cathing up again!))">
+                                        <img class="img-responsive zoom3" src="images/img (4).jpg" data-zoom-image="images/img (4).jpg">
+                                    </a>
+                                </div>
+                                <!-- item 5 -->
+                                <div>
+                                    <a class="fancybox-thumb" rel="fancybox-thumb" href="images/img (5).jpg" title="(Eric Goncalves (cathing up again!))">
+                                        <img class="img-responsive zoom4" src="images/img (5).jpg" data-zoom-image="images/img (5).jpg">
+                                    </a>
+                                </div>
+                                <!-- item 6 -->
+                                <div>
+                                    <a class="fancybox-thumb" rel="fancybox-thumb" href="images/img (6).jpg" title="(Eric Goncalves (cathing up again!))">
+                                        <img class="img-responsive zoom5" src="images/img (6).jpg" data-zoom-image="images/img (6).jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="slider slider-nav">
+                                <!-- item -->
+                                <div>
+                                    <img class="img-responsive" src="images/img (1).jpg">
+                                </div>
+                                <!-- item -->
+                                <div>
+                                    <img class="img-responsive" src="images/img (2).jpg">
+                                </div>
+                                <!-- item -->
+                                <div>
+                                    <img class="img-responsive" src="images/img (3).jpg">
+                                </div>
+                                <!-- item -->
+                                <div>
+                                    <img class="img-responsive" src="images/img (4).jpg">
+                                </div>
+                                <!-- item -->
+                                <div>
+                                    <img class="img-responsive" src="images/img (5).jpg">
+                                </div>
+                                <!-- item -->
+                                <div>
+                                    <img class="img-responsive" src="images/img (6).jpg">
+                                </div>
+                            </div>
+                            <!-- slider -->
+                        </div>
+                        <!--======= ITEM DETAILS =========-->
+                        <div class="col-sm-6 animate fadeInRight " data-wow-delay="0.4s ">
+                            <div class="row ">
+                                <div class="col-sm-12 ">
+                                    <h5>DRAEY TRENCH COAT</h5>
+                                    <span class="price ">129.00 USD</span> </div>
+                                <div class="col-sm-12 "> <span class="code ">PRODUCT CODE: SKU: PDID-BC-01.</span>
+                                    <div class="some-info no-border ">
+                                        <br>
+                                        <div class="in-stoke "> <i class="fa fa-check-circle "></i> IN STOCK</div>
+                                        <div class="stars "><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star-half-o "></i></div>
+                                        <a href="#review " class="review ">(3) Review</a> &nbsp;&nbsp;&nbsp; <a href="#review-form " class="review ">Add Your Review</a></div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectusLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectusLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                            <hr>
+                            <div class="row ">
+                                <div class="col-sm-12 ">
+                                    <div class="item-select ">
+                                        <!-- COLOR -->
+                                        <p>*COLOR</p>
+                                        <select class="selectpicker ">
+                                            <option>PLEASE SELETCT</option>
+                                            <option>RED</option>
+                                            <option>BLUE</option>
+                                            <option>GREEN</option>
+                                            <option>YELLOW</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 ">
+                                    <div class="item-select ">
+                                        <!--  SIZE -->
+                                        <p>*SIZE</p>
+                                        <select class="selectpicker ">
+                                            <option>PLEASE SELETCT</option>
+                                            <option>Small</option>
+                                            <option>Large </option>
+                                            <option>X Large</option>
+                                            <option>XX Large</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <!-- QUIENTY -->
+                                <div class="col-sm-12 ">
+                                    <div class="fun-share ">
+                                        <input type="text " value="1 ">
+                                        <a href="#. " class="btn btn-small btn-dark ">ADD TO CART</a>
+                                        <a href="#. " class="share-sec "><i class="ion-shuffle "></i></a>
+                                        <button class="share-sec " href="#. "><i class="fa fa-heart-o "></i></button>
+                                    </div>
+                                </div>
+                                <!-- SHARE -->
+                                <div class="col-sm-12 ">
+                                    <ul class="share-with ">
+                                        <li>
+                                            <p>SHARE WITH</p>
+                                        </li>
+                                        <li><a href="#. "><i class="fa fa-facebook "></i></a></li>
+                                        <li><a href="#. "><i class="fa fa-twitter "></i></a></li>
+                                        <li><a href="#. "><i class="fa fa-dribbble "></i></a></li>
+                                        <li><a href="#. "><i class="fa fa-pinterest "></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--======= PRODUCT DESCRIPTION =========-->
+                    <div class="item-decribe animate fadeInUp " data-wow-delay="0.4s ">
+                        <div class="text-center ">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs " role="tablist ">
+                                <li role="presentation ">
+                                    <a href="#descr" aria-controls="men" role="tab" data-toggle="tab">DESCRIPTION</a>
+                                </li>
+                                <li role="presentation " class="active ">
+                                    <a href="#review" aria-controls="women" role="tab" data-toggle="tab">REVIEW (03)</a>
+                                </li>
+                                <li role="presentation ">
+                                    <a href="#tags" aria-controls="access" role="tab" data-toggle="tab">TAGS</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Tab panes -->
+                        <div class="tab-content ">
+                            <!-- DESCRIPTION -->
+                            <div role="tabpanel" class="tab-pane fade" id="descr">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectusLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectusLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                                    <br>
+                                    <br> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. </p>
+                            </div>
+                            <!-- REVIEW -->
+                            <div role="tabpanel" class="tab-pane fade in active" id="review">
+                                <h6>3 REVIEWS FOR SHIP YOUR IDEA</h6>
+                                <!-- REVIEW PEOPLE 1 -->
+                                <div class="media ">
+                                    <div class="media-left ">
+                                        <!--  Image -->
+                                        <div class="avatar ">
+                                            <a href="# "> <img class="media-object " src="images/avatar-1.jpg " alt=" "> </a>
+                                        </div>
+                                    </div>
+                                    <!--  Details -->
+                                    <div class="media-body ">
+                                        <p class="font-playfair ">“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+                                        <h6>TYRION LANNISTER <span class="pull-right ">June 7, 2013</span> </h6>
+                                    </div>
+                                </div>
+                                <!-- REVIEW PEOPLE 1 -->
+                                <div class="media ">
+                                    <div class="media-left ">
+                                        <!--  Image -->
+                                        <div class="avatar ">
+                                            <a href="# "> <img class="media-object " src="images/avatar-2.jpg " alt=" "> </a>
+                                        </div>
+                                    </div>
+                                    <!--  Details -->
+                                    <div class="media-body ">
+                                        <p class="font-playfair ">“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+                                        <h6>TYRION LANNISTER <span class="pull-right ">June 7, 2013</span> </h6>
+                                    </div>
+                                </div>
+                                <!-- ADD REVIEW -->
+                                <h6 class="margin-t-40 ">ADD REVIEW</h6>
+                                <form id="review-form ">
+                                    <ul class="row ">
+                                        <li class="col-sm-6 ">
+                                            <label> *NAME
+                                                <input type="text " value=" " placeholder=" ">
+                                            </label>
+                                        </li>
+                                        <li class="col-sm-6 ">
+                                            <label> *EMAIL
+                                                <input type="email " value=" " placeholder=" ">
+                                            </label>
+                                        </li>
+                                        <li class="col-sm-12 ">
+                                            <label> *YOUR REVIEW
+                                                <textarea></textarea>
+                                            </label>
+                                        </li>
+                                        <li class="col-sm-6 ">
+                                            <!-- Rating Stars -->
+                                            <div class="stars "> <span>YOUR RATING</span> <i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i></div>
+                                        </li>
+                                        <li class="col-sm-6 ">
+                                            <button type="submit " class="btn btn-dark btn-small pull-right no-margin ">POST REVIEW</button>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                            <!-- TAGS -->
+                            <div role="tabpanel" class="tab-pane fade" id="tags"> </div>
+                        </div>
+                    </div>
+                </div>
+                <!--======= RELATED PRODUCTS =========-->
+                <section class="section-p-60px new-arrival new-arri-w-slide ">
+                    <div class="container ">
+                        <!--  Tittle -->
+                        <div class="tittle tittle-2 animate fadeInUp " data-wow-delay="0.4s ">
+                            <h5>RELATED PRODUCTS</h5>
+                            <p class="font-playfair ">Most haver in your Shop </p>
+                        </div>
+                        <!--  New Arrival Tabs Products  -->
+                        <div class="popurlar_product client-slide animate fadeInUp " data-wow-delay="0.4s ">
+                            <!--  New Arrival  -->
+                            <div class="items-in ">
+                                <!-- Image -->
+                                <img src="images/new-item-1.jpg " alt=" ">
+                                <!-- Hover Details -->
+                                <div class="over-item ">
+                                    <ul class="animated fadeIn ">
+                                        <li> <a href="images/new-item-1.jpg " data-lighter><i class="ion-search "></i></a></li>
+                                        <li> <a href="#. "><i class="ion-shuffle "></i></a></li>
+                                        <li> <a href="#. "><i class="fa fa-heart-o "></i></a></li>
+                                        <li class="full-w "> <a href="#. " class="btn ">ADD TO CART</a></li>
+                                        <!-- Rating Stars -->
+                                        <li class="stars "><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star-half-o "></i></li>
+                                    </ul>
+                                </div>
+                                <!-- Item Name -->
+                                <div class="details-sec "> <a href="#. ">LOOSE-FIT TRENCH COAT</a> <span class="font-montserrat ">129.00 USD</span> </div>
+                            </div>
+                            <!--  New Arrival  -->
+                            <div class="items-in ">
+                                <!-- Image -->
+                                <img src="images/new-item-2.jpg " alt=" ">
+                                <!-- Hover Details -->
+                                <div class="over-item ">
+                                    <ul class="animated fadeIn ">
+                                        <li> <a href="images/new-item-2.jpg " data-lighter><i class="ion-search "></i></a></li>
+                                        <li> <a href="#. "><i class="ion-shuffle "></i></a></li>
+                                        <li> <a href="#. "><i class="fa fa-heart-o "></i></a></li>
+                                        <li class="full-w "> <a href="#. " class="btn ">ADD TO CART</a></li>
+                                        <!-- Rating Stars -->
+                                        <li class="stars "><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star-half-o "></i></li>
+                                    </ul>
+                                </div>
+                                <!-- Item Name -->
+                                <div class="details-sec "> <a href="#. ">LOOSE-FIT TRENCH COAT</a> <span class="font-montserrat ">129.00 USD</span> </div>
+                            </div>
+                            <!--  New Arrival  -->
+                            <div class="items-in ">
+                                <!--  Tags  -->
+                                <div class="new-tag "> NEW </div>
+                                <!-- Image -->
+                                <img src="images/new-item-3.jpg " alt=" ">
+                                <!-- Hover Details -->
+                                <div class="over-item ">
+                                    <ul class="animated fadeIn ">
+                                        <li> <a href="images/new-item-3.jpg " data-lighter><i class="ion-search "></i></a></li>
+                                        <li> <a href="#. "><i class="ion-shuffle "></i></a></li>
+                                        <li> <a href="#. "><i class="fa fa-heart-o "></i></a></li>
+                                        <li class="full-w "> <a href="#. " class="btn ">ADD TO CART</a></li>
+                                        <!-- Rating Stars -->
+                                        <li class="stars "><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star-half-o "></i></li>
+                                    </ul>
+                                </div>
+                                <!-- Item Name -->
+                                <div class="details-sec "> <a href="#. ">LOOSE-FIT TRENCH COAT</a> <span class="font-montserrat ">129.00 USD</span> </div>
+                            </div>
+                            <!--  New Arrival  -->
+                            <div class="items-in ">
+                                <!--  Tags  -->
+                                <div class="hot-tag "> HOT </div>
+                                <!-- Image -->
+                                <img src="images/new-item-4.jpg " alt=" ">
+                                <!-- Hover Details -->
+                                <div class="over-item ">
+                                    <ul class="animated fadeIn ">
+                                        <li> <a href="images/new-item-4.jpg " data-lighter><i class="ion-search "></i></a></li>
+                                        <li> <a href="#. "><i class="ion-shuffle "></i></a></li>
+                                        <li> <a href="#. "><i class="fa fa-heart-o "></i></a></li>
+                                        <li class="full-w "> <a href="#. " class="btn ">ADD TO CART</a></li>
+                                        <!-- Rating Stars -->
+                                        <li class="stars "><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star-half-o "></i></li>
+                                    </ul>
+                                </div>
+                                <!-- Item Name -->
+                                <div class="details-sec "> <a href="#. ">LOOSE-FIT TRENCH COAT</a> <span class="font-montserrat ">129.00 USD</span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+        <hr/>
+        <!--======= Footer =========-->
+        <footer>
+            <div class="container">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="text-center">
+                        <a href="#."><img class="img-responsive" src="images/logo.png" alt=""></a>
+                        <br>
+                        <p class="intro-small margin-t-40">Multipurpose E-Commerce Theme is suitable for furniture store, fashion shop, accessories, electric shop. We have included multiple layouts for home page to give you best selections in customization.</p>
+                    </div>
+                    <!--  Footer Links -->
+                    <div class="footer-link row">
+                        <div class="col-md-9 clearfix">
+                            <ul>
+                                <!--  INFOMATION -->
+                                <li class="col-sm-6">
+                                    <h5>INFOMATION</h5>
+                                    <ul class="f-links">
+                                        <li><a href="#.">ABOUT US</a></li>
+                                        <li><a href="#."> DELIVERY INFOMATION</a></li>
+                                        <li><a href="#."> PRIVACY & POLICY</a></li>
+                                        <li><a href="#."> TEMRS & CONDITIONS</a></li>
+                                        <li><a href="#."> MANUFACTURES</a></li>
+                                    </ul>
+                                </li>
+                                <!-- MY ACCOUNT -->
+                                <li class="col-sm-6">
+                                    <h5>MY ACCOUNT</h5>
+                                    <ul class="f-links">
+                                        <li><a href="#.">MY ACCOUNT</a></li>
+                                        <li><a href="#."> LOGIN</a></li>
+                                        <li><a href="#."> MY CART</a></li>
+                                        <li><a href="#."> WISHLIST</a></li>
+                                        <li><a href="#."> CHECKOUT</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Second Row -->
+                        <div class="col-md-3">
+                            <ul class="row">
+                                <!-- TWITTER -->
+                                <li class="col-sm-12">
+                                    <h5>TWITTER</h5>
+                                    <p>Check out new work on my @Behance portfolio: "BCreative_Multipurpose Theme" http://on.be.net/1zOOfBQ </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Rights -->
+                    <div class="rights">
+                        <ul>
+                            <li><img src="images/visa_1.png"></li>
+                            <li><img src="images/visa_2.png"></li>
+                            <li><img src="images/visa_3.png"></li>
+                            <li><img src="images/visa_4.png"></li>
+                        </ul>
+                        <hr>
+                        <p>© 2015 HTML5 TEMPLATE SEBIAN. All Rights Reserved. Powered By WPELITE</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- GO TO TOP -->
+        <a href="# " class="cd-top "><i class="fa fa-angle-up "></i></a>
+        <!-- GO TO TOP End -->
+    </div>
+    <!-- Wrap End -->
+    <script src="js/jquery-1.11.3.js "></script>
+    <script src="js/wow.min.js "></script>
+    <script src="js/bootstrap.min.js "></script>
+    <script src="js/owl.carousel.min.js "></script>
+    <script src="js/jquery.magnific-popup.min.js "></script>
+    <script src="js/jquery.isotope.min.js "></script>
+    <script src="js/jquery.flexslider-min.js "></script>
+    <script src="js/jquery.elevatezoom.js"></script>
+    <script src="js/slick.min.js"></script>
+    <!-- fancyBox -->
+    <script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox-thumbs.js"></script>
+    <script src="js/zoom-slider.js"></script>
+    <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+    <script type="text/javascript " src="rs-plugin/js/jquery.themepunch.tools.min.js "></script>
+    <script type="text/javascript " src="rs-plugin/js/jquery.themepunch.revolution.min.js "></script>
+    <script src="js/main.js "></script>
+</body>
+
+</html>

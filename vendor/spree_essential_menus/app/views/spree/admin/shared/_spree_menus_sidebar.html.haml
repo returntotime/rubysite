@@ -1,0 +1,7 @@
+- content_for :sidebar do
+  %div.box#menus_sidebar
+    %h3= t('menu_bars')
+    %div
+      = button_link_to t('spree.admin.menu_bars.list_of_menu_bars'), admin_menu_bars_path, :icon => 'pages'
+      = button_link_to t('spree.admin.menu_bars.new_menu_bar'), new_admin_menu_bar_path, :icon => 'add'
+    %div.clearfix

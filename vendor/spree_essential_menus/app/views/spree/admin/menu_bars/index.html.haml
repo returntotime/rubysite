@@ -1,0 +1,27 @@
+- content_for :page_title do
+  = t('spree.admin.menu_bars.list_of_menu_bars')
+- content_for :page_actions do
+  = button_link_to t('spree.admin.menu_bars.new_menu_bar'), new_object_url, { :class => "btn-success", :icon => 'add' }
+
+
+%table.table
+  %thead
+    %tr
+      %th= t('spree.admin.menu_bars.name')
+      %th= t('spree.admin.menu_bars.css_class')
+      %th.actions= t('action')
+  %tbody
+    - @menu_bars.each do |bar|
+      %tr
+        %td= bar.name
+        %td= bar.css_class
+        %td.text-right
+          = link_to_edit bar
+          = link_to_delete bar
+          %a{href: admin_menu_bar_menus_path(bar), :class => "btn btn-sm btn-success"}
+            %i{:class => "glyphicon glyphicon-list-alt"}
+            List menu
+
+
+=# render :partial => 'spree/admin/shared/spree_menus_sidebar'
+

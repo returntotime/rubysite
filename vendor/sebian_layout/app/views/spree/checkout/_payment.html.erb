@@ -1,0 +1,40 @@
+
+  <div data-hook="checkout_payment_step">
+
+    <ul id="payment-method-fields" data-hook>
+      <% @order.available_payment_methods.each do |method| %>
+        <li>
+          <div class="checkbox no-margin bottom-padding">
+            <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id,method == @order.available_payment_methods.first, :class => "styled no-margin", :id=> "payment_method_option_#{method.id}", "data-type" => method.method_type %>
+            <label for="<%= "payment_method_option_#{method.id}" %>"> <%= Spree.t(method.name, :scope => :payment_methods, :default => method.name) %> </label>
+          </div>
+          <% if method.description.present? %>
+            <p><%= method.description %></p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="no-margin" id="payment-methods" data-hook>
+      <% @order.available_payment_methods.each do |method| %>
+        <li id="payment_method_<%= method.id %>" class="<%= 'last' if method == @order.available_payment_methods.last %>" data-hook>
+          <fieldset>
+            <br/>
+            <%= render :partial => "spree/checkout/payment/#{method.method_type}", :locals => { :payment_method => method } %>
+          </fieldset>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+<ul>
+  <li>
+    <div class="checkbox">
+      <input id="accept-place-order" class="styled" type="checkbox">
+      <label for="accept-place-order"> I’VE READ AND ACCEPT THE <span class="color"> TERMS &amp; CONDITIONS </span> </label>
+    </div>
+  </li>
+</ul>
+<%#= submit_tag "PLACE ORDER", class: 'btn btn-small btn-dark pull-right' %>
+<a href="#" class="btn btn-small btn-dark pull-right" id="place-order" disabled="disabled">PLACE ORDER</a>
+<script>Spree.disableSaveOnClick();</script>

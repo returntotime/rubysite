@@ -1,0 +1,2 @@
+sku,name,price,cost_price,weight,height,width,depth,image_main,image_2,image_3,image_4,description,category,shipping category id,slug
+12345,Test1,12.03,11.03,10,10,10,10,,,,,Test,Coffee,1,Test-12

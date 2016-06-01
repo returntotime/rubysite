@@ -1,0 +1,33 @@
+<div class="nav-card pull-left">
+  <div class="nav-card-badge">1</div>
+  <div class="nav-card-detail">
+    <h3>SHOPPING CARD</h3>
+    <ul>
+      <li>
+        <div class="pic pull-left">
+          <img src="img/pic.png" height="50" width="50">
+        </div>
+        <div class="info pull-left">
+          <h5>RUCKSACK WITH ROPES</h5>
+          <p>1 x <span>$35.99</span></p>
+        </div>
+        <div class="del pull-right"></div>
+      </li>
+      <li>
+        <div class="pic pull-left">
+          <img src="img/pic.png" height="50" width="50">
+        </div>
+        <div class="info pull-left">
+          <h5>RUCKSACK WITH ROPES</h5>
+          <p>1 x <span>$35.99</span></p>
+        </div>
+        <div class="del pull-right"></div>
+      </li>
+    </ul>
+    <h5 class="total">SUBTOTAL&nbsp;:&nbsp;<span>$75.89</span></h5>
+    <div class="gr-btn-card">
+      <a class="pull-left">VIEWCARD</a>
+      <a class="pull-right">CHECKOUT</a>
+    </div>
+  </div>
+</div>

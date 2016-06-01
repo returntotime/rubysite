@@ -1,0 +1,9 @@
+<% if Spree::Reviews::Config[:include_unapproved_reviews] == false and @product.reviews.approved.count == 0 %>
+    <p class="reviews-none"><%= Spree.t(:no_reviews_available) %></p>
+<% else %>
+  <h6><%= @product.reviews.approved.count %> REVIEW<%= @product.reviews.approved.count.to_i > 1 ? 'S' : '' %> FOR <%= @product.name %></h6>
+    <% for review in (Spree::Reviews::Config[:track_locale] ? @product.reviews.localized(I18n.locale) : @product.reviews).default_approval_filter.preview %>
+    <!-- REVIEW PEOPLE 1 -->
+        <%= render 'spree/shared/review', review: review %>
+    <% end %>
+<% end %>

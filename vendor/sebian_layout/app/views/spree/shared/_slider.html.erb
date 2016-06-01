@@ -1,0 +1,38 @@
+<% if Spree::Slide.published.location("home_slider").count > 0 %>
+    <% location = Spree::SlideLocation.find_by(:name => "home_slider") %>
+         <% unless location.fullwidth? %>
+            <%= (location.width.present? && location.width.to_i > 0) ? ("<div class='text-center'><span style ='display:inline-block; width:#{location.width}px; '>".html_safe) : '<div class = "container">'.html_safe %>
+         <% else %>
+            <div>
+         <% end %>
+        <section class="home-slider">
+          <div class="tp-banner-container"
+               <% if location.height.present? && location.height > 0 %>
+               style="height:<%= location.height.to_s %>px;" data-height = <%= location.height.to_s %>
+               <% end %>
+          >
+            <div class="tp-banner-fix">
+              <ul>
+                <% Spree::Slide.published.location("home_slider").order('position ASC').each do |s| %>
+                  <li
+                      data-slotamount="7"
+                      <% if location.use_speed %>
+                        <% slide_slide_location = Spree::SlideSlideLocation.find_by(:slide_id => s.id, :slide_location_id => location.id) %>
+                        <% if slide_slide_location.present? && slide_slide_location.animation.present? %>
+                            data-transition="<%= slide_slide_location.animation.to_s %>"
+                        <% end %>
+                        <% if slide_slide_location.present? && slide_slide_location.delay.to_i > 0 %>
+                            data-delay="<%= slide_slide_location.delay %>"
+                        <% end %>
+                      <% end %>
+                      class="slider-item" data-href="<%= s.link_url.present? ? s.link_url : '#' %>">
+                    <%= image_tag s.slide_image.url(:original), "data-bgposition" => "center top" %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </section>
+        </span>
+    </div>
+<% end %>

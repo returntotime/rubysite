@@ -1,0 +1,67 @@
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => 'Wish lists', :breadcrumb_text => 'Find Wish lists' } %>
+<section class="section-p-30px pages-in wishlist">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+      <h2 class="wishlist-title">Find Wish lists</h2>
+        <div class="row">
+          <form method="get">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>FIRSTNAME:</label>
+                  <input type="text" name="firstname" value="<%= params[:firstname] %>" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-5">
+                  <div class="form-group">
+                    <label>LASTNAME:</label>
+                    <input type="text" name="lastname" value="<%= params[:lastname] %>" class="form-control">
+                  </div>
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-default btn-dark full-width" id="btn-search-wishlist">&nbsp;SEARCH</button>
+              </div>
+          </form>
+        </div>
+      <% if @wishlists.any? %>
+        <div class="wishlist-box" id="wishlist-box">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Owner</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- item -->
+              <% @wishlists.each_with_index do |wishlist, index| %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= link_to(wishlist.name, wishlist) %></td>
+                    <td>
+                      <%= wishlist.user.present? ? wishlist.user.fullname : '' %>
+                    </td>
+                    <td>
+                      <%= link_to "Detail", wishlist_path(wishlist) %>
+                    </td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= paginate @wishlists %>
+          </div>
+        </div>
+      <% else %>
+        <div class="text-center margin-top-30">No Wish List found</div>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</section>

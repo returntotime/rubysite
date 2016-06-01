@@ -1,0 +1,35 @@
+<ul>
+  <!--  Posts 1 -->
+  <% if !@blog_entries.empty? %>
+      <% @blog_entries.each do |blog_entry| %>
+          <li class="animate fadeInUp" data-wow-delay="0.4s">
+            <!--  Image -->
+            <% if blog_entry.blog_entry_banner.present? && blog_entry.blog_entry_banner.attachment.present? %>
+                <%= image_tag(blog_entry.blog_entry_banner.attachment.url(:normal), :class => "img-responsive") %>
+            <% else %>
+                <%= image_tag "blog_normal.png", :class => "img-responsive" %>
+            <% end %>
+            <!-- Tag Icon -->
+            <!--div class="blog-tag-icon"> <i class="fa fa-pencil"></i> </div-->
+            <span class="tags">
+              <% if blog_entry.categories.count > 0 %>
+                  <% blog_entry.categories.each_with_index do |blog_category, index| %>
+                      <%= (index > 0) ? ', ' : '' %><a href="<%= blog_category_path(blog_category.name) %>"><%= blog_category.name.upcase %></a>
+                  <% end %>
+              <% end %>
+            </span>
+            <%= link_to blog_entry.title, blog_entry_permalink(blog_entry), :class => "tittle-post font-playfair" %>
+            <p><div class="mt-ck-editor"> <%= blog_entry.entry_summary.html_safe %></div></p>
+            <!--  Post Info -->
+            <ul class="info">
+              <li><i class="fa fa-user"></i> <%= blog_entry.display_author %></li>
+              <li><i class="fa fa-calendar-o"></i> <%= blog_entry.display_date %></li>
+              <li><i class="fa fa-eye"></i> <%= blog_entry.views.to_s %></li>
+            </ul>
+            <%= link_to "READ MORE", blog_entry_permalink(blog_entry), :class => "btn btn-small btn-dark" %>
+          </li>
+      <% end %>
+  <% else %>
+      <p id="no_entries"><%= Spree.t(:no_blog_entries) %></p>
+  <% end %>
+</ul>

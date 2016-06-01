@@ -1,0 +1,26 @@
+<% if @store.present? && @store.show_subcribe %>
+    <% home_subcribe_background = Spree::Slide.published.location("home_subcribe_background").first %>
+    <style type="text/css">
+      .subcribe {
+        background: <%= home_subcribe_background.present? ? "url(#{home_subcribe_background.slide_image.url})" : 'url(/assets/bg/bg-3.jpg)' %> fixed center center no-repeat !important;
+        background-size: cover;
+      }
+    </style>
+    <section class="subcribe animate fadeInUp" data-wow-delay="0.4s" data-stellar-background-ratio="0.8">
+      <div class="overlay">
+        <div class="container">
+          <h4>SUBCRIBE</h4>
+          <!--  Subsribe Form -->
+          <div class="col-md-7 no-padding pull-right">
+            <div class="sub-mail">
+              <form action="<%= home_subcribe_path %>">
+                <input type="search" name="email_subcribe" placeholder="YOUR EMAIL ADDRESS..">
+                <!--  Button -->
+                <button type="submit">SUBCRIBE</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<% end %>

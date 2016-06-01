@@ -1,0 +1,82 @@
+//fonts
+$font_6: FontAwesome;
+// DINNextLTProMedium
+$pri-medium: 'DINNextLTProMedium';
+@font-face {
+    font-family: $pri-medium;
+    src: font-url("DINNextLTProMedium.eot") format("eot");
+    src: font-url("DINNextLTProMedium.woff") format("woff"), font-url("DINNextLTProMedium.ttf") format("truetype"), font-url("DINNextLTProMedium.svgDINNextLTProMedium") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// DINNextLTProCondensed
+$pri-condensed: 'DINNextLTProCondensed';
+@font-face {
+    font-family: $pri-condensed;
+    src: font-url("DINNextLTProCondensed.eot") format("eot");
+    src: font-url("DINNextLTProCondensed.woff") format("woff"), font-url("DINNextLTProCondensed.ttf") format("truetype"), font-url("DINNextLTProCondensed.svgDINNextLTProCondensed") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// DINNextLTProRegular
+$pri-regular: 'DINNextLTProRegular';
+@font-face {
+    font-family: $pri-regular;
+    src: font-url("DINNextLTProRegular.eot") format("eot");
+    src: font-url("DINNextLTProRegular.woff") format("woff"), font-url("DINNextLTProRegular.ttf") format("truetype"), font-url("DINNextLTProRegular.DINNextLTProRegular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// DINNextLTProItalic
+$pri-italic: 'DINNextLTProItalic';
+@font-face {
+    font-family: $pri-italic;
+    src: font-url("DINNextLTProItalic.eot") format("eot");
+    src: font-url("DINNextLTProItalic.woff") format("woff"), font-url("DINNextLTProItalic.ttf") format("truetype"), font-url("DINNextLTProItalic.DINNextLTProItalic") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// DINNextLTProLight
+$pri-light: 'DINNextLTProLight';
+@font-face {
+    font-family: $pri-light;
+    src: font-url("DINNextLTProLight.eot") format("eot");
+    src: font-url("DINNextLTProLight.woff") format("woff"), font-url("DINNextLTProLight.ttf") format("truetype"), font-url("DINNextLTProLight.DINNextLTProLight") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// MuseoSans_500
+$sec-500: 'MuseoSans_500';
+@font-face {
+    font-family: $sec-500;
+    src: font-url("MuseoSans_500.eot") format("eot");
+    src: font-url("MuseoSans_500.woff") format("woff"), font-url("MuseoSans_500.ttf") format("truetype"), font-url("MuseoSans_500.MuseoSans_500") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// FONT FACE
+// @mixin font-face($fontFamily,
+// $eotFileSrc: './../fonts/#{$fontFamily}.eot',
+// $woffFileSrc: './../fonts/#{$fontFamily}.woff',
+// $ttfFileSrc: './../fonts/#{$fontFamily}.ttf',
+// $svgFileSrc: './../fonts/#{$fontFamily}.svg',
+// $svgFontID: '#{$fontFamily}') {
+//     font-family: $fontFamily;
+//     src: url($eotFileSrc) format('eot');
+//     src: url($woffFileSrc) format('woff'), url($ttfFileSrc) format('truetype'), url($svgFileSrc + $svgFontID) format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+// @font-face {
+//     @include font-face(chunkfive-webfont)
+// }
+// a {
+//     font-family: chunkfive-webfont;
+// }
+//

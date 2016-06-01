@@ -1,0 +1,88 @@
+<% address_id = address_type.chars.first %>
+
+<div class="inner" data-hook=<%="#{address_type}_inner" %>>
+  <li class="col-md-12" id=<%="#{address_id}firstname" %>>
+    <label> *FIRST NAME
+      <%= form.text_field :firstname, :class => '' %>
+    </label>
+  </li>
+  <li class="col-md-12" id=<%="#{address_id}lastname" %>>
+    <label> *LAST NAME
+      <%= form.text_field :lastname, :class => '' %>
+    </label>
+  </li>
+  <li class="col-md-6" id=<%="#{address_id}address1" %>>
+    <label> *ADDRESS 1
+      <%= form.text_field :address1, :class => '' %>
+    </label>
+  </li>
+  <li class="col-md-6" id=<%="#{address_id}address2" %>>
+    <label> ADDRESS 2
+      <%= form.text_field :address2 %>
+    </label>
+  </li>
+  <% if Spree::Config[:company] %>
+    <li class="col-md-12" id=<%="#{address_id}company" %>>
+      <!-- COMPANY NAME -->
+      <label>COMPANY NAME
+        <%= form.text_field :company %>
+      </label>
+    </li>
+  <% end %>
+  <li class="col-md-12" id=<%="#{address_id}city" %>>
+    <label>*TOWN/CITY
+      <%= form.text_field :city, :class => '' %>
+    </label>
+  </li>
+  <!-- *COUNTRY -->
+  <li class="col-md-12" id=<%="#{address_id}country" %>>
+    <label> *COUNTRY
+      <span id=<%="#{address_id}country-selection" %>>
+        <%= form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'selectpicker'} %>
+      </span>
+    </label>
+  </li>
+  <% if Spree::Config[:address_requires_state] %>
+    <!-- *STATE -->
+    <li class="col-md-12">
+      <label> *STATE / PROVINCE
+        <span id=<%="#{address_id}state" %>>
+          <% have_states = !address.country.states.empty? %>
+
+          <% state_elements = [
+              form.collection_select(:state_id, address.country.states,
+                                     :id, :name,
+                                     {:include_blank => true},
+                                     {:class => have_states ? 'selectpicker' : 'hidden',
+                                      :disabled => !have_states}) +
+                  form.text_field(:state_name,
+                                  :class => !have_states ? 'selectpicker' : 'hidden',
+                                  :disabled => have_states)
+          ].join.gsub('"', "'").gsub("\n", "")
+          %>
+          <%= javascript_tag do %>
+            $('#<%="#{address_id}state" %>').append("<%== state_elements %>");
+          <% end %>
+        </span>
+      </label>
+      <noscript>
+        <%= form.text_field :state_name, :class => '' %>
+      </noscript>
+    </li>
+  <% end %>
+
+  <!-- POSTCODE -->
+  <li class="col-md-6" id=<%="#{address_id}zipcode" %>>
+    <label> *POSTCODE
+      <%= form.text_field :zipcode, :class => "#{'' if address.require_zipcode?}" %>
+    </label>
+  </li>
+  <!-- PHONE -->
+  <li class="col-md-6" id=<%="#{address_id}phone" %>>
+    <label> *PHONE
+      <%= form.phone_field :phone, :class => "#{'' if address.require_phone?}" %>
+    </label>
+  </li>
+</div>
+
+

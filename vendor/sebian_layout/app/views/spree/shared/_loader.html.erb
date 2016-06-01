@@ -1,0 +1,18 @@
+<div id="loader">
+  <div class="loader">
+    <div class="position-center-center">
+      <% image_url = Spree::Store.first.image_url %>
+      <% if image_url == "" %>
+          <%= image_tag "logo-dark.png", :class => "img-responsive" %>
+      <% else %>
+          <%= image_tag image_url, :class => "img-responsive" %>
+      <% end %>
+      <p class="font-playfair text-center">Please Wait...</p>
+      <div class="loading">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
+    </div>
+  </div>
+</div>

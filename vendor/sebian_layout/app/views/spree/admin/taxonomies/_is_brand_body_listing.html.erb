@@ -1,0 +1,14 @@
+<td>
+  <%= check_box_tag :featured, nil, taxonomy.featured, :class => 'toggle-taxonomy-featured', 'data-id' => taxonomy.id %>
+</td>
+<td>
+  <%= check_box_tag :is_brand, nil, taxonomy.is_brand, :class => 'toggle-taxonomy-brand', 'data-id' => taxonomy.id %>
+</td>
+<td>
+  <% brand_image_url = taxonomy.root.brand_image_url(:thumb) %>
+  <% if brand_image_url == "" %>
+    No brand image
+  <% else %>
+    <%= image_tag brand_image_url %>
+  <% end %>
+</td>

@@ -1,0 +1,31 @@
+<section class="our-clients">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+      <!--  Tittle -->
+      <% if @brands.present? %>
+        <div class="tittle animate fadeInUp" data-wow-delay="0.4s">
+          <h5><%= Spree::Config[:our_brands] %></h5>
+          <p><%= Spree::Config[:our_brands_subtext] %></p>
+        </div>
+        <!--  Client Logo Slider -->
+        <div class="client-slide animate fadeInUp" data-wow-delay="0.4s">
+          <% @brands.each do |brand| %>
+            <div class="slide">
+              <% if brand.root.extenal_link.present? %>
+                <a href="<%= brand.root.extenal_link %>" rel="nofollow" target="_blank">
+              <% else %>
+                <a href="<%= seo_url(brand.root) %>">
+              <% end %>
+                <% if brand.root.brand_image_url == "" %>
+                  <%= image_tag "client-logo-1.png", :class=>"img-responsive" %>
+                <% else %>
+                  <%= image_tag brand.root.brand_image_url, :class=>"img-responsive" %>
+                <% end %>
+              </a>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,87 @@
+// //fonts
+$font_6: FontAwesome;
+// Museo_Slab_300
+$pri-300: 'museo_slab_300webfont';
+@font-face {
+    font-family: $pri-300;
+    src: font-url("museo_slab_300webfont.eot") format("eot");
+    src: font-url("museo_slab_300webfont.woff") format("woff"), font-url("museo_slab_300webfont.ttf") format("truetype"), font-url("museo_slab_300webfont.svgmuseo_slab_300webfont") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$pri-300-i: 'Museo_Slab_300italic';
+@font-face {
+    font-family: $pri-300-i;
+    src: font-url("Museo_Slab_300italic.eot") format("eot");
+    src: font-url("Museo_Slab_300italic.woff") format("woff"), font-url("Museo_Slab_300italic.ttf") format("truetype"), font-url("Museo_Slab_300italic.svgMuseo_Slab_300italic") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Museo_Slab_500
+$pri-500: 'museo_slab_500webfont';
+@font-face {
+    font-family: $pri-500;
+    src: font-url("museo_slab_500webfont.eot") format("eot");
+    src: font-url("museo_slab_500webfont.woff") format("woff"), font-url("museo_slab_500webfont.ttf") format("truetype"), font-url("museo_slab_500webfont.svgmuseo_slab_500webfont") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$pri-500-i: 'Museo_Slab_500italic';
+@font-face {
+    font-family: $pri-500-i;
+    src: font-url("Museo_Slab_500italic.eot") format("eot");
+    src: font-url("Museo_Slab_500italic.woff") format("woff"), font-url("Museo_Slab_500italic.ttf") format("truetype"), font-url("Museo_Slab_500italic.svgMuseo_Slab_500italic") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Museo_Slab_700
+$pri-700: 'museo_slab_700webfont';
+@font-face {
+    font-family: $pri-700;
+    src: font-url("museo_slab_700webfont.eot") format("eot");
+    src: font-url("museo_slab_700webfont.woff") format("woff"), font-url("museo_slab_700webfont.ttf") format("truetype"), font-url("museo_slab_700webfont.svgmuseo_slab_700webfont") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$pri-700-i: 'Museo_Slab_700italic';
+@font-face {
+    font-family: $pri-700-i;
+    src: font-url("Museo_Slab_700italic.eot") format("eot");
+    src: font-url("Museo_Slab_700italic.woff") format("woff"), font-url("Museo_Slab_700italic.ttf") format("truetype"), font-url("Museo_Slab_700italic.svgMuseo_Slab_700italic") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Museo_Slab_900
+$pri-900: 'Museo_Slab_900';
+@font-face {
+    font-family: $pri-900;
+    src: font-url("Museo_Slab_900.eot") format("eot");
+    src: font-url("Museo_Slab_900.woff") format("woff"), font-url("Museo_Slab_900.ttf") format("truetype"), font-url("Museo_Slab_900.svgMuseo_Slab_900") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$pri-900-i: 'Museo_Slab_900italic';
+@font-face {
+    font-family: $pri-900-i;
+    src: font-url("Museo_Slab_900italic.eot") format("eot");
+    src: font-url("Museo_Slab_900italic.woff") format("woff"), font-url("Museo_Slab_900italic.ttf") format("truetype"), font-url("Museo_Slab_900italic.svgMuseo_Slab_900italic") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Chunkfive
+$sec-font: 'chunkfive-webfont';
+@font-face {
+    font-family: $sec-font;
+    src: font-url("chunkfive-webfont.eot") format("eot");
+    src: font-url("chunkfive-webfont.woff") format("woff"), font-url("chunkfive-webfont.ttf") format("truetype"), font-url("chunkfive-webfont.svgchunkfive-webfont") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}

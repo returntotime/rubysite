@@ -1,0 +1,41 @@
+<section class="section-p-60px blog">
+  <div class="container">
+    <!--  Tittle -->
+    <div class="tittle animate fadeInUp" data-wow-delay="0.4s">
+      <h5>THE BLOG</h5>
+      <p>Tell your Story</p>
+    </div>
+    <!--  Blog Posts -->
+    <div class="blog-posts">
+      <ul class="row">
+        <% @blog_entries.each do |blog_entry| %>
+        <li class="col-sm-4 animate fadeInLeft" data-wow-delay="0.4s">
+          <div class="box-img">
+            <% if blog_entry.blog_entry_image.present? %>
+                <%= image_tag(blog_entry.blog_entry_image.attachment.url(:normal), :class => "img-responsive") %>
+            <% else %>
+                <%= image_tag "blog-small-1.jpg", :class=>"img-responsive" %>
+            <% end %>
+          </div>
+          <% if blog_entry.categories.count > 0 %>
+              <span class="tags">
+                <% blog_entry.categories.each_with_index do |category, index| %>
+                    <%=(index > 0) ? ', ' : '' %><a href="<%= blog_category_path(category.name) %>"><%= category.name.titleize %></a>
+                <% end %>
+              </span>
+          <% else %>
+            <div class="tags">No Category</div>
+          <% end %>
+          <%= link_to blog_entry.title, blog_entry_permalink(blog_entry), :class => "tittle-post font-playfair" %>
+          <p><%= blog_entry.entry_summary.html_safe %></p>
+          <ul class="info">
+            <li><i class="fa fa-user"></i> <%= blog_entry.display_author %></li>
+            <li><i class="fa fa-calendar-o"></i> <%= blog_entry.display_date %></li>
+            <li><i class="fa fa-eye"></i> <%= blog_entry.views.to_s %></li>
+          </ul>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</section>

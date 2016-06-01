@@ -1,0 +1,28 @@
+<% @body_id = 'signup' %>
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => "FORGOT PASSWORD", :breadcrumb_text => "FORGOT PASSWORD"} %>
+
+<section class="section-p-30px pages-in item-detail-page">
+<div class="container">
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
+<div class="col-md-6 col-md-offset-3" id="forgot-password">
+  <div class="panel panel-custum">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= Spree.t(:forgot_password) %></h3>
+    </div>
+    <div class="panel-body">
+      <p><%= Spree.t(:instructions_to_reset_password) %></p>
+
+      <%= form_for Spree::User.new, :as => :spree_user, :url => spree.reset_password_path do |f| %>
+        <p>
+          <%= f.label :email, Spree.t(:email) %><br />
+          <%= f.email_field :email, :class => "form-control" %>
+        </p>
+        <p>
+          <%= f.submit Spree.t(:reset_password), :class => 'btn btn-lg btn-dark btn-block' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</section>

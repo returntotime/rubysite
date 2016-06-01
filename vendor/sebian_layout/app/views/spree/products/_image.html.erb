@@ -1,0 +1,10 @@
+<%# if defined?(image) && image %>
+  <%#= image_tag image.attachment.url(:large), :itemprop => "image", :class => "img-responsive" %>
+<%# else %>
+  <%#= large_image(@product, :itemprop => "image", :class => "img-responsive") %>
+<%# end %>
+<% if defined?(image) && image %>
+  <%= image_tag @product.variant_images.first.attachment.url(:original), :itemprop => "image", :class => "img-responsive" %>
+<% else %>
+    <%= large_image(@product, :itemprop => "image", :class => "img-responsive") %>
+<% end %>

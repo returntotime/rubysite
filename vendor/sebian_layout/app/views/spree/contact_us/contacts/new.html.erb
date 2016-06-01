@@ -1,0 +1,94 @@
+<script type='text/javascript' src='//maps.google.com/maps/api/js?sensor=false'></script>
+<%= render :partial=>"spree/shared/sub_title", :locals=>{:title => Spree.t(:contact_us_title), :breadcrumb_text => Spree.t(:contact_us_title)} %>
+<div id="map" class="animate fadeInUp" data-wow-delay="0.4s">
+  <input type="hidden" value="<%= Spree::Config[:site_address] %>" id="map-address">
+</div>
+<div class="tittle">
+  <h5>CONTACT US</h5>
+  <p>Please don’t hesitate to contact me if you have any questions, commnets or messages. <br>
+    I’ll try to respond to everything!</p>
+</div>
+<section class="contact section-p-30px no-padding-b">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 animate fadeInUp" data-wow-delay="0.4s">
+        <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @contact } %>
+        <%= render :partial => "spree/shared/contact_form" %>
+      </div>
+    </div>
+  </div>
+</section>
+<br/>
+<!--<section class="section-p-60px contact-box animate fadeInUp" data-wow-delay="0.4s">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+
+      <!--&lt;!&ndash; Shop Location &ndash;&gt;-->
+      <!--<div class="col-md-4 animate fadeInLeft" data-wow-delay="0.4s">-->
+        <!--<div class="boxes-in">-->
+          <!--<h6>SHOP LOCATION</h6>-->
+          <!--<ul class="location">-->
+            <!--<li><i class="fa fa-location-arrow"></i>-->
+              <!--<p><%#= Spree::Config[:contact_location] %></p>-->
+            <!--</li>-->
+            <!--<li> <i class="fa fa-phone"></i>-->
+              <!--<p>Phone: <%#= Spree::Config[:contact_phone] %></p>-->
+            <!--</li>-->
+            <!--<li> <i class="fa fa-envelope"></i>-->
+              <!--<p><%#= Spree::Config[:contact_email] %></p>-->
+            <!--</li>-->
+            <!--<li> <i class="fa fa-clock-o"></i>-->
+              <!--<p>OPEN: <%#= Spree::Config[:contact_open_time] %></p>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--&lt;!&ndash; NEWSLETTER &ndash;&gt;-->
+      <!--<div class="col-md-4 animate fadeInUp" data-wow-delay="0.4s">-->
+        <!--<div class="boxes-in">-->
+          <!--<h6>NETWORKS</h6>-->
+
+          <!--&lt;!&ndash;======= FOOTER ICONS =========&ndash;&gt;-->
+          <!--<ul class="social_icons">-->
+            <!--<li class="facebook"><a href="#."> <i class="fa fa-facebook"></i></a></li>-->
+            <!--<li class="twitter"><a href="#."> <i class="fa fa-twitter"></i></a></li>-->
+            <!--<li class="googleplus"><a href="#."> <i class="fa fa-google"></i></a></li>-->
+            <!--<li class="skype"><a href="#."> <i class="fa fa-skype"></i></a></li>-->
+            <!--<li class="pinterest"><a href="#."> <i class="fa fa-pinterest"></i></a></li>-->
+            <!--<li class="dribbble"><a href="#."> <i class="fa fa-dribbble"></i></a></li>-->
+            <!--<li class="flickr"><a href="#."> <i class="fa fa-flickr"></i></a></li>-->
+            <!--<li class="behance"><a href="#."> <i class="fa fa-behance"></i></a></li>-->
+            <!--<li class="linkedin"><a href="#."> <i class="fa fa-linkedin"></i></a></li>-->
+            <!--<li class="youtube"><a href="#."> <i class="fa fa-youtube"></i></a></li>-->
+            <!--<li class="instagram"><a href="#."> <i class="fa fa-instagram"></i></a></li>-->
+            <!--<li class="stumbleupon"><a href="#."> <i class="fa fa-stumbleupon"></i></a></li>-->
+            <!--<li class="soundcloud"><a href="#."> <i class="fa fa-soundcloud"></i></a></li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--&lt;!&ndash; TESTIMONIAL &ndash;&gt;-->
+      <!--<div class="col-md-4 animate fadeInRight" data-wow-delay="0.4s">-->
+        <!--<div class="boxes-in">-->
+          <!--<h6>SUPPORT PEOPLE</h6>-->
+          <!--<div class="media">-->
+            <!--<div class="media-left">-->
+              <!--&lt;!&ndash;  Image &ndash;&gt;-->
+              <!--<div class="avatar">-->
+                <!--<a href="#">-->
+                  <!--<%= image_tag "avatar-11.jpg", :class =>  "media-object" %>-->
+                <!--</a>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;  Details &ndash;&gt;-->
+            <!--<div class="media-body">-->
+              <!--<h5>M_Adnan</h5>-->
+              <!--<p>Support Manager</p>-->
+              <!--<span><i class="fa fa-skype"></i> <%= Spree::Config[:contact_skype] %></span> </div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>-->

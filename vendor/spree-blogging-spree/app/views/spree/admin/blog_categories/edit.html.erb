@@ -1,0 +1,23 @@
+<% content_for :page_title do %>
+    Editting Blog Categories
+<% end %>
+<% content_for :page_actions do %>
+    <%= button_link_to Spree.t(:back_to_blog_category_list), spree.admin_blog_categories_index_path, :icon => 'arrow-left' %>
+<% end %>
+<%= render "spree/shared/error_messages", :target => @blog_category %>
+
+<%= form_for @blog_category, :url => admin_blog_category_path(@blog_category) do |form| %>
+    <fieldset class="no-border-top">
+      <%= form.field_container :name, class: ['form-group'] do %>
+          <%= form.label :name, "Name" %> <span class="required">*</span><br />
+          <%= form.text_field :name, :class => 'fullwidth form-control' %>
+          <%= form.error_message_on :name %>
+      <% end %>
+      <div class="form-actions" data-hook="buttons">
+        <button name="button" type="submit" class="btn btn-primary btn-success"><span class="icon icon-refresh"></span> Update</button>
+        <span class="or">or</span>
+        <a icon="delete" class="btn btn-default" href="<%= admin_blog_categories_index_path %>"><span class="icon icon-delete"></span> Cancel</a>
+      </div>
+      <%#= render :partial => 'spree/admin/shared/edit_resource_links' %>
+    </fieldset>
+<% end %>

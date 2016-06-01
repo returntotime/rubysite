@@ -1,0 +1,29 @@
+<% if @love_design_products.any? %>
+    <section class="in-the-look no-padding-b">
+      <!--  Tittle -->
+      <div class="tittle animate fadeInUp" data-wow-delay="0.4s">
+        <h5><%= Spree::Config[:in_this_look] %></h5>
+        <p><%= Spree::Config[:in_this_look_subtext] %></p>
+      </div>
+      <ul>
+        <% @love_design_products.each do |product| %>
+            <% url = spree.product_url(product, taxon_id: @taxon.try(:id)) %>
+            <li class="animate fadeInLeft" data-wow-delay="0.4s">
+              <a href="<%= url %>">
+                <%= lazy_large_image(product, itemprop: "image", alt: product.name, class: 'img-responsive lazy') %>
+              </a>
+              <div class="inn-look">
+                <%= link_to product.name.truncate(20), url %>
+                <hr>
+                <span><%= format_price(product, current_currency) %></span>
+                <%#= form_for :order, :url => populate_orders_path do |f| %>
+                <%#= hidden_field_tag "variant_id", product.master.id %>
+                <%#= hidden_field_tag "quantity", 1 %>
+                <%#= button_tag "SHOP NOW", :class => "btn",data: { disable_with: "Please wait..." } %>
+                <%# end %>
+              </div>
+            </li>
+        <% end %>
+      </ul>
+    </section>
+<% end %>

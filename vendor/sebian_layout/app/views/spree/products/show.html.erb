@@ -1,0 +1,110 @@
+<% @body_id = 'product-details' %>
+
+<% @variants_with_option_values = @product.variants_and_option_values(current_currency) %>
+
+<%# cache [I18n.locale, current_currency, @product, @product.possible_promotions] do %>
+  <div data-hook="product_show" itemscope itemtype="https://schema.org/Product">
+
+    <!--======= SUB BANNER =========-->
+    <%= render :partial => "spree/shared/sub_title", :locals => {:title => @product.name } %>
+    
+    <!--======= PAGES INNER =========-->
+    <section class="section-p-30px pages-in item-detail-page">
+      <div class="container">
+        <div class="row">
+          <!--======= IMAGES SLIDER =========-->
+            <%= render :partial => "spree_image_slide" %>
+          <!--======= ITEM DETAILS =========-->
+          <div class="col-sm-6 animate fadeInRight" data-wow-delay="0.4s">
+            <div class="row">
+              <div class="col-sm-12">
+                <h5 itemprop="name"><%= @product.name %></h5>
+                <span class="price" itemprop="price"><%= format_price(@product, current_currency) %></span> </div>
+              <div class="col-sm-12">
+                <span class="code" itemprop="sku">PRODUCT CODE: <%= @product.sku %></span>
+                <div class="some-info no-border"> <br>
+                  <%if @product.can_supply? %>
+                    <div class="in-stoke"> <i class="fa fa-check-circle"></i> IN STOCK</div>
+                  <% else %>
+                    <div class="in-stoke out-stock"><i class="fa fa-times"></i> OUT OF STOCK</div>
+                  <% end %>
+                  <%= review_avg(@product) %>
+                  <a href="#review"  class="review">(<%= @product.reviews.approved.count.to_s %>) Review<%= @product.reviews.approved.count.to_i > 1 ? 's' : '' %></a> &nbsp;&nbsp;&nbsp; <a href="#review-form" class="review">Add Your Review</a></div>
+                <hr>
+              </div>
+            </div>
+                <div itemprop="description" data-hook="description">
+                  <p>
+                  <% if @product.description.present? %>
+                    <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+                  <% else %>
+                    <%= Spree.t(:product_has_no_description) %>
+                  <% end %>
+                  </p>
+                </div>
+            <hr>
+            <div class="row">
+              <%= render :partial => 'options' %>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                 <%= render :partial => 'cart_form' %>
+              </div>
+              <!-- SHARE -->
+              <div class="col-sm-12">
+                <ul class="share-with">
+                  <li>
+                    <p>SHARE WITH</p>
+                  </li>
+
+                  <li><a target="_blank" href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>"><i class="fa fa-facebook"></i></a></li>
+                  <li><a target="_blank" href="https://twitter.com/share?url=<%= request.original_url %>&text=<%= @product.name %>"><i class="fa fa-twitter"></i></a></li>
+                  <li><a target="_blank" href="https://plus.google.com/share?url=<%= request.original_url %>"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a target="_blank" href="https://pinterest.com/pin/create/bookmarklet/?media=<%= @product.images.present? ? (request.base_url + @product.images.first.attachment.url) : (request.base_url + image_path('noimage/product.png')) %>&url=<%= request.original_url %>&description=<%= @product.name %>"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--======= PRODUCT DESCRIPTION =========-->
+        <div class="item-decribe animate fadeInUp" data-wow-delay="0.4s">
+          <div class="text-center"> 
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation"><a href="#descr" aria-controls="men" role="tab" data-toggle="tab">DESCRIPTION</a></li>
+              <li role="presentation" class="active"><a href="#review" aria-controls="women" role="tab" data-toggle="tab">REVIEW<%= @product.reviews.approved.count.to_i > 1 ? 'S' : ''  %> (<%= @product.reviews.approved.count.to_s %>)</a></li>
+              <li role="presentation"><a href="#tags" aria-controls="access" role="tab" data-toggle="tab">TAGS</a></li>
+            </ul>
+          </div>
+          <!-- Tab panes -->
+          <div class="tab-content"> 
+            <!-- DESCRIPTION -->
+            <div role="tabpanel" class="tab-pane fade" id="descr">
+                <p> 
+                  <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+                </p>
+            </div>
+            
+            <!-- REVIEW -->
+            <div role="tabpanel" class="tab-pane fade  in active" id="review">
+              <%= render :partial => "spree/shared/reviews" %>
+              <!-- ADD REVIEW -->
+              <h6 class="margin-t-40">ADD REVIEW</h6>
+              <%= render 'spree/reviews/form', review: Spree::Review.new, product: @product %>
+            </div>
+            
+            <!-- TAGS -->
+            <div role="tabpanel" class="tab-pane fade" id="tags">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--======= RELATED PRODUCTS =========-->
+      <%= render :partial => "spree/shared/related_products" %>
+    </section>
+
+  </div>
+<%# end %>

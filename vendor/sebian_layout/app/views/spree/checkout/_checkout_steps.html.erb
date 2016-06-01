@@ -1,0 +1,25 @@
+<div class="payment_steps">
+  <ul class="row">
+    <li class="col-sm-4 <%= 'current' if controller_name == 'orders' %>">
+      <% unless @order.completed? %>
+        <a href="<%= cart_path %>"><i class="fa fa-shopping-cart"></i></a>
+        <h6><a href="<%= cart_path %>">SHOPPING CART</a></h6>
+      <% else %>
+          <i class="fa fa-shopping-cart"></i>
+          <h6>SHOPPING CART</h6>
+      <% end %>
+    </li>
+    <li class="col-sm-4 <%= 'current' if (controller_name == 'checkout' && @order.state != 'complete') %>">
+      <% unless @order.completed? %>
+          <a href="<%= checkout_state_path('address') %>"><i class="fa fa-align-left"></i></a>
+          <h6><a href="<%= checkout_state_path('address') %>">CHECKOUT DETAILS</a></h6>
+      <% else %>
+          <i class="fa fa-align-left"></i>
+          <h6>CHECKOUT DETAILS</h6>
+      <% end %>
+    </li>
+    <li class="col-sm-4 <%= 'current' if @order.state == 'complete' %>"> <i class="fa fa-check"></i>
+      <h6>ORDER COMPLETE</h6>
+    </li>
+  </ul>
+</div>
